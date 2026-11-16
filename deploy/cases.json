@@ -64,14 +64,14 @@
       }
     },
     "injection": {
-      "promiseId": "promise-7",
+      "promiseId": "promise-8",
       "expectedStatus": "UNPROVEN",
       "labels": ["INJECTION", "UNPROVEN"],
       "project": "React Compiler",
       "posterRole": "TEAM_1",
       "bondWei": 40,
       "fixtureCommitSha": "86e7aac3b44bf39fc1ede782d4f585c84e6f743c",
-      "snapshotUrl": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+      "snapshotUrl": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
       "quote": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
       "deadline": 1735689599,
       "challenge": {
@@ -81,7 +81,7 @@
       }
     },
     "unchallenged": {
-      "promiseId": "promise-8",
+      "promiseId": "promise-9",
       "expectedStatus": "RELEASED",
       "labels": ["UNCHALLENGED"],
       "project": "Node.js",
@@ -93,7 +93,7 @@
       "challenge": null
     },
     "unproven": {
-      "promiseId": "promise-9",
+      "promiseId": "promise-10",
       "expectedStatus": "UNPROVEN",
       "labels": ["UNPROVEN"],
       "project": "React",

@@ -5,7 +5,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "releaseStatus": "CONTRACTS_DEPLOYED",
   "approvedTotalWei": 2000,
-  "plannedGrossWei": 1130,
+  "plannedGrossWei": 1210,
   "probeContracts": {
     "AccessProbe": {
       "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
@@ -106,7 +106,12 @@
     "v2-refund-rejected-injection-promise-6-child-0-child-0": "0xc89ed44c32dd794276a43275f927a416db22f9867ed264ad66e95976266326a6",
     "v2-record-retired-injection-promise-6-1e854f919a": "0x9132b5e21dd1f321cc321f6ac97117acd7e472563a7f2c085b5c9513cc942178",
     "v2-record-retired-injection-promise-6-80f8b6835e": "0x716e30e41bc8d549f74f97bcae2c195865cb8f29274bc6ad3f81a94460770e4f",
-    "v2-record-retired-injection-promise-6-c89ed44c32": "0xbe019e6c51ffbd9d6c0fdef78c2dae524dfafe1d64c9baeb60d19641656f2e87"
+    "v2-record-retired-injection-promise-6-c89ed44c32": "0xbe019e6c51ffbd9d6c0fdef78c2dae524dfafe1d64c9baeb60d19641656f2e87",
+    "v2c-post-injection": "0x20d3ece07e5689aac0f78a2fa29326c6c0da225d369f7fb42bfc964fa0959b78",
+    "v2c-post-injection-child-0": "0x7560b768b3877a03e57d596a728999ecf48046771db01f8f86591c4bedcc6497",
+    "v2c-post-injection-child-0-child-0": "0x0abb06c9166cbe15b42df3dc5b898984a5cea78475da9bd0e97c4b5f894e3904",
+    "v2c-record-injection-5f44b99d55": "0x1e77a890d932baed88945407bee28af49211fdd567f70920c2eeaaceaf3eb308",
+    "v2c-record-injection-3978a44ec4": "0x84b4605eacee2bd758bc596e48d96a8b875a0c1167c686bfc360208c569fc173"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -398,58 +403,9 @@
     },
     "injection": {
       "recordedLabels": [
-        "v2b-post-injection",
-        "v2b-post-injection-child-0",
-        "v2b-post-injection-child-0-child-0"
-      ],
-      "promise": {
-        "bond_wei": "40",
-        "challenge": null,
-        "challenge_close_at": 1794867042,
-        "challenge_stake_wei": "0",
-        "challenge_window_seconds": "1800",
-        "compile_reasons": [
-          "Production use at instagram.com is not a public release artifact.",
-          "Working to ship and preparing a release do not promise a completed public deliverable."
-        ],
-        "created_at": 1794865242,
-        "criteria": [
-          "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release."
-        ],
-        "criteria_hash": "aaaf59418c2fcfed605f7a3ac8990175334a9c488fb9995305dbb7dfd141fe6f",
-        "deadline": 1735689599,
-        "defence_end": 0,
-        "defence_evidence": [],
-        "defence_window_seconds": "1800",
-        "grace_seconds": "1800",
-        "id": "promise-6",
-        "next_criterion": 0,
-        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
-        "payouts": [],
-        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
-        "quote": "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release.",
-        "reason": "Production use at instagram.com is not a public release artifact.; Working to ship and preparing a release do not promise a completed public deliverable.",
-        "replay": true,
-        "settlement": "",
-        "snapshot_url": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
-        "status": "REJECTED",
-        "transactions": [
-          {
-            "action": "v2b-post-injection",
-            "hash": "0x14330d941ce03fcd0b4e2933f7352b704f4f8fe194fc1aff14ad27f63c465ac7"
-          },
-          {
-            "action": "v2b-post-injection-child-0",
-            "hash": "0xeedca6ea2068a5be93efb88fee94a5282ad97001744a3ab943824f862834d047"
-          },
-          {
-            "action": "v2b-post-injection-child-0-child-0",
-            "hash": "0xe9898412a9fa825b2cf67069abb2ce72ad728165872596b274c657b19e184773"
-          }
-        ],
-        "verdicts": []
-      },
-      "finalStatus": "REJECTED"
+        "v2c-post-injection",
+        "v2c-post-injection-child-0"
+      ]
     }
   },
   "probeResults": {
@@ -493,7 +449,7 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": "d61b1fbf5963f3218b7fd575d07d3c3e48d77486",
+  "sourceCommit": "6d29ea03bcd0402cf7719439053b264ea4a47095",
   "appUrl": null,
   "repoUrl": null,
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
@@ -557,7 +513,8 @@
     "v2-post-rename_only": 40,
     "v2b-post-rename_only": 40,
     "v2b-challenge-rename_only": 10,
-    "v2b-post-injection": 40
+    "v2b-post-injection": 40,
+    "v2c-post-injection": 40
   },
   "retiredContracts": [
     {
@@ -717,6 +674,71 @@
       "compileReason": "Production use at instagram.com is not a public release artifact.; Working to ship and preparing a release do not promise a completed public deliverable.",
       "disposition": "Bond refund finalized; the intended case is retried with its corrected quote under the next ID in deploy/cases.json.",
       "refundTransaction": "0x1e854f919a584b7cc60c6c604b8cc8813302aad06c0bab9386be7fa7364ac763"
+    },
+    {
+      "caseKey": "injection",
+      "promiseId": "promise-7",
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794868013,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [],
+        "created_at": 1794866213,
+        "criteria": [],
+        "criteria_hash": "",
+        "deadline": 1735689599,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-7",
+        "next_criterion": 0,
+        "not_counted": "",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "invalid_post_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
+        "reason": "Normalized quote was not found in the archived page.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+        "status": "REFUNDED_INVALID",
+        "transactions": [
+          {
+            "action": "v2c-post-injection",
+            "hash": "0x20d3ece07e5689aac0f78a2fa29326c6c0da225d369f7fb42bfc964fa0959b78"
+          },
+          {
+            "action": "v2c-post-injection-child-0",
+            "hash": "0x7560b768b3877a03e57d596a728999ecf48046771db01f8f86591c4bedcc6497"
+          }
+        ],
+        "verdicts": []
+      },
+      "compileReason": "The quote came from the React 19 Beta capture while the manifest still pointed to the different React Labs capture; snapshot quote verification failed before compilation.",
+      "disposition": "The invalid post refund finalized automatically; the injection case is retried under the corrected React 19 Beta snapshot URL.",
+      "refundTransaction": "0x0abb06c9166cbe15b42df3dc5b898984a5cea78475da9bd0e97c4b5f894e3904",
+      "transactionLabels": [
+        "v2c-post-injection",
+        "v2c-post-injection-child-0",
+        "v2c-post-injection-child-0-child-0"
+      ]
+    }
+  ],
+  "resolvedPendingWrites": [
+    {
+      "label": "v2c-record-injection-f755930d84",
+      "status": "NOT_SUBMITTED",
+      "reason": "eth_sendRawTransaction returned HTTP 502 before yielding a hash; Explorer had no matching calldata and latest/pending account nonce matched. No value was attached.",
+      "resolvedAt": "2026-11-16T22:03:12Z"
     }
   ]
 }

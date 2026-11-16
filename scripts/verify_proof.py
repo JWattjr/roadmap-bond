@@ -142,6 +142,10 @@ def verify_transactions():
     known_failures = PROOF.get("nonSuccessfulTransactions", {})
     if not set(known_failures).issubset(transactions):
         raise RuntimeError("A recorded non-success transaction has no transaction hash")
+    for item in PROOF.get("resolvedPendingWrites", []):
+        if item.get("status") != "NOT_SUBMITTED" or item.get("label") in transactions:
+            raise RuntimeError("A resolved pending-write marker is not documented as unsubmitted")
+        print("WRITE", item.get("label"), "verified not submitted; no transaction hash", flush=True)
     if not transactions:
         raise RuntimeError("No deployment or case transaction hashes are recorded")
     for label, tx_hash in transactions.items():
@@ -179,7 +183,7 @@ def verify_cases():
     for attempt in PROOF.get("caseAttempts", []):
         promise = attempt.get("promise", {})
         refund_hash = attempt.get("refundTransaction", "")
-        if promise.get("status") != "REJECTED_REFUNDED" or promise.get("bond_wei") != "0":
+        if promise.get("status") not in ("REJECTED_REFUNDED", "REFUNDED_INVALID") or promise.get("bond_wei") != "0":
             raise RuntimeError("A preliminary case attempt is not recorded as refunded")
         if refund_hash not in transaction_hashes:
             raise RuntimeError("A preliminary case attempt's refund transaction is missing")
