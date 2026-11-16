@@ -12,9 +12,9 @@ Snapshot validation is deliberately outside the language model. `verify_snapshot
 
 ## 2. Validators compile a narrow specification
 
-After the snapshot check, the Board emits `PromiseJudge.compile` through `emit(on="finalized")`. The Judge runs `compile_from_quote` on the quote alone. It asks for strict JSON with one to three observable criteria, a short `not_counted` sentence, and reasons. Vague language such as “improve”, “better”, or “across the board” is rejected by deterministic code even if the model attempts to accept it. The compiler cannot expand scope beyond the archived sentence.
+After the snapshot check, the Board emits `PromiseJudge.compile` through `emit(on="finalized")`. Vague language such as “improve”, “better”, or “across the board” is rejected deterministically without an LLM call. For other quotes, the model classifies whether the sentence describes a concrete public deliverable and supplies short reasons. The Board freezes the exact archived sentence as one criterion, hashes it, and applies a canonical `not_counted` rule so the criterion cannot expand beyond the source quote.
 
-Each validator reruns the compile function. The `run_nondet_unsafe` validator compares status, criteria, the `not_counted` rule, and the criteria hash. `BondBoard.complete_compile` stores the frozen criteria, hash, and reasons. An accepted result becomes `OPEN`; a rejected result becomes `REJECTED`, and the poster can call `refund_rejected`. The criteria hash lets reviewers confirm that the words shown in the UI are the criteria actually stored for judgment.
+The `run_nondet_unsafe` validator checks the proposed status, exact quote criterion, canonical rule, hash, and reason shape without rerunning the LLM. This keeps validation deterministic while still requiring validators to agree on the same stored result. `BondBoard.complete_compile` stores the frozen criterion, hash, and reasons. An accepted result becomes `OPEN`; a rejected result becomes `REJECTED`, and the poster can call `refund_rejected`. The criteria hash lets reviewers confirm that the words shown in the UI are the criterion actually stored for judgment.
 
 ## 3. A challenge stakes against the promise
 

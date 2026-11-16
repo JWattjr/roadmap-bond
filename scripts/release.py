@@ -14,6 +14,7 @@ CASE_FILE = ROOT / "deploy/cases.json"
 WINDOW_SECONDS = 1800
 BOND_WEI = 40
 EXPLORER = "https://explorer-studio.genlayer.com"
+RELEASE_TAG = "v2"
 REQUIRED_CASES = {
     "spec_rejected": "REJECTED_REFUNDED",
     "kept": "KEPT",
@@ -159,7 +160,7 @@ def deploy_contracts(proof, flags, revision):
                 raise RuntimeError(name + " source hash differs from the deployed contract.")
             continue
         deploy_args = args if args is not None else [address(proof, "BondBoard")]
-        receipt = tx(proof, "deploy-" + name, code=source, args=deploy_args)
+        receipt = tx(proof, RELEASE_TAG + "-deploy-" + name, code=source, args=deploy_args)
         deployed = receipt.get("recipient", receipt.get("to_address"))
         if not isinstance(deployed, str) or not re.fullmatch(r"0x[0-9a-fA-F]{40}", deployed):
             raise RuntimeError(name + " deployment finalized without a contract address.")
@@ -170,8 +171,9 @@ def deploy_contracts(proof, flags, revision):
             "explorerUrl": EXPLORER + "/address/" + deployed,
         }
         save(proof)
-    if "configure-promise-judge" not in proof["transactions"]:
-        tx(proof, "configure-promise-judge", address(proof, "BondBoard"), "set_promise_judge", [address(proof, "PromiseJudge")])
+    configure_label = RELEASE_TAG + "-configure-promise-judge"
+    if configure_label not in proof["transactions"]:
+        tx(proof, configure_label, address(proof, "BondBoard"), "set_promise_judge", [address(proof, "PromiseJudge")])
     proof["sourceCommit"] = revision
     proof["releaseStatus"] = "CONTRACTS_DEPLOYED"
     save(proof)
@@ -189,10 +191,10 @@ def _record_hashes(proof, case_key, promise_id, before):
     current = proof["transactions"]
     case_record = proof.setdefault("cases", {}).setdefault(case_key, {})
     recorded = case_record.setdefault("recordedLabels", [])
-    prefixes = ("post-" + case_key, "challenge-" + case_key, "judge-" + case_key, "refund-" + case_key, "release-" + case_key, "defend-" + case_key)
+    prefixes = tuple(RELEASE_TAG + "-" + action + case_key for action in ("post-", "challenge-", "judge-", "refund-", "release-", "defend-"))
     candidates = [name for name in current if name not in recorded and name.startswith(prefixes)]
     for tx_label in candidates:
-        record_label = "record-" + case_key + "-" + hashlib.sha256(tx_label.encode("utf-8")).hexdigest()[:10]
+        record_label = RELEASE_TAG + "-record-" + case_key + "-" + hashlib.sha256(tx_label.encode("utf-8")).hexdigest()[:10]
         if record_label not in proof["transactions"]:
             tx(proof, record_label, board, "record_transaction", [promise_id, tx_label[:80], current[tx_label]])
         recorded.append(tx_label)
@@ -230,7 +232,7 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
         existing = proof.get("cases", {}).get(key, {}).get("promise")
         if not isinstance(existing, dict) or existing.get("id") != promise_id:
             before = set(proof["transactions"])
-            tx(proof, "post-" + key, board, "post_replay", [item["snapshotUrl"], item["quote"], item["deadline"], account(item["posterRole"]).address], value=BOND_WEI)
+            tx(proof, RELEASE_TAG + "-post-" + key, board, "post_replay", [item["snapshotUrl"], item["quote"], item["deadline"], account(item["posterRole"]).address], value=BOND_WEI)
             _record_hashes(proof, key, promise_id, before)
         record = _wait_for_compilation(proof, key, item)
 
@@ -245,7 +247,7 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
     if key == "spec_rejected":
         if record.get("status") == "REJECTED":
             before = set(proof["transactions"])
-            tx(proof, "refund-" + key, board, "refund_rejected", [promise_id], role=item["posterRole"])
+            tx(proof, RELEASE_TAG + "-refund-" + key, board, "refund_rejected", [promise_id], role=item["posterRole"])
             _record_hashes(proof, key, promise_id, before)
         record = _sync_case(proof, key, item)
     elif key == "unchallenged":
@@ -254,14 +256,14 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
             return record
         _wait_until(int(record.get("challenge_close_at", 0)), key + " release")
         before = set(proof["transactions"])
-        tx(proof, "release-" + key, board, "release", [promise_id])
+        tx(proof, RELEASE_TAG + "-release-" + key, board, "release", [promise_id])
         _record_hashes(proof, key, promise_id, before)
         record = _sync_case(proof, key, item)
     else:
         challenge = item["challenge"]
         if not finish_only and record.get("status") == "OPEN":
             before = set(proof["transactions"])
-            result = tx(proof, "challenge-" + key, board, "challenge", [promise_id, json.dumps(challenge["evidenceUrls"], separators=(",", ":"))], role=challenge["role"], value=challenge["stakeWei"])
+            result = tx(proof, RELEASE_TAG + "-challenge-" + key, board, "challenge", [promise_id, json.dumps(challenge["evidenceUrls"], separators=(",", ":"))], role=challenge["role"], value=challenge["stakeWei"])
             _record_hashes(proof, key, promise_id, before)
             if result.get("status_name") == "FINALIZED_ERROR":
                 raise RuntimeError("Challenge transaction failed for " + key)
@@ -270,7 +272,7 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
             defence = item.get("defenceEvidenceUrls", [])
             if defence and not record.get("defence_evidence"):
                 before = set(proof["transactions"])
-                tx(proof, "defend-" + key, board, "defend", [promise_id, json.dumps(defence, separators=(",", ":"))], role=item["posterRole"])
+                tx(proof, RELEASE_TAG + "-defend-" + key, board, "defend", [promise_id, json.dumps(defence, separators=(",", ":"))], role=item["posterRole"])
                 _record_hashes(proof, key, promise_id, before)
                 record = _sync_case(proof, key, item)
         if stage_only:
@@ -285,7 +287,7 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
             pending_index = int(record.get("next_criterion", 0))
             if record.get("status") == "RESULT_PENDING":
                 pending_index -= 1
-            pending_label = "judge-" + key + "-" + str(pending_index)
+            pending_label = RELEASE_TAG + "-judge-" + key + "-" + str(pending_index)
             if pending_index >= 0 and pending_label in proof["transactions"]:
                 tx(proof, pending_label, board, "judge_next", [promise_id])
         for _ in range(3):
@@ -302,7 +304,7 @@ def _run_case(proof, key, item, stage_only=False, finish_only=False):
                 break
             index = int(record.get("next_criterion", 0))
             before = set(proof["transactions"])
-            tx(proof, "judge-" + key + "-" + str(index), board, "judge_next", [promise_id])
+            tx(proof, RELEASE_TAG + "-judge-" + key + "-" + str(index), board, "judge_next", [promise_id])
             _record_hashes(proof, key, promise_id, before)
         record = _sync_case(proof, key, item)
 

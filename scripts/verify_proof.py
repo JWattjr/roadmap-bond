@@ -116,11 +116,25 @@ def verify_contracts():
         print("CONTRACT", name, address, "direct StudioNet Explorer address verified", flush=True)
 
 
+def verify_retired_contracts():
+    for item in PROOF.get("retiredContracts", []):
+        address = item.get("address", "")
+        if not re.fullmatch(r"0x[0-9a-fA-F]{40}", str(address)):
+            raise RuntimeError("A retired contract address is malformed")
+        balance = int(rpc("eth_getBalance", [address, "latest"]), 16)
+        if balance != 0:
+            raise RuntimeError("Retired contract still holds " + str(balance) + " wei: " + address)
+        print("RETIRED", address, "balance 0 wei", flush=True)
+
+
 def verify_transactions():
     chain_id = int(rpc("eth_chainId", []), 16)
     if chain_id != 61999:
         raise RuntimeError("RPC is on chain " + str(chain_id) + ", expected StudioNet 61999")
     transactions = PROOF.get("transactions", {})
+    known_failures = PROOF.get("nonSuccessfulTransactions", {})
+    if not set(known_failures).issubset(transactions):
+        raise RuntimeError("A recorded non-success transaction has no transaction hash")
     if not transactions:
         raise RuntimeError("No deployment or case transaction hashes are recorded")
     for label, tx_hash in transactions.items():
@@ -128,6 +142,16 @@ def verify_transactions():
             raise RuntimeError(label + " transaction hash is malformed")
         tx = rpc("eth_getTransactionByHash", [tx_hash])
         status = tx.get("status_name", tx.get("status")) if tx else None
+        if label in known_failures:
+            failure = known_failures[label]
+            actual_error = (tx.get("consensus_data") or {}).get("error") if tx else None
+            if status not in ("CANCELED", 8, "8") or failure.get("status") != "CANCELED":
+                raise RuntimeError(label + " is not the explicitly recorded canceled transaction")
+            if tx.get("result_name") != failure.get("result") or actual_error != failure.get("reason"):
+                raise RuntimeError(label + " failure receipt does not match its recorded reason")
+            request("GET", EXPLORER + "/api/transactions/" + tx_hash)
+            print("TX", label, tx_hash, "canceled and documented; Explorer record readable", flush=True)
+            continue
         if status not in ("FINALIZED", 7, "7"):
             raise RuntimeError(label + " is not finalized on StudioNet RPC: " + str(status))
         request("GET", EXPLORER + "/api/transactions/" + tx_hash)
@@ -164,6 +188,7 @@ def main():
     verify_manifest_shape()
     verify_source_commit()
     verify_contracts()
+    verify_retired_contracts()
     verify_transactions()
     verify_cases()
     print("Read-only proof verification passed. The Portal form was not submitted.", flush=True)

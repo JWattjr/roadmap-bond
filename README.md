@@ -96,7 +96,8 @@ The required validator access probe runs before the two final contracts. Verify 
 
 - **Local implementation:** `BondBoard` and `PromiseJudge` are the only final contract sources. `AccessProbe` is a pre-release probe source, not a final contract and not Portal evidence.
 - **Validator probe:** the active AccessProbe v2 finalized five validator-source checks. The first diagnostic probe is retired and held no funds.
-- **Final StudioNet release:** pending final BondBoard and PromiseJudge deployment, seven historical replays, and the read-only proof audit. Only those final contracts belong in Portal contract evidence.
+- **Failed release attempt:** the first BondBoard and PromiseJudge pair (`0xF35a25a0B0DD3946331d18251D184c26777ADDdE` and `0xFFf71769AEfCE77E15ff82ac8b796EcC7780f1f1`) is being retired after its compile callback canceled with `NO_MAJORITY`. The v1 `promise-1` bond is waiting for the built-in 30-minute compile-refund grace; neither address belongs in Portal evidence.
+- **Final StudioNet release:** a deterministic compiler-validation fix is prepared for the replacement pair. The v1 bond must refund and both old contract balances must be zero before the replacement contracts deploy. All seven historical cases must finalize on that replacement pair before the read-only proof audit can pass.
 - **Publication:** the public GitHub repository and production Vercel project are active; the remote production build and required route checks will be repeated after the finalized proof manifest is complete.
 
 ## Documentation
