@@ -16,3 +16,5 @@ deploy/.pending-write.json
 deploy/.funding-intent.json
 
 .env*.local
+
+.vercel

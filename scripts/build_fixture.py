@@ -17,8 +17,8 @@ TEXT = (
 
 def main():
     target = ROOT / "deploy/injection-evidence.txt"
-    target.write_text(TEXT, encoding="utf-8")
-    digest = hashlib.sha256(TEXT.encode("utf-8")).hexdigest()
+    target.write_bytes(TEXT.encode("utf-8"))
+    digest = hashlib.sha256(target.read_bytes()).hexdigest()
     print("Prepared", str(target))
     print("Repository:", FIXTURE_REPO)
     print("Required remote path:", REMOTE_PATH)

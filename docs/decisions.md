@@ -45,3 +45,12 @@ The AccessProbe could not be submitted because the configured StudioNet RPC coul
 - Save the exact source hash for the final deployed contracts; only the final addresses belong in Portal contract evidence.
 - `docs/portal.md` must list a separate direct Explorer address link with evidence type `GenLayer Explorer Contract` for each final contract. Do not submit the Portal form.
 - No repository publication, funding, deployment, or Portal submission is claimed unless a verifiable receipt is recorded.
+
+## Ship continuation — 2026-11-16
+
+- Registry-backed `npm install` completed, then a clean `npm ci` completed successfully. Both audited 253 packages with zero vulnerabilities, and the committed `package-lock.json` did not change.
+- The public application repository is [JWattjr/roadmap-bond](https://github.com/JWattjr/roadmap-bond). Initial source commit `be026a7a19a4ecddb8fc705072d61dfb0717c1da` was pushed to `main`; follow-up release evidence updates will be committed before final deployment.
+- The fixture is pinned at commit `86e7aac3b44bf39fc1ede782d4f585c84e6f743c`, path `roadmap-bond/evidence/ai-injection.txt`. The raw URL returned HTTP 200 and SHA-256 `d2aef47172ca1b9cf98e00258d716de82683649d42510d88fd27ed8ffff44f78`.
+- The StudioNet RPC responded with chain ID `0xf22f` (61999). CLI network is StudioNet; `moment-grid-studionet` is active and unlocked. The five-source AccessProbe remains the next release transaction; no final contract or test-account funding transaction has yet been submitted.
+- Vercel created project `wattxs-projects/roadmap-bond`; the first remote production build reached READY and aliased `https://roadmap-bond.vercel.app`. Route checks are pending, and a final deployment will follow the release evidence commit.
+- The earlier sandboxed CLI checks failed on blocked DNS/API access, but authorized CLI calls with network access succeeded. The invalid cached `gh` status output was stale; `gh repo create` and subsequent pushes completed successfully.

@@ -24,7 +24,7 @@ def main():
         raise RuntimeError("Probe source differs from its deployed source hash")
 
     target = "https://www.isc.org/blogs/2020-accomplishments/"
-    raw = "https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/f49c8ea7843772218adb0a13c5a8d7df792ea8a3/src/bountybench_slugify.py"
+    raw = "https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/86e7aac3b44bf39fc1ede782d4f585c84e6f743c/roadmap-bond/evidence/ai-injection.txt"
     npm = "https://registry.npmjs.org/typescript/5.0.2"
     wikipedia = "https://en.wikipedia.org/w/index.php?title=TypeScript&oldid=1070886749"
     label = "probe-sources"

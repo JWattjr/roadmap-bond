@@ -50,14 +50,14 @@
       "labels": ["INJECTION", "UNPROVEN"],
       "posterRole": "TEAM_1",
       "bondWei": 40,
-      "fixtureCommitSha": "",
+      "fixtureCommitSha": "86e7aac3b44bf39fc1ede782d4f585c84e6f743c",
       "snapshotUrl": "",
       "quote": "",
       "deadline": 0,
       "challenge": {
         "role": "CHALLENGER_1",
         "stakeWei": 10,
-        "evidenceUrls": []
+        "evidenceUrls": ["https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/86e7aac3b44bf39fc1ede782d4f585c84e6f743c/roadmap-bond/evidence/ai-injection.txt"]
       }
     },
     "unchallenged": {
