@@ -1,54 +1,60 @@
 """Refund and archive a rejected live-case attempt before its corrected replay."""
 
+import argparse
+
 from chain import load_proof, read, save_proof, tx
 
 
-CASE_KEY = "rename_only"
-PROMISE_ID = "promise-4"
-REFUND_LABEL = "v2-refund-rejected-rename-only-promise-4"
-
-
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--case-key", required=True)
+    parser.add_argument("--promise-id", required=True)
+    args = parser.parse_args()
+    case_key = args.case_key
+    promise_id = args.promise_id
+    slug = case_key.replace("_", "-")
+    refund_label = "v2-refund-rejected-" + slug + "-" + promise_id
+
     proof = load_proof()
     board = proof["contracts"]["BondBoard"]["address"]
-    record = read(board, "get_promise", [PROMISE_ID])
-    if not record or record.get("id") != PROMISE_ID:
-        raise RuntimeError("The rejected v2 promise-4 attempt is missing")
+    record = read(board, "get_promise", [promise_id])
+    if not record or record.get("id") != promise_id:
+        raise RuntimeError("The rejected v2 attempt is missing: " + promise_id)
     if record.get("status") == "REJECTED":
-        tx(proof, REFUND_LABEL, board, "refund_rejected", [PROMISE_ID], role="TEAM_1")
+        tx(proof, refund_label, board, "refund_rejected", [promise_id], role="TEAM_1")
     elif record.get("status") == "REJECT_REFUND_PENDING":
-        if REFUND_LABEL not in proof.get("transactions", {}):
+        if refund_label not in proof.get("transactions", {}):
             raise RuntimeError("A rejected-promise refund is pending without its saved hash")
-        tx(proof, REFUND_LABEL, board, "refund_rejected", [PROMISE_ID], role="TEAM_1")
+        tx(proof, refund_label, board, "refund_rejected", [promise_id], role="TEAM_1")
     elif record.get("status") != "REJECTED_REFUNDED":
         raise RuntimeError("Unexpected rejected-attempt status: " + str(record.get("status")))
 
-    record = read(board, "get_promise", [PROMISE_ID])
+    record = read(board, "get_promise", [promise_id])
     if record.get("status") != "REJECTED_REFUNDED" or record.get("bond_wei") != "0":
         raise RuntimeError("Promise-4's rejected bond did not refund")
 
     refund_hashes = [
         (label, tx_hash)
         for label, tx_hash in proof.get("transactions", {}).items()
-        if label.startswith(REFUND_LABEL)
+        if label.startswith(refund_label)
     ]
     for action, tx_hash in refund_hashes:
-        label = "v2-record-retired-promise-4-" + tx_hash[2:12]
+        label = "v2-record-retired-" + slug + "-" + promise_id + "-" + tx_hash[2:12]
         if label not in proof["transactions"]:
-            tx(proof, label, board, "record_transaction", [PROMISE_ID, action[:80], tx_hash])
+            tx(proof, label, board, "record_transaction", [promise_id, action[:80], tx_hash])
 
     attempts = proof.setdefault("caseAttempts", [])
-    if not any(item.get("promiseId") == PROMISE_ID for item in attempts):
+    if not any(item.get("promiseId") == promise_id for item in attempts):
         attempts.append({
-            "caseKey": CASE_KEY,
-            "promiseId": PROMISE_ID,
+            "caseKey": case_key,
+            "promiseId": promise_id,
             "promise": record,
-            "compileReason": "The LLM compiler returned its safe rejection fallback for this long quote; the finalized callback did not fail consensus.",
-            "disposition": "Bond refund finalized; the case will be replayed with a shorter verbatim quote under promise-5.",
-            "refundTransaction": proof["transactions"][REFUND_LABEL],
+            "compileReason": record.get("reason", "Compiler classified the quote as too broad for a frozen observable criterion."),
+            "disposition": "Bond refund finalized; the intended case is retried with its corrected quote under the next ID in deploy/cases.json.",
+            "refundTransaction": proof["transactions"][refund_label],
         })
     save_proof(proof)
-    print("Rejected promise-4 attempt refunded and archived; its 40-wei bond is released.", flush=True)
+    print("Rejected attempt", promise_id, "refunded and archived; its 40-wei bond is released.", flush=True)
 
 
 if __name__ == "__main__":

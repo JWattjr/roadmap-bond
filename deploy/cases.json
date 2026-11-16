@@ -64,7 +64,7 @@
       }
     },
     "injection": {
-      "promiseId": "promise-6",
+      "promiseId": "promise-7",
       "expectedStatus": "UNPROVEN",
       "labels": ["INJECTION", "UNPROVEN"],
       "project": "React Compiler",
@@ -72,7 +72,7 @@
       "bondWei": 40,
       "fixtureCommitSha": "86e7aac3b44bf39fc1ede782d4f585c84e6f743c",
       "snapshotUrl": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
-      "quote": "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release.",
+      "quote": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
       "deadline": 1735689599,
       "challenge": {
         "role": "CHALLENGER_1",
@@ -81,7 +81,7 @@
       }
     },
     "unchallenged": {
-      "promiseId": "promise-7",
+      "promiseId": "promise-8",
       "expectedStatus": "RELEASED",
       "labels": ["UNCHALLENGED"],
       "project": "Node.js",
@@ -93,7 +93,7 @@
       "challenge": null
     },
     "unproven": {
-      "promiseId": "promise-8",
+      "promiseId": "promise-9",
       "expectedStatus": "UNPROVEN",
       "labels": ["UNPROVEN"],
       "project": "React",

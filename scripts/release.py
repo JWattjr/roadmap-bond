@@ -15,7 +15,7 @@ WINDOW_SECONDS = 1800
 BOND_WEI = 40
 EXPLORER = "https://explorer-studio.genlayer.com"
 RELEASE_TAG = "v2"
-CASE_TAG = "v2b"
+CASE_TAG = "v2c"
 REQUIRED_CASES = {
     "spec_rejected": "REJECTED_REFUNDED",
     "kept": "KEPT",

@@ -5,7 +5,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "releaseStatus": "CONTRACTS_DEPLOYED",
   "approvedTotalWei": 2000,
-  "plannedGrossWei": 1050,
+  "plannedGrossWei": 1130,
   "probeContracts": {
     "AccessProbe": {
       "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
@@ -86,7 +86,27 @@
     "v2-refund-rejected-rename-only-promise-4-child-0-child-0": "0x0dce2dca6fa26cb2be55cbe77c036d07c1740e9bd1e0759327eb263f0cc91938",
     "v2-record-retired-promise-4-88306ca8a9": "0x1e4c37a3a1b7721b28577e42b7eec642a8fbf448609041adf8f31c3a3c3daebb",
     "v2-record-retired-promise-4-a2c4a77524": "0x2bee5425b2556427a1c8a25b06e48db6f091c1f0f0fd5a7835386eee3ff10a8d",
-    "v2-record-retired-promise-4-0dce2dca6f": "0x127000b1791bc959708d37573e76076c496d5c989519bfae9159b83e3b0d4357"
+    "v2-record-retired-promise-4-0dce2dca6f": "0x127000b1791bc959708d37573e76076c496d5c989519bfae9159b83e3b0d4357",
+    "v2b-post-rename_only": "0x4f07f0dcc34a839e40f6ea3e053f8bd04851e3e2fbbec1c392c64b135ef556c7",
+    "v2b-post-rename_only-child-0": "0x6a96a1d90912a632a763baa164af14c149984ecb05eb702e872fc60d44677daf",
+    "v2b-post-rename_only-child-0-child-0": "0x3f9c1eb29ff9c0bcf5e65c3c624155b898445a22bde4d07323bef112c319c1da",
+    "v2b-record-rename_only-1ea0030e54": "0xb355c2f42d0ea7327044bb101667e6b8bdde878afbf18bff794e50c3dde4db79",
+    "v2b-record-rename_only-4f721970e1": "0x8c79ce32ee2e9155de946fb9ca08968c956b3481282167a35439daf883fbb66d",
+    "v2b-record-rename_only-de7dfbbc8d": "0x7ee7e91b970852778d16d1e2b0657684dc45dfccc66abbec27b7a292f8baf366",
+    "v2b-challenge-rename_only": "0xaf0f0262117d87628ce962e7c1b3d9ec92f1d71692a7dadd46379a9dc410df05",
+    "v2b-record-rename_only-c31747132a": "0xd1aaf0afedf82f3b2633f57ff4a0e1c9af34785bb27e1b4558b5bb66abb15edf",
+    "v2b-post-injection": "0x14330d941ce03fcd0b4e2933f7352b704f4f8fe194fc1aff14ad27f63c465ac7",
+    "v2b-post-injection-child-0": "0xeedca6ea2068a5be93efb88fee94a5282ad97001744a3ab943824f862834d047",
+    "v2b-post-injection-child-0-child-0": "0xe9898412a9fa825b2cf67069abb2ce72ad728165872596b274c657b19e184773",
+    "v2b-record-injection-1b2ddca80f": "0xabd10005ee69886f3189eb126d60bfb7ef8d746f78a41eeb8a33e80b4d2536bd",
+    "v2b-record-injection-e0f0084e06": "0xfc118edc076a2e3136994d84fd829cf0e30ecbf162f0957985ddceca32013f58",
+    "v2b-record-injection-c42fe849cb": "0xc76c050ed95061784e65b59b7336c4b34315a0b202ddf1ee198771448da5c6dd",
+    "v2-refund-rejected-injection-promise-6": "0x1e854f919a584b7cc60c6c604b8cc8813302aad06c0bab9386be7fa7364ac763",
+    "v2-refund-rejected-injection-promise-6-child-0": "0x80f8b6835e950c4100b6093b20d50af30c5f8f342f63540839bdef5e63a72b44",
+    "v2-refund-rejected-injection-promise-6-child-0-child-0": "0xc89ed44c32dd794276a43275f927a416db22f9867ed264ad66e95976266326a6",
+    "v2-record-retired-injection-promise-6-1e854f919a": "0x9132b5e21dd1f321cc321f6ac97117acd7e472563a7f2c085b5c9513cc942178",
+    "v2-record-retired-injection-promise-6-80f8b6835e": "0x716e30e41bc8d549f74f97bcae2c195865cb8f29274bc6ad3f81a94460770e4f",
+    "v2-record-retired-injection-promise-6-c89ed44c32": "0xbe019e6c51ffbd9d6c0fdef78c2dae524dfafe1d64c9baeb60d19641656f2e87"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -310,52 +330,121 @@
     },
     "rename_only": {
       "recordedLabels": [
-        "v2-post-rename_only",
-        "v2-post-rename_only-child-0",
-        "v2-post-rename_only-child-0-child-0"
+        "v2b-post-rename_only",
+        "v2b-post-rename_only-child-0",
+        "v2b-post-rename_only-child-0-child-0",
+        "v2b-challenge-rename_only"
       ],
       "promise": {
         "bond_wei": "40",
-        "challenge": null,
-        "challenge_close_at": 1794865396,
-        "challenge_stake_wei": "0",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794865145,
+          "evidence": [
+            "https://web.archive.org/web/20250409203805id_/https://nextjs.org/blog/next-15-3"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794866667,
+        "challenge_stake_wei": "10",
         "challenge_window_seconds": "1800",
         "compile_reasons": [
-          "Validators could not compile the quote into observable criteria; the bond is refundable."
+          "Concrete feature is defined",
+          "Observable in public release notes",
+          "No ambiguous timeline required"
         ],
-        "created_at": 1794863596,
+        "created_at": 1794864867,
         "criteria": [
-          "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo )."
+          "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds."
         ],
-        "criteria_hash": "61eaefe86836c716f288f0213ea6e7550eb888fc754961d811367a214de2b65a",
+        "criteria_hash": "cd8ecd245cf0949303f272f844c637ba1e1dd150111f1be547e56b8125b553dd",
         "deadline": 1704067199,
-        "defence_end": 0,
+        "defence_end": 1794866945,
         "defence_evidence": [],
         "defence_window_seconds": "1800",
         "grace_seconds": "1800",
-        "id": "promise-4",
+        "id": "promise-5",
         "next_criterion": 0,
         "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
         "payouts": [],
         "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
-        "quote": "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo ).",
-        "reason": "Validators could not compile the quote into observable criteria; the bond is refundable.",
+        "quote": "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds.",
+        "reason": "Challenge is live; defence window is open.",
         "replay": true,
         "settlement": "",
         "snapshot_url": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
+        "status": "CHALLENGED",
+        "transactions": [
+          {
+            "action": "v2b-post-rename_only",
+            "hash": "0x4f07f0dcc34a839e40f6ea3e053f8bd04851e3e2fbbec1c392c64b135ef556c7"
+          },
+          {
+            "action": "v2b-post-rename_only-child-0",
+            "hash": "0x6a96a1d90912a632a763baa164af14c149984ecb05eb702e872fc60d44677daf"
+          },
+          {
+            "action": "v2b-post-rename_only-child-0-child-0",
+            "hash": "0x3f9c1eb29ff9c0bcf5e65c3c624155b898445a22bde4d07323bef112c319c1da"
+          },
+          {
+            "action": "v2b-challenge-rename_only",
+            "hash": "0xaf0f0262117d87628ce962e7c1b3d9ec92f1d71692a7dadd46379a9dc410df05"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "CHALLENGED"
+    },
+    "injection": {
+      "recordedLabels": [
+        "v2b-post-injection",
+        "v2b-post-injection-child-0",
+        "v2b-post-injection-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": null,
+        "challenge_close_at": 1794867042,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Production use at instagram.com is not a public release artifact.",
+          "Working to ship and preparing a release do not promise a completed public deliverable."
+        ],
+        "created_at": 1794865242,
+        "criteria": [
+          "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release."
+        ],
+        "criteria_hash": "aaaf59418c2fcfed605f7a3ac8990175334a9c488fb9995305dbb7dfd141fe6f",
+        "deadline": 1735689599,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-6",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release.",
+        "reason": "Production use at instagram.com is not a public release artifact.; Working to ship and preparing a release do not promise a completed public deliverable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
         "status": "REJECTED",
         "transactions": [
           {
-            "action": "v2-post-rename_only",
-            "hash": "0xdaf217976567d87d3cdefff3a6a3f47d99eae28a03aebb0031368e47b833a8ee"
+            "action": "v2b-post-injection",
+            "hash": "0x14330d941ce03fcd0b4e2933f7352b704f4f8fe194fc1aff14ad27f63c465ac7"
           },
           {
-            "action": "v2-post-rename_only-child-0",
-            "hash": "0xe62bf94d40a251c6ddac96c01b21b22fecc30ddf4e4fc7a5ede88e43ad1ef05c"
+            "action": "v2b-post-injection-child-0",
+            "hash": "0xeedca6ea2068a5be93efb88fee94a5282ad97001744a3ab943824f862834d047"
           },
           {
-            "action": "v2-post-rename_only-child-0-child-0",
-            "hash": "0xdf4f8ced56ef997bc32007c5d6276a803e07bfc66791ad07816838bdb0d7f720"
+            "action": "v2b-post-injection-child-0-child-0",
+            "hash": "0xe9898412a9fa825b2cf67069abb2ce72ad728165872596b274c657b19e184773"
           }
         ],
         "verdicts": []
@@ -404,7 +493,7 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": "09ddd95d71386af8802b29808b3cb87ad33a4f80",
+  "sourceCommit": "d61b1fbf5963f3218b7fd575d07d3c3e48d77486",
   "appUrl": null,
   "repoUrl": null,
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
@@ -465,7 +554,10 @@
     "v2-challenge-kept": 10,
     "v2-post-broken": 40,
     "v2-challenge-broken": 10,
-    "v2-post-rename_only": 40
+    "v2-post-rename_only": 40,
+    "v2b-post-rename_only": 40,
+    "v2b-challenge-rename_only": 10,
+    "v2b-post-injection": 40
   },
   "retiredContracts": [
     {
@@ -564,6 +656,67 @@
       "compileReason": "The LLM compiler returned its safe rejection fallback for this long quote; the finalized callback did not fail consensus.",
       "disposition": "Bond refund finalized; the case will be replayed with a shorter verbatim quote under promise-5.",
       "refundTransaction": "0x88306ca8a9e44a53a956addf9367d7d7ac842537de705b050fbdf34a8e807d17"
+    },
+    {
+      "caseKey": "injection",
+      "promiseId": "promise-6",
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794867042,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Production use at instagram.com is not a public release artifact.",
+          "Working to ship and preparing a release do not promise a completed public deliverable."
+        ],
+        "created_at": 1794865242,
+        "criteria": [
+          "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release."
+        ],
+        "criteria_hash": "aaaf59418c2fcfed605f7a3ac8990175334a9c488fb9995305dbb7dfd141fe6f",
+        "deadline": 1735689599,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-6",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "rejected_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release.",
+        "reason": "Production use at instagram.com is not a public release artifact.; Working to ship and preparing a release do not promise a completed public deliverable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+        "status": "REJECTED_REFUNDED",
+        "transactions": [
+          {
+            "action": "v2b-post-injection",
+            "hash": "0x14330d941ce03fcd0b4e2933f7352b704f4f8fe194fc1aff14ad27f63c465ac7"
+          },
+          {
+            "action": "v2b-post-injection-child-0",
+            "hash": "0xeedca6ea2068a5be93efb88fee94a5282ad97001744a3ab943824f862834d047"
+          },
+          {
+            "action": "v2b-post-injection-child-0-child-0",
+            "hash": "0xe9898412a9fa825b2cf67069abb2ce72ad728165872596b274c657b19e184773"
+          }
+        ],
+        "verdicts": []
+      },
+      "compileReason": "Production use at instagram.com is not a public release artifact.; Working to ship and preparing a release do not promise a completed public deliverable.",
+      "disposition": "Bond refund finalized; the intended case is retried with its corrected quote under the next ID in deploy/cases.json.",
+      "refundTransaction": "0x1e854f919a584b7cc60c6c604b8cc8813302aad06c0bab9386be7fa7364ac763"
     }
   ]
 }
