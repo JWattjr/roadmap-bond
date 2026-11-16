@@ -18,7 +18,10 @@
     "probe-deploy": "0x07ee88edf067ce2b8efcc6843af2cdd775d0ba4259485e0e032ead96378170ab",
     "probe-sources": "0x40487842b1843f20a6bb357c0c473bc94ef0f28c805201bebf46f4501e8d063c",
     "probe-deploy-v2": "0x288bc6349fc38a110369514eed4b47068c6982e44b1feb3c3ec123207d0a7b5a",
-    "probe-sources-v2": "0x25121a8b6448c01d3c4d3445f8df31957180636b4ca41b9c174a8bc982882021"
+    "probe-sources-v2": "0x25121a8b6448c01d3c4d3445f8df31957180636b4ca41b9c174a8bc982882021",
+    "funding-team_1_demo_escrow": "0xe32c24fc499147a7dfdc788126dedd33064d5f6b8c5d4d6683024fb474c78741",
+    "funding-challenger_1": "0x8f9569a2d5b1219bcf071742e87450e08e1b84634f6e136dce3775bf65f8c18c",
+    "funding-challenger_2": "0xdf3a1f9b287f327639e86f6eae0c9f6bb332511f102d8c17732a98f301407c45"
   },
   "nonSuccessfulTransactions": {},
   "cases": {},
