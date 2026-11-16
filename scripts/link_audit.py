@@ -3,6 +3,7 @@
 import json
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -17,6 +18,34 @@ MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 ADDRESS = re.compile(r"0x[0-9a-fA-F]{40}")
 TX_HASH = re.compile(r"0x[0-9a-fA-F]{64}")
 UA = {"User-Agent": "Mozilla/5.0 RoadmapBond-LinkAudit/1.0"}
+
+
+def http_get(url, timeout=30):
+    last_error = None
+    for attempt in range(8):
+        try:
+            response = requests.get(url, headers=UA, timeout=timeout, allow_redirects=True)
+        except requests.RequestException as error:
+            last_error = error
+            if attempt == 7:
+                raise
+        else:
+            if response.status_code not in (429, 500, 502, 503, 504) or attempt == 7:
+                response.raise_for_status()
+                return response
+        time.sleep(min(2 ** attempt, 30))
+    raise RuntimeError("Explorer link retries exhausted for " + url) from last_error
+
+
+def nested_address_objects(value):
+    if isinstance(value, dict):
+        if "type" in value and "address" in value:
+            yield value
+        for child in value.values():
+            yield from nested_address_objects(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from nested_address_objects(child)
 
 
 def audit_local_links():
@@ -68,8 +97,16 @@ def audit_contract_urls(proof):
             print("Direct StudioNet Explorer links: FAIL (invalid address link for " + name + ")")
             return False
         try:
-            response = requests.get(direct, headers=UA, timeout=20, allow_redirects=True)
+            api = http_get(proof.get("explorer", "").rstrip("/") + "/api/address/" + address)
+            records = [obj for obj in nested_address_objects(api.json()) if str(obj.get("address", "")).lower() == address.lower()]
+            if not any(obj.get("type") == "CONTRACT" for obj in records):
+                print("Direct StudioNet Explorer links: FAIL (" + name + " address is not a contract record)")
+                return False
+            response = http_get(direct, timeout=20)
         except requests.RequestException as error:
+            print("Direct StudioNet Explorer links: FAIL (" + name + ": " + str(error)[:180] + ")")
+            return False
+        except (ValueError, RuntimeError) as error:
             print("Direct StudioNet Explorer links: FAIL (" + name + ": " + str(error)[:180] + ")")
             return False
         if response.status_code != 200 or address.lower() not in response.url.lower():
@@ -92,7 +129,7 @@ def audit_transaction_urls(proof):
     explorer = proof.get("explorer", "").rstrip("/")
     def check(tx_hash):
         url = explorer + "/tx/" + tx_hash
-        response = requests.get(url, headers=UA, timeout=30, allow_redirects=True)
+        response = http_get(url)
         parsed = urlparse(response.url)
         expected_path = "/tx/" + tx_hash
         if response.status_code != 200 or parsed.hostname != "explorer-studio.genlayer.com" or parsed.path.lower() != expected_path.lower():
