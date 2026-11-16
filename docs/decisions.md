@@ -1,0 +1,47 @@
+# Build decisions
+
+These decisions follow the attached, pre-approved build prompt. Historical replays are demonstrations, not current-deadline promises. A mock or direct-mode result is never described as a live StudioNet outcome.
+
+## Product
+
+- StudioNet, chain 61999, RPC `https://studio.genlayer.com/api`, Explorer `https://explorer-studio.genlayer.com`.
+- Keep the final release to two distinct contracts: `BondBoard` holds escrow and applies deterministic settlement; `PromiseJudge` compiles criteria and judges one criterion at a time without holding funds.
+- Use exact Wayback CDX and snapshot checks, digest-bound evidence capped around 30 KB, no more than three challenge URLs and two defence URLs, and native finalized transfers.
+- Generate five team keys, two challenger keys, and one outsider key into ignored `.env`. The approved gross transfers and escrow movements must remain at or below 2,000 wei. No keys or signer prompts go to the owner.
+- The local case manifest begins empty. It will only receive real case outcomes after their transactions finalize and pass read-only proof checks.
+- Portal fields are prepared in `docs/portal.md`; the form remains unsubmitted.
+
+## Visual direction contract
+
+The product mechanism: an archived sentence becomes a frozen criterion trace, then a challenge and validator evidence determine a finalized bond route. The audience is a reviewer following dated artifacts and state transitions. Its cultural home is the network packet capture and distributed transaction trace. The first surface must show how evidence changes settlement.
+
+The category-default marketing hero and uniform card dashboard are the rut. The Impeccable direction roll ran in degraded mode because its one external roll endpoint was unreachable; its seed assigned grounded candidate 6 (`3b794171`), with no catalog challengers or quality-bar cards. The brief delegates this choice, so the build proceeds on the assigned direction without an approval handoff.
+
+Seven grounded candidates, ordered by resonance:
+
+1. A release train board, where delivery gates and deadlines appear in a single view.
+2. A standards change log, where one proposal moves through review states.
+3. A library accession register, where the source and its immutable date are primary.
+4. An accounting journal, where escrow and every balance movement reconcile.
+5. A court evidence bundle, where each claim points to a source and an outcome.
+6. A network packet trace, where each callback and state transition forms an auditable route.
+7. A maintenance window runbook, where operators see safe next actions and fallback paths.
+
+Candidate 6 is the committed direction. The ledger is a trace index; case pages read as a routed event stream. Cool mineral blue surfaces, paper-white evidence lanes, deep ink text, and copper-orange pending states distinguish live stages without glow effects. Payout paths use explicit recipient and wei rows. Icons and arrows mark real transitions. This applies to the home ledger, promise pages, transaction feed, and empty or stale states.
+
+## Network access probe
+
+The AccessProbe could not be submitted because the configured StudioNet RPC could not resolve `studio.genlayer.com` from this environment (`socket.gaierror: [Errno 11001] getaddrinfo failed`). A read-only chain ID request exhausted its retry loop without a transaction hash. Therefore Wayback `id_`, CDX, pinned GitHub raw, npm, and Wikipedia access are not verified for GenLayer validators. No probe transaction, funding transfer, or final deployment was recorded.
+
+## Publication access
+
+- The GitHub connector identifies `JWattjr` and can read the existing fixture repository, but its content-write call returned HTTP 403 (`Resource not accessible by integration`). `gh auth status` reports the saved token is invalid. The available GitHub browser session is signed out, so neither the public `JWattjr/roadmap-bond` repository nor the pinned injection-fixture commit could be created from this environment.
+- The Vercel connector lists the `wattxs-projects` team but project creation for `roadmap-bond` returned HTTP 403 (`You don't have permission to create the project`). The required scoped CLI fallback failed before authentication because it could not fetch npm dist-tags and the Vercel API (`fetch failed`). No Vercel project or deployment was created.
+- These publication limitations do not change implementation status. The source remains local, and the Portal packet stays a draft until publication, StudioNet cases, address links, and proof verification are complete.
+
+## Release constraints
+
+- Keep transaction hashes in proof before polling and resume by stable action labels.
+- Save the exact source hash for the final deployed contracts; only the final addresses belong in Portal contract evidence.
+- `docs/portal.md` must list a separate direct Explorer address link with evidence type `GenLayer Explorer Contract` for each final contract. Do not submit the Portal form.
+- No repository publication, funding, deployment, or Portal submission is claimed unless a verifiable receipt is recorded.

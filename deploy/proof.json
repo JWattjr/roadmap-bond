@@ -1,0 +1,20 @@
+{
+  "network": "StudioNet",
+  "chainId": 61999,
+  "explorer": "https://explorer-studio.genlayer.com",
+  "rpc": "https://studio.genlayer.com/api",
+  "releaseStatus": "NOT_DEPLOYED",
+  "approvedTotalWei": 2000,
+  "plannedGrossWei": 690,
+  "probeContracts": {},
+  "contracts": {},
+  "transactions": {},
+  "nonSuccessfulTransactions": {},
+  "cases": {},
+  "probeResults": {},
+  "wallets": {},
+  "sourceCommit": null,
+  "appUrl": null,
+  "repoUrl": null,
+  "fixtureRepo": "JWattjr/bounty-bench-fixtures"
+}

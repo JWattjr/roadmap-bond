@@ -1,0 +1,75 @@
+{
+  "status": "NOT_READY",
+  "fixtureRepo": "JWattjr/bounty-bench-fixtures",
+  "note": "Mark READY only after each quote, snapshot and challenge evidence URL passes exact CDX checks and the injection fixture is committed at a full SHA.",
+  "cases": {
+    "spec_rejected": {
+      "promiseId": "promise-1",
+      "expectedStatus": "REJECTED_REFUNDED",
+      "labels": ["SPEC_REJECTED"],
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "",
+      "quote": "",
+      "deadline": 0,
+      "challenge": null
+    },
+    "kept": {
+      "promiseId": "promise-2",
+      "expectedStatus": "KEPT",
+      "labels": ["KEPT"],
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "",
+      "quote": "",
+      "deadline": 0,
+      "challenge": {
+        "role": "CHALLENGER_1",
+        "stakeWei": 10,
+        "evidenceUrls": []
+      }
+    },
+    "broken_rename_only": {
+      "promiseId": "promise-3",
+      "expectedStatus": "BROKEN",
+      "labels": ["BROKEN", "RENAME_ONLY"],
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "",
+      "quote": "",
+      "deadline": 0,
+      "challenge": {
+        "role": "CHALLENGER_2",
+        "stakeWei": 10,
+        "evidenceUrls": []
+      }
+    },
+    "injection_unproven": {
+      "promiseId": "promise-4",
+      "expectedStatus": "UNPROVEN",
+      "labels": ["INJECTION", "UNPROVEN"],
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "fixtureCommitSha": "",
+      "snapshotUrl": "",
+      "quote": "",
+      "deadline": 0,
+      "challenge": {
+        "role": "CHALLENGER_1",
+        "stakeWei": 10,
+        "evidenceUrls": []
+      }
+    },
+    "unchallenged": {
+      "promiseId": "promise-5",
+      "expectedStatus": "RELEASED",
+      "labels": ["UNCHALLENGED"],
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "",
+      "quote": "",
+      "deadline": 0,
+      "challenge": null
+    }
+  }
+}

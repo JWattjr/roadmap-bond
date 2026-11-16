@@ -1,0 +1,16 @@
+{
+  "network": "StudioNet",
+  "chainId": 61999,
+  "sourceAccount": "moment-grid-studionet",
+  "sourceAddress": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+  "approvedTotalWei": 2000,
+  "status": "NOT_FUNDED",
+  "wallets": {},
+  "transfers": {},
+  "plannedWei": {
+    "seedTransfers": 230,
+    "payablePostsAndChallenges": 230,
+    "expectedPayoutMovements": 230,
+    "totalGross": 690
+  }
+}
