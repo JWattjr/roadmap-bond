@@ -3,9 +3,9 @@
   "chainId": 61999,
   "explorer": "https://explorer-studio.genlayer.com",
   "rpc": "https://studio.genlayer.com/api",
-  "releaseStatus": "RETRY_REQUIRED",
+  "releaseStatus": "CONTRACTS_DEPLOYED",
   "approvedTotalWei": 2000,
-  "plannedGrossWei": 890,
+  "plannedGrossWei": 1050,
   "probeContracts": {
     "AccessProbe": {
       "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
@@ -13,7 +13,20 @@
       "sha256": "a6cf7b5db51d95e31faacbcaa7eacf0bd8b998ceaeb90ecb42e9db78b25daff0"
     }
   },
-  "contracts": {},
+  "contracts": {
+    "BondBoard": {
+      "address": "0x4115a88A6B3350dD3AbF60b4893221Fd8514566a",
+      "source": "bond_board.py",
+      "sha256": "d73a73bec6562f7c1be29564e100ba5df783ea37a78565684c4171461544bd4b",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0x4115a88A6B3350dD3AbF60b4893221Fd8514566a"
+    },
+    "PromiseJudge": {
+      "address": "0xeA868d6B06871e7953Bb7D37757Aa9D11cad8255",
+      "source": "promise_judge.py",
+      "sha256": "2b9208031c2411a393475d3d316b77524a748d2b85f7d21ff89e59851df470ed",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0xeA868d6B06871e7953Bb7D37757Aa9D11cad8255"
+    }
+  },
   "transactions": {
     "probe-deploy": "0x07ee88edf067ce2b8efcc6843af2cdd775d0ba4259485e0e032ead96378170ab",
     "probe-sources": "0x40487842b1843f20a6bb357c0c473bc94ef0f28c805201bebf46f4501e8d063c",
@@ -30,7 +43,50 @@
     "record-spec_rejected-cdd440a7d2": "0x06de0609ec14ecb8fa336ac003e013ffa72797b79a799f5c6e9ef2712603c6c5",
     "v1-refund_compile_expired-promise-1": "0xd7777a33021b1f28b51f847578098de6a5a850c2cddf67956f020758b9019349",
     "v1-refund_compile_expired-promise-1-child-0": "0xcac97e74283ebb1fd0edeec7863d26d5d4ff05a7656e82718cfcb8c2081e4f84",
-    "v1-refund_compile_expired-promise-1-child-0-child-0": "0x601f118ab020048d47b78f001f08606592c00da19e530506c203c8a4737977e8"
+    "v1-refund_compile_expired-promise-1-child-0-child-0": "0x601f118ab020048d47b78f001f08606592c00da19e530506c203c8a4737977e8",
+    "v2-deploy-BondBoard": "0x23090c76a8cbc819716c62225c35ecf1991aa5181a8d662a37943326fb10a2f9",
+    "v2-deploy-PromiseJudge": "0xc8ba94b3a323207759c3fb6750edaba345b49ebe4fd063c7e79659d41932248b",
+    "v2-configure-promise-judge": "0xf55f836ad878404d7d9a47e3413b0f1ebbc4424b06706d18a6570c6d293d7944",
+    "v2-post-spec_rejected": "0x0f0a5583a5269c9144e989a09cdc13a46e6c79ff70759fcb8aca243c4c9b6b60",
+    "v2-post-spec_rejected-child-0": "0x847ab4a2077d6ce651e3e5dcbc1a1c38874e61fb8891ba1e6c329ecf22913aad",
+    "v2-post-spec_rejected-child-0-child-0": "0x8e7d70aee243a1bbd1a9e26ed88b0b59c95dd8d951b8c735cf9cb811f3204ffe",
+    "v2-record-spec_rejected-c279f3deb2": "0x7f5746c4ca4877ca9eb2666000858c8c3185e74084fdc0b81608e7e86b111551",
+    "v2-record-spec_rejected-e68b6c6873": "0x74b0aa6874be337511b8565de36ab7f0d4253011f2e83d73a78ad63a2ff08fba",
+    "v2-record-spec_rejected-5fff39179a": "0x8af57d399044eb987de5dda66fbbd558eb39e7bb3613ad92f25d9dc42a5c4d0a",
+    "v2-refund-spec_rejected": "0xcb9742719820333091c5d801b4424c9fb319dd9fea01532bd53ca735be4390c8",
+    "v2-refund-spec_rejected-child-0": "0x9bf3d33e2c3992c814548ade6074c18bec78a21b59e92c859b5a1333ec0901de",
+    "v2-refund-spec_rejected-child-0-child-0": "0x1034898a82c47f9993480f05fe4aff0eae17748cd14f536106733ac7ed1b3e20",
+    "v2-record-spec_rejected-2dbc14e36b": "0xbe58a4dc7f54e929857f0e40da03b280ab72c356010fe6b5a7520103ccdc87f8",
+    "v2-record-spec_rejected-2a37e5e787": "0x73ffd34e54e838f5668f30cecc3774f35461db9c2d48f42935fa1aac538aa487",
+    "v2-record-spec_rejected-5aaa09b01b": "0xf30919279338a1dd440ff0d576f7637b95975b38ef0ed1acb17d0ff41751c6bd",
+    "v2-post-kept": "0x701a25cf7eecd65d524f167c1e1db7991dca26a7119083f2410be4428a51dc49",
+    "v2-post-kept-child-0": "0xe6eaf82327be2a13d400f7b534cd6d7da0621e776afc2a1997208a9bc1a30d93",
+    "v2-post-kept-child-0-child-0": "0x5efc1fdb944882a3d952dd71c1998cc86347cadac7207b090e3f56af09e2d6d2",
+    "v2-record-kept-a27d3d0acf": "0x59d7bddd8f91ad5a762097f600b49193e88a79f50941f7826b23f703eb0dc734",
+    "v2-record-kept-e3deb90168": "0xf0e613bcc823c52684600a08de4ee261ce5fb0053fe5386133d35f5b0104e708",
+    "v2-record-kept-aa326fa5b1": "0x5435a235cc42fd96e3d479ca868c72054234b1fbc926fa6872a5501c9c9f6429",
+    "v2-challenge-kept": "0x7554aedb06fabc2fe0f5dab6d6422ae648e5a0c79a0357d0819e044bb11e0ed2",
+    "v2-record-kept-235d682ca0": "0x77b5d7bc00a87bfde41f2d6cb484b9086fc09b7fd0940151cb01708fec30b6ae",
+    "v2-post-broken": "0x8821286e156457377a0b44872d5ab88e91b67e58be16c23479c7db54345fbd86",
+    "v2-post-broken-child-0": "0x6d161433f665175e55a2fea2977060fc8d1897428b3ead3abeef7a4f9482893a",
+    "v2-post-broken-child-0-child-0": "0xf34e11bd554e3519ede20933889870e4e72408c9abb5f7a50c433d4fdc1715b3",
+    "v2-record-broken-7561039593": "0x73aa9a58c62f2f31b105158012a1bf597ff2e5a0e3c3f789a9fad423fa3da1d2",
+    "v2-record-broken-d6c1e87808": "0x83488e2e0ff69a1922e0132be97069c328dd6fe48a67dbf2119e75031a914d8b",
+    "v2-record-broken-d1e048be47": "0xb41d470f04f21adfcedac99ba3a65439109c4307bad48f75aec137f12c90e42b",
+    "v2-challenge-broken": "0x00bd234d2929fab03b4d896d2a5280da2538bfeff207c8d9678630c305a64b4a",
+    "v2-record-broken-11643a0621": "0x4fbb47ce4bf9e23b90d902ddc435dd2714de5f307569b8bf7e2c5d39c12b362c",
+    "v2-post-rename_only": "0xdaf217976567d87d3cdefff3a6a3f47d99eae28a03aebb0031368e47b833a8ee",
+    "v2-post-rename_only-child-0": "0xe62bf94d40a251c6ddac96c01b21b22fecc30ddf4e4fc7a5ede88e43ad1ef05c",
+    "v2-post-rename_only-child-0-child-0": "0xdf4f8ced56ef997bc32007c5d6276a803e07bfc66791ad07816838bdb0d7f720",
+    "v2-record-rename_only-1ec4b3c019": "0x47a454b5df61d032fe4f34fd0749e9d308c351199a6b8a1d63e3a3d49553eb7d",
+    "v2-record-rename_only-6893c23545": "0x8f5e4505d1ecef4e3dbeb6500da17e9ddee0b3a38bbabd9591d75c1b2fe411e9",
+    "v2-record-rename_only-631586d8f4": "0x0ce48d4b40a284825b43b1555733ea27c19690247d77978e4515a5a6e1931c33",
+    "v2-refund-rejected-rename-only-promise-4": "0x88306ca8a9e44a53a956addf9367d7d7ac842537de705b050fbdf34a8e807d17",
+    "v2-refund-rejected-rename-only-promise-4-child-0": "0xa2c4a77524fcf71ad929bd3cde2fd8d4c260920ae8032ff034aba05562302efa",
+    "v2-refund-rejected-rename-only-promise-4-child-0-child-0": "0x0dce2dca6fa26cb2be55cbe77c036d07c1740e9bd1e0759327eb263f0cc91938",
+    "v2-record-retired-promise-4-88306ca8a9": "0x1e4c37a3a1b7721b28577e42b7eec642a8fbf448609041adf8f31c3a3c3daebb",
+    "v2-record-retired-promise-4-a2c4a77524": "0x2bee5425b2556427a1c8a25b06e48db6f091c1f0f0fd5a7835386eee3ff10a8d",
+    "v2-record-retired-promise-4-0dce2dca6f": "0x127000b1791bc959708d37573e76076c496d5c989519bfae9159b83e3b0d4357"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -40,7 +96,273 @@
       "disposition": "Retired v1 compile callback; its promise escrow was refunded and both v1 contracts were drained."
     }
   },
-  "cases": {},
+  "cases": {
+    "spec_rejected": {
+      "recordedLabels": [
+        "v2-post-spec_rejected",
+        "v2-post-spec_rejected-child-0",
+        "v2-post-spec_rejected-child-0-child-0",
+        "v2-refund-spec_rejected",
+        "v2-refund-spec_rejected-child-0",
+        "v2-refund-spec_rejected-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794864093,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote describes a broad improvement goal without an observable deliverable."
+        ],
+        "created_at": 1794862293,
+        "criteria": [
+          "In a future release, we'll be improving and simplifying data mutations, as well."
+        ],
+        "criteria_hash": "9429b4a5ed439c7d93326c1289d3b2a5533db9b3f1596e95a1e312d355aa797d",
+        "deadline": 1675209599,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-1",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "rejected_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "In a future release, we'll be improving and simplifying data mutations, as well.",
+        "reason": "The quote describes a broad improvement goal without an observable deliverable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20221025174609id_/https://nextjs.org/blog/next-13",
+        "status": "REJECTED_REFUNDED",
+        "transactions": [
+          {
+            "action": "v2-post-spec_rejected",
+            "hash": "0x0f0a5583a5269c9144e989a09cdc13a46e6c79ff70759fcb8aca243c4c9b6b60"
+          },
+          {
+            "action": "v2-post-spec_rejected-child-0",
+            "hash": "0x847ab4a2077d6ce651e3e5dcbc1a1c38874e61fb8891ba1e6c329ecf22913aad"
+          },
+          {
+            "action": "v2-post-spec_rejected-child-0-child-0",
+            "hash": "0x8e7d70aee243a1bbd1a9e26ed88b0b59c95dd8d951b8c735cf9cb811f3204ffe"
+          },
+          {
+            "action": "v2-refund-spec_rejected",
+            "hash": "0xcb9742719820333091c5d801b4424c9fb319dd9fea01532bd53ca735be4390c8"
+          },
+          {
+            "action": "v2-refund-spec_rejected-child-0",
+            "hash": "0x9bf3d33e2c3992c814548ade6074c18bec78a21b59e92c859b5a1333ec0901de"
+          },
+          {
+            "action": "v2-refund-spec_rejected-child-0-child-0",
+            "hash": "0x1034898a82c47f9993480f05fe4aff0eae17748cd14f536106733ac7ed1b3e20"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "REJECTED_REFUNDED",
+      "replay": true
+    },
+    "kept": {
+      "recordedLabels": [
+        "v2-post-kept",
+        "v2-post-kept-child-0",
+        "v2-post-kept-child-0-child-0",
+        "v2-challenge-kept"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": {
+          "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+          "created_at": 1794863108,
+          "evidence": [
+            "https://web.archive.org/web/20231107005850id_/https://nodejs.org/en/blog/release/v20.9.0"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794864621,
+        "challenge_stake_wei": "10",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Quote names a specific version and a concrete month-based LTS transition observable in release records."
+        ],
+        "created_at": 1794862821,
+        "criteria": [
+          "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months."
+        ],
+        "criteria_hash": "526daa60095cd4167475a971f43423bbd75a491d5d64aea108cb5c262887ef0e",
+        "deadline": 1698796799,
+        "defence_end": 1794864908,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-2",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
+        "status": "CHALLENGED",
+        "transactions": [
+          {
+            "action": "v2-post-kept",
+            "hash": "0x701a25cf7eecd65d524f167c1e1db7991dca26a7119083f2410be4428a51dc49"
+          },
+          {
+            "action": "v2-post-kept-child-0",
+            "hash": "0xe6eaf82327be2a13d400f7b534cd6d7da0621e776afc2a1997208a9bc1a30d93"
+          },
+          {
+            "action": "v2-post-kept-child-0-child-0",
+            "hash": "0x5efc1fdb944882a3d952dd71c1998cc86347cadac7207b090e3f56af09e2d6d2"
+          },
+          {
+            "action": "v2-challenge-kept",
+            "hash": "0x7554aedb06fabc2fe0f5dab6d6422ae648e5a0c79a0357d0819e044bb11e0ed2"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "CHALLENGED"
+    },
+    "broken": {
+      "recordedLabels": [
+        "v2-post-broken",
+        "v2-post-broken-child-0",
+        "v2-post-broken-child-0-child-0",
+        "v2-challenge-broken"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794863498,
+          "evidence": [
+            "https://web.archive.org/web/20250220171704id_/https://blog.rust-lang.org/2025/02/20/Rust-1.85.0.html"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794865008,
+        "challenge_stake_wei": "10",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote names a concrete deliverable: a new edition stabilized on nightly.",
+          "The outcome can be verified in public release notes, nightly toolchain artifacts, or versioned registry records.",
+          "The timeframe is explicit in the quote, so it is counted as an observable criterion."
+        ],
+        "created_at": 1794863208,
+        "criteria": [
+          "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024."
+        ],
+        "criteria_hash": "49fa91cbd22b5aad390975c7a07bee55b7b43f6264cb4c4eb30ab4edb811ec77",
+        "deadline": 1735689599,
+        "defence_end": 1794865298,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-3",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240812150209id_/https://rust-lang.github.io/rust-project-goals/2024h2/Rust-2024-Edition.html",
+        "status": "CHALLENGED",
+        "transactions": [
+          {
+            "action": "v2-post-broken",
+            "hash": "0x8821286e156457377a0b44872d5ab88e91b67e58be16c23479c7db54345fbd86"
+          },
+          {
+            "action": "v2-post-broken-child-0",
+            "hash": "0x6d161433f665175e55a2fea2977060fc8d1897428b3ead3abeef7a4f9482893a"
+          },
+          {
+            "action": "v2-post-broken-child-0-child-0",
+            "hash": "0xf34e11bd554e3519ede20933889870e4e72408c9abb5f7a50c433d4fdc1715b3"
+          },
+          {
+            "action": "v2-challenge-broken",
+            "hash": "0x00bd234d2929fab03b4d896d2a5280da2538bfeff207c8d9678630c305a64b4a"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "CHALLENGED"
+    },
+    "rename_only": {
+      "recordedLabels": [
+        "v2-post-rename_only",
+        "v2-post-rename_only-child-0",
+        "v2-post-rename_only-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": null,
+        "challenge_close_at": 1794865396,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Validators could not compile the quote into observable criteria; the bond is refundable."
+        ],
+        "created_at": 1794863596,
+        "criteria": [
+          "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo )."
+        ],
+        "criteria_hash": "61eaefe86836c716f288f0213ea6e7550eb888fc754961d811367a214de2b65a",
+        "deadline": 1704067199,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-4",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo ).",
+        "reason": "Validators could not compile the quote into observable criteria; the bond is refundable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
+        "status": "REJECTED",
+        "transactions": [
+          {
+            "action": "v2-post-rename_only",
+            "hash": "0xdaf217976567d87d3cdefff3a6a3f47d99eae28a03aebb0031368e47b833a8ee"
+          },
+          {
+            "action": "v2-post-rename_only-child-0",
+            "hash": "0xe62bf94d40a251c6ddac96c01b21b22fecc30ddf4e4fc7a5ede88e43ad1ef05c"
+          },
+          {
+            "action": "v2-post-rename_only-child-0-child-0",
+            "hash": "0xdf4f8ced56ef997bc32007c5d6276a803e07bfc66791ad07816838bdb0d7f720"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "REJECTED"
+    }
+  },
   "probeResults": {
     "results": [
       {
@@ -82,7 +404,7 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": "f79001511908d1f85ad7abf94f4d1dbab19cc574",
+  "sourceCommit": "09ddd95d71386af8802b29808b3cb87ad33a4f80",
   "appUrl": null,
   "repoUrl": null,
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
@@ -137,7 +459,13 @@
     }
   ],
   "deposits": {
-    "post-spec_rejected": 40
+    "post-spec_rejected": 40,
+    "v2-post-spec_rejected": 40,
+    "v2-post-kept": 40,
+    "v2-challenge-kept": 10,
+    "v2-post-broken": 40,
+    "v2-challenge-broken": 10,
+    "v2-post-rename_only": 40
   },
   "retiredContracts": [
     {
@@ -175,5 +503,67 @@
       "retiredStatus": "DRAINED"
     }
   ],
-  "retiredReleaseSourceCommit": "f79001511908d1f85ad7abf94f4d1dbab19cc574"
+  "retiredReleaseSourceCommit": "f79001511908d1f85ad7abf94f4d1dbab19cc574",
+  "caseAttempts": [
+    {
+      "caseKey": "rename_only",
+      "promiseId": "promise-4",
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794865396,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Validators could not compile the quote into observable criteria; the bond is refundable."
+        ],
+        "created_at": 1794863596,
+        "criteria": [
+          "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo )."
+        ],
+        "criteria_hash": "61eaefe86836c716f288f0213ea6e7550eb888fc754961d811367a214de2b65a",
+        "deadline": 1704067199,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-4",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "rejected_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo ).",
+        "reason": "Validators could not compile the quote into observable criteria; the bond is refundable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
+        "status": "REJECTED_REFUNDED",
+        "transactions": [
+          {
+            "action": "v2-post-rename_only",
+            "hash": "0xdaf217976567d87d3cdefff3a6a3f47d99eae28a03aebb0031368e47b833a8ee"
+          },
+          {
+            "action": "v2-post-rename_only-child-0",
+            "hash": "0xe62bf94d40a251c6ddac96c01b21b22fecc30ddf4e4fc7a5ede88e43ad1ef05c"
+          },
+          {
+            "action": "v2-post-rename_only-child-0-child-0",
+            "hash": "0xdf4f8ced56ef997bc32007c5d6276a803e07bfc66791ad07816838bdb0d7f720"
+          }
+        ],
+        "verdicts": []
+      },
+      "compileReason": "The LLM compiler returned its safe rejection fallback for this long quote; the finalized callback did not fail consensus.",
+      "disposition": "Bond refund finalized; the case will be replayed with a shorter verbatim quote under promise-5.",
+      "refundTransaction": "0x88306ca8a9e44a53a956addf9367d7d7ac842537de705b050fbdf34a8e807d17"
+    }
+  ]
 }

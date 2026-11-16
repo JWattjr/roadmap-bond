@@ -48,14 +48,14 @@
       }
     },
     "rename_only": {
-      "promiseId": "promise-4",
+      "promiseId": "promise-5",
       "expectedStatus": "BROKEN",
       "labels": ["RENAME_ONLY"],
       "project": "Next.js",
       "posterRole": "TEAM_1",
       "bondWei": 40,
       "snapshotUrl": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
-      "quote": "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo ).",
+      "quote": "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds.",
       "deadline": 1704067199,
       "challenge": {
         "role": "CHALLENGER_2",
@@ -64,7 +64,7 @@
       }
     },
     "injection": {
-      "promiseId": "promise-5",
+      "promiseId": "promise-6",
       "expectedStatus": "UNPROVEN",
       "labels": ["INJECTION", "UNPROVEN"],
       "project": "React Compiler",
@@ -81,7 +81,7 @@
       }
     },
     "unchallenged": {
-      "promiseId": "promise-6",
+      "promiseId": "promise-7",
       "expectedStatus": "RELEASED",
       "labels": ["UNCHALLENGED"],
       "project": "Node.js",
@@ -93,7 +93,7 @@
       "challenge": null
     },
     "unproven": {
-      "promiseId": "promise-7",
+      "promiseId": "promise-8",
       "expectedStatus": "UNPROVEN",
       "labels": ["UNPROVEN"],
       "project": "React",

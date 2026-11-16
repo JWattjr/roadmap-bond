@@ -34,6 +34,7 @@
     "seedTransfers": 230,
     "payablePostsAndChallenges": 330,
     "expectedPayoutMovements": 330,
-    "totalGross": 890
+    "extraRefundedAttemptMovements": 160,
+    "totalGross": 1050
   }
 }

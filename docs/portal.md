@@ -20,9 +20,9 @@ Roadmap Bond turns a team's archived roadmap sentence into an escrowed commitmen
 2. Open `promise-1` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
 3. Open `promise-2`; compare its quote with the exact Node.js 20 archive capture, then inspect the frozen criterion, Node v20.9.0 evidence, `MET` verdict, and poster payout.
 4. Open `promise-3`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
-5. Open `promise-4`; inspect the Next.js 13.4 promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
-6. Open `promise-5`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
-7. Open `promise-6` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-7` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
+5. Open `promise-5`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
+6. Open `promise-6`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
+7. Open `promise-7` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-8` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
 8. Open the two separate direct StudioNet Explorer contract-address links below. Confirm each opens the matching contract record. Compare their source hashes and all transaction records with `deploy/proof.json`.
 9. Run `npm run verify:proof` and confirm all contract, case, source, and transaction checks pass.
 

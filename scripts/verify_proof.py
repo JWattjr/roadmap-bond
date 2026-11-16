@@ -175,6 +175,15 @@ def verify_cases():
         if item.get("finalStatus") != expected or promise.get("status") != expected or item.get("replay") is not True:
             raise RuntimeError(key + " is not a finalized historical replay with status " + expected)
         print("CASE", key, expected, "finalized", flush=True)
+    transaction_hashes = set(PROOF.get("transactions", {}).values())
+    for attempt in PROOF.get("caseAttempts", []):
+        promise = attempt.get("promise", {})
+        refund_hash = attempt.get("refundTransaction", "")
+        if promise.get("status") != "REJECTED_REFUNDED" or promise.get("bond_wei") != "0":
+            raise RuntimeError("A preliminary case attempt is not recorded as refunded")
+        if refund_hash not in transaction_hashes:
+            raise RuntimeError("A preliminary case attempt's refund transaction is missing")
+        print("ATTEMPT", attempt.get("caseKey"), attempt.get("promiseId"), "rejected and refunded", flush=True)
 
 
 def verify_source_commit():
