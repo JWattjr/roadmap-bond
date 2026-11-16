@@ -55,3 +55,18 @@ The AccessProbe could not be submitted because the configured StudioNet RPC coul
 - The revised `contracts/access_probe.py` passes `python -m genvm_linter.cli check contracts/access_probe.py --json` (3 lint checks and SDK validation). The first probe transaction hashes remain in `deploy/proof.json`; the retired probe had no payable functions and holds no funds.
 - Vercel created project `wattxs-projects/roadmap-bond`; the first remote production build reached READY and aliased `https://roadmap-bond.vercel.app`. Route checks are pending, and a final deployment will follow the release evidence commit.
 - The earlier sandboxed CLI checks failed on blocked DNS/API access, but authorized CLI calls with network access succeeded. The invalid cached `gh` status output was stale; `gh repo create` and subsequent pushes completed successfully.
+
+## Verified ship continuation — 2026-11-16
+
+The initial blocked-access notes above describe the first shell attempt and are superseded by this continuation's successful CLI access.
+
+- StudioNet RPC access is live at chain 61999. The active signer is the pre-approved `moment-grid-studionet` account. The AccessProbe v2 finalized all five configured validator sources; the earlier probe with the CDX column parsing bug is retired and held no funds.
+- The public application repository is `https://github.com/JWattjr/roadmap-bond`, and the injection fixture is pinned at commit `86e7aac3b44bf39fc1ede782d4f585c84e6f743c`. The fixture's raw bytes are 213 bytes with SHA-256 `d2aef47172ca1b9cf98e00258d716de82683649d42510d88fd27ed8ffff44f78`.
+- The production Vercel project is `roadmap-bond`; its default URL is `https://roadmap-bond.vercel.app`. The first remote build reached READY. The final remote build and required route checks will follow completed live cases.
+- Exact CDX rows, archived `id_` fetches, quotes, and permitted challenge evidence were checked for all seven cases. The source and evidence URLs, replay cutoffs, capture timestamps, and fixture digest are recorded in `docs/case-evidence-audit.md`.
+- The positive Node.js 20 evidence was strengthened to the archived v20.9.0 LTS transition page: it is timestamped October 24, 2023, and the exact successful CDX capture is November 7, 2023, after the October 31 replay deadline.
+- The seven separate records use distinct promise IDs. `deploy/cases.json` now expects: `REJECTED_REFUNDED`, `KEPT`, two `BROKEN` records (including the alpha-only rename case), `UNPROVEN` for the injection fixture, `RELEASED`, and `UNPROVEN` for the React Context codemod evidence.
+- The archived Next.js sentence uses “improving”; the deterministic vague-spec guard now also matches “improving” and “improvement”, so the required rejection case does not depend on LLM classification. This edits only the pre-deployment contract source; the final contracts are still undeployed.
+- The release runner stages all promises and challenges before waiting for their full configured 1,800-second windows, then settles in a resumable order. Every transaction hash continues to be saved before receipt polling. The window values are unchanged and remain at least 30 minutes.
+- Funding plans 890 wei of gross movements, below the approved 2,000 wei cap. Funding transfers and final BondBoard/PromiseJudge deployment remain pending until the case inputs pass local validation and the final source commit is pushed.
+- Portal submission remains explicitly out of scope. `docs/portal.md` will contain only separate final contract address entries as **GenLayer Explorer Contract**, plus the website and repository, after addresses have been verified on StudioNet.

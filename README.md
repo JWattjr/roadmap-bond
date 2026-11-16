@@ -4,9 +4,9 @@ Roadmap promises with a price tag: validators decide if it shipped or just got r
 
 Roadmap Bond turns one sentence from a team's archived roadmap into a bonded commitment. The promise is quoted from an exact Wayback snapshot; validators compile observable criteria; an open challenger can stake against it after the deadline; deterministic contract code routes the bond only after finalized judgments.
 
-**Current release state:** the local contracts and app are implemented, but no Roadmap Bond contract or case is recorded as deployed. The proof manifest is intentionally empty until a live StudioNet release finalizes. Mocked direct tests are not live proof.
+**Current release state:** source and app implementation are published in the public [GitHub repository](https://github.com/JWattjr/roadmap-bond). StudioNet RPC access, the validator evidence-source probe, and the initial remote Vercel deployment have succeeded. Final contract deployment, funded demo signers, and all seven live historical cases are still in progress; consult [`deploy/proof.json`](deploy/proof.json) for the recorded state. Mocked direct tests are not live proof.
 
-The release is blocked by external access in this environment. The StudioNet RPC hostname does not resolve, GitHub writes are denied by the connected integration while the saved CLI token is invalid, and the available Vercel team denied project creation. See [`docs/decisions.md`](docs/decisions.md) for the exact results. No funding, deployment, public repository creation, fixture commit, Portal submission, or live case is claimed.
+The first shell attempt had network and authentication failures, but the authorized CLI continuation recovered access. See [`docs/decisions.md`](docs/decisions.md) and [`docs/case-evidence-audit.md`](docs/case-evidence-audit.md) for the verified sources and release decisions. No final contract outcome is claimed until its transaction and callbacks finalize on StudioNet. The Portal form is never submitted automatically.
 
 ## Architecture
 
@@ -95,14 +95,15 @@ The required validator access probe runs before the two final contracts. Verify 
 ## Release history
 
 - **Local implementation:** `BondBoard` and `PromiseJudge` are the only final contract sources. `AccessProbe` is a pre-release probe source, not a final contract and not Portal evidence.
-- **StudioNet release:** none recorded yet. `deploy/proof.json` is empty by design; no address or transaction should be treated as deployed evidence.
-- **Historical replay cases:** none finalized yet. When available, the app and the proof manifest label their replay status explicitly.
-- **External access:** no repository or Vercel project was created. The connected GitHub write API returned 403 and `gh` has an invalid token; Vercel project creation returned 403 and its scoped CLI fallback could not reach npm/API metadata. StudioNet RPC DNS resolution also failed before any transaction was submitted.
+- **Validator probe:** the active AccessProbe v2 finalized five validator-source checks. The first diagnostic probe is retired and held no funds.
+- **Final StudioNet release:** pending final BondBoard and PromiseJudge deployment, seven historical replays, and the read-only proof audit. Only those final contracts belong in Portal contract evidence.
+- **Publication:** the public GitHub repository and production Vercel project are active; the remote production build and required route checks will be repeated after the finalized proof manifest is complete.
 
 ## Documentation
 
 - [`docs/tutorial.md`](docs/tutorial.md) — contract and frontend walkthrough.
 - [`docs/demo-script.md`](docs/demo-script.md) — two-minute reviewer tour.
-- [`docs/probe.md`](docs/probe.md) — probe status and evidence-access limitation.
+- [`docs/probe.md`](docs/probe.md) — finalized validator access probe results.
+- [`docs/case-evidence-audit.md`](docs/case-evidence-audit.md) — exact archive captures, quotes, challenge evidence, and CDX checks for all seven cases.
 - [`docs/portal.md`](docs/portal.md) — unsubmitted contribution packet.
 - [`docs/decisions.md`](docs/decisions.md) — implementation and release decisions.

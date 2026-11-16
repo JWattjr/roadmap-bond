@@ -5,16 +5,116 @@
   "rpc": "https://studio.genlayer.com/api",
   "releaseStatus": "NOT_DEPLOYED",
   "approvedTotalWei": 2000,
-  "plannedGrossWei": 690,
-  "probeContracts": {},
+  "plannedGrossWei": 890,
+  "probeContracts": {
+    "AccessProbe": {
+      "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
+      "source": "access_probe.py",
+      "sha256": "a6cf7b5db51d95e31faacbcaa7eacf0bd8b998ceaeb90ecb42e9db78b25daff0"
+    }
+  },
   "contracts": {},
-  "transactions": {},
+  "transactions": {
+    "probe-deploy": "0x07ee88edf067ce2b8efcc6843af2cdd775d0ba4259485e0e032ead96378170ab",
+    "probe-sources": "0x40487842b1843f20a6bb357c0c473bc94ef0f28c805201bebf46f4501e8d063c",
+    "probe-deploy-v2": "0x288bc6349fc38a110369514eed4b47068c6982e44b1feb3c3ec123207d0a7b5a",
+    "probe-sources-v2": "0x25121a8b6448c01d3c4d3445f8df31957180636b4ca41b9c174a8bc982882021"
+  },
   "nonSuccessfulTransactions": {},
   "cases": {},
-  "probeResults": {},
+  "probeResults": {
+    "results": [
+      {
+        "bytes": 36,
+        "reachable": true,
+        "sha256": "84154bc9acd6c73a79f95abfc8916e70a684db5c25145cd704a46c16332a47d1",
+        "source": "wayback_cdx",
+        "status": 200
+      },
+      {
+        "bytes": 19861,
+        "capture_ts": "20210105202614",
+        "reachable": true,
+        "sha256": "7bd80bd12e967a148e1e58e4f56be996ae4600dd07cc23eaaba4bafe483416ec",
+        "source": "wayback_id_snapshot",
+        "status": 200
+      },
+      {
+        "bytes": 213,
+        "reachable": true,
+        "sha256": "d2aef47172ca1b9cf98e00258d716de82683649d42510d88fd27ed8ffff44f78",
+        "source": "github_raw",
+        "status": 200
+      },
+      {
+        "bytes": 4826,
+        "reachable": true,
+        "sha256": "d02f87f5891f65152f4c4a7314ab03459de08009702edf96ed51a280ea64a8dc",
+        "source": "npm_exact_version",
+        "status": 200
+      },
+      {
+        "bytes": 385888,
+        "reachable": true,
+        "sha256": "dad26fe1321735204f90bbd07939d46644ceef04dca8d7db9a2a29a7df8c35f5",
+        "source": "wikipedia_oldid",
+        "status": 200
+      }
+    ]
+  },
   "wallets": {},
   "sourceCommit": null,
   "appUrl": null,
   "repoUrl": null,
-  "fixtureRepo": "JWattjr/bounty-bench-fixtures"
+  "fixtureRepo": "JWattjr/bounty-bench-fixtures",
+  "retiredProbeContracts": [
+    {
+      "address": "0x05D0e33CCA945Bce2e05448C7A25FD3fFf3640c2",
+      "source": "access_probe.py",
+      "sha256": "460628a99125aa82fa19ed03136757053b3d2ac2a2c289cb407162295a7c3147",
+      "retiredReason": "The first CDX response included urlkey before timestamp; the probe parser now requests timestamp-only output."
+    }
+  ],
+  "probeResultsHistory": [
+    {
+      "results": [
+        {
+          "bytes": 246,
+          "reachable": true,
+          "sha256": "f6cec5f6f757387cf83ac533f0524ad826c815595e2658a8516e362338a4f638",
+          "source": "wayback_cdx",
+          "status": 200
+        },
+        {
+          "bytes": 0,
+          "reachable": false,
+          "reason": "CDX returned no exact capture row.",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "source": "wayback_id_snapshot",
+          "status": 0
+        },
+        {
+          "bytes": 213,
+          "reachable": true,
+          "sha256": "d2aef47172ca1b9cf98e00258d716de82683649d42510d88fd27ed8ffff44f78",
+          "source": "github_raw",
+          "status": 200
+        },
+        {
+          "bytes": 4826,
+          "reachable": true,
+          "sha256": "d02f87f5891f65152f4c4a7314ab03459de08009702edf96ed51a280ea64a8dc",
+          "source": "npm_exact_version",
+          "status": 200
+        },
+        {
+          "bytes": 385888,
+          "reachable": true,
+          "sha256": "dad26fe1321735204f90bbd07939d46644ceef04dca8d7db9a2a29a7df8c35f5",
+          "source": "wikipedia_oldid",
+          "status": 200
+        }
+      ]
+    }
+  ]
 }

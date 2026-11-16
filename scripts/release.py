@@ -17,9 +17,11 @@ EXPLORER = "https://explorer-studio.genlayer.com"
 REQUIRED_CASES = {
     "spec_rejected": "REJECTED_REFUNDED",
     "kept": "KEPT",
-    "broken_rename_only": "BROKEN",
-    "injection_unproven": "UNPROVEN",
+    "broken": "BROKEN",
+    "rename_only": "BROKEN",
+    "injection": "UNPROVEN",
     "unchallenged": "RELEASED",
+    "unproven": "UNPROVEN",
 }
 REQUIRED_LABELS = {"SPEC_REJECTED", "KEPT", "BROKEN", "RENAME_ONLY", "INJECTION", "UNPROVEN", "UNCHALLENGED"}
 
@@ -70,7 +72,7 @@ def load_cases(proof):
         raise RuntimeError("Historical replay source verification is incomplete; deploy/cases.json is not READY.")
     cases = data.get("cases", {})
     if set(cases) != set(REQUIRED_CASES):
-        raise RuntimeError("deploy/cases.json must define exactly the five required replay cases.")
+        raise RuntimeError("deploy/cases.json must define exactly the seven required replay cases.")
     now = int(time.time())
     labels = set()
     for key, expected in REQUIRED_CASES.items():
@@ -85,7 +87,7 @@ def load_cases(proof):
         deadline = item.get("deadline")
         if not isinstance(quote, str) or not 20 <= len(quote) <= 300:
             raise RuntimeError("A verbatim 20-300 character quote is missing for " + key)
-        if not isinstance(snapshot, str) or not re.fullmatch(r"https://web\\.archive\\.org/web/\\d{14}id_/https?://.+", snapshot):
+        if not isinstance(snapshot, str) or not re.fullmatch(r"https://web\.archive\.org/web/\d{14}id_/https://.+", snapshot):
             raise RuntimeError("An exact Wayback id_ snapshot URL is missing for " + key)
         if not isinstance(deadline, int) or deadline >= now:
             raise RuntimeError("A past historical deadline is missing for " + key)
@@ -108,7 +110,7 @@ def load_cases(proof):
             for row in evidence:
                 if not isinstance(row, str) or not row.startswith("https://"):
                     raise RuntimeError("Evidence URLs must use HTTPS for " + key)
-        if key == "injection_unproven":
+        if key == "injection":
             commit = item.get("fixtureCommitSha", "")
             if not re.fullmatch(r"[0-9a-f]{40}", commit):
                 raise RuntimeError("The injection fixture must be pinned to a full commit SHA.")
@@ -163,7 +165,7 @@ def deploy_contracts(proof, flags, revision):
             raise RuntimeError(name + " deployment finalized without a contract address.")
         proof["contracts"][name] = {
             "address": deployed,
-            "source": str(source_path.relative_to(ROOT)).replace("\\", "/"),
+            "source": source_path.name,
             "sha256": digest,
             "explorerUrl": EXPLORER + "/address/" + deployed,
         }
@@ -219,16 +221,24 @@ def _wait_for_compilation(proof, key, item):
     raise RuntimeError("Criteria compilation is still pending for " + key)
 
 
-def _run_case(proof, key, item):
+def _run_case(proof, key, item, stage_only=False, finish_only=False):
     board = address(proof, "BondBoard")
     promise_id = item["promiseId"]
-    post_label = "post-" + key
-    existing = proof.get("cases", {}).get(key, {}).get("promise")
-    if not isinstance(existing, dict) or existing.get("id") != promise_id:
-        before = set(proof["transactions"])
-        tx(proof, post_label, board, "post_replay", [item["snapshotUrl"], item["quote"], item["deadline"], account(item["posterRole"]).address], value=BOND_WEI)
-        _record_hashes(proof, key, promise_id, before)
-    record = _wait_for_compilation(proof, key, item)
+    if finish_only:
+        record = _sync_case(proof, key, item)
+    else:
+        existing = proof.get("cases", {}).get(key, {}).get("promise")
+        if not isinstance(existing, dict) or existing.get("id") != promise_id:
+            before = set(proof["transactions"])
+            tx(proof, "post-" + key, board, "post_replay", [item["snapshotUrl"], item["quote"], item["deadline"], account(item["posterRole"]).address], value=BOND_WEI)
+            _record_hashes(proof, key, promise_id, before)
+        record = _wait_for_compilation(proof, key, item)
+
+    expected = item["expectedStatus"]
+    if record.get("status") == expected:
+        proof.setdefault("cases", {}).setdefault(key, {}).update({"promise": record, "finalStatus": expected, "replay": True})
+        save(proof)
+        return record
     if record.get("status") == "REFUNDABLE_ERROR":
         raise RuntimeError("Snapshot or compile check failed for " + key + ": " + str(record.get("reason", "")))
 
@@ -239,6 +249,9 @@ def _run_case(proof, key, item):
             _record_hashes(proof, key, promise_id, before)
         record = _sync_case(proof, key, item)
     elif key == "unchallenged":
+        if stage_only:
+            print(key, "STAGED", record.get("status"), flush=True)
+            return record
         _wait_until(int(record.get("challenge_close_at", 0)), key + " release")
         before = set(proof["transactions"])
         tx(proof, "release-" + key, board, "release", [promise_id])
@@ -246,22 +259,35 @@ def _run_case(proof, key, item):
         record = _sync_case(proof, key, item)
     else:
         challenge = item["challenge"]
-        if record.get("status") == "OPEN":
+        if not finish_only and record.get("status") == "OPEN":
             before = set(proof["transactions"])
             result = tx(proof, "challenge-" + key, board, "challenge", [promise_id, json.dumps(challenge["evidenceUrls"], separators=(",", ":"))], role=challenge["role"], value=challenge["stakeWei"])
             _record_hashes(proof, key, promise_id, before)
             if result.get("status_name") == "FINALIZED_ERROR":
                 raise RuntimeError("Challenge transaction failed for " + key)
         record = _sync_case(proof, key, item)
-        if record.get("status") != "CHALLENGED":
+        if record.get("status") == "CHALLENGED" and not finish_only:
+            defence = item.get("defenceEvidenceUrls", [])
+            if defence and not record.get("defence_evidence"):
+                before = set(proof["transactions"])
+                tx(proof, "defend-" + key, board, "defend", [promise_id, json.dumps(defence, separators=(",", ":"))], role=item["posterRole"])
+                _record_hashes(proof, key, promise_id, before)
+                record = _sync_case(proof, key, item)
+        if stage_only:
+            if record.get("status") not in ("CHALLENGED", "READY_TO_JUDGE", "JUDGING", "RESULT_PENDING"):
+                raise RuntimeError("Challenge was not accepted for " + key + ": " + str(record.get("status")))
+            print(key, "STAGED", record.get("status"), flush=True)
+            return record
+        if record.get("status") not in ("CHALLENGED", "READY_TO_JUDGE", "JUDGING", "RESULT_PENDING"):
             raise RuntimeError("Challenge was not accepted for " + key + ": " + str(record.get("status")))
-        defence = item.get("defenceEvidenceUrls", [])
-        if defence and not record.get("defence_evidence"):
-            before = set(proof["transactions"])
-            tx(proof, "defend-" + key, board, "defend", [promise_id, json.dumps(defence, separators=(",", ":"))], role=item["posterRole"])
-            _record_hashes(proof, key, promise_id, before)
-            record = _sync_case(proof, key, item)
         _wait_until(int(record.get("defence_end", 0)), key + " judging")
+        if record.get("status") in ("JUDGING", "RESULT_PENDING"):
+            pending_index = int(record.get("next_criterion", 0))
+            if record.get("status") == "RESULT_PENDING":
+                pending_index -= 1
+            pending_label = "judge-" + key + "-" + str(pending_index)
+            if pending_index >= 0 and pending_label in proof["transactions"]:
+                tx(proof, pending_label, board, "judge_next", [promise_id])
         for _ in range(3):
             record = _sync_case(proof, key, item)
             if record.get("status") in ("KEPT", "BROKEN", "UNPROVEN"):
@@ -280,16 +306,30 @@ def _run_case(proof, key, item):
             _record_hashes(proof, key, promise_id, before)
         record = _sync_case(proof, key, item)
 
-    expected = item["expectedStatus"]
     if record.get("status") != expected:
         raise RuntimeError(key + " finalized " + str(record.get("status")) + "; expected " + expected)
     proof["cases"][key].update({"promise": record, "finalStatus": record["status"], "replay": True})
     save(proof)
+    print(key, record["status"], "FINALIZED", flush=True)
+    return record
 
 
 def run_cases(proof, cases):
     for key in REQUIRED_CASES:
-        _run_case(proof, key, cases[key])
+        _run_case(proof, key, cases[key], stage_only=True)
+    windows = []
+    for key, item in cases.items():
+        record = _sync_case(proof, key, item)
+        if record.get("status") == item["expectedStatus"]:
+            continue
+        if key == "unchallenged":
+            windows.append(int(record.get("challenge_close_at", 0)))
+        elif record.get("status") in ("CHALLENGED", "READY_TO_JUDGE", "JUDGING", "RESULT_PENDING"):
+            windows.append(int(record.get("defence_end", 0)))
+    if windows:
+        _wait_until(max(windows), "All historical replay windows")
+    for key in ("kept", "injection", "unproven", "broken", "rename_only", "unchallenged"):
+        _run_case(proof, key, cases[key], finish_only=True)
     proof["releaseStatus"] = "LIVE_CASES_COMPLETE"
     save(proof)
 
@@ -305,7 +345,7 @@ def main():
     revision = git_revision()
     deploy_contracts(proof, flags, revision)
     run_cases(proof, cases)
-    print("All five historical cases finalized on StudioNet; Explorer links are in deploy/proof.json.", flush=True)
+    print("All seven historical cases finalized on StudioNet; Explorer links are in deploy/proof.json.", flush=True)
 
 
 if __name__ == "__main__":

@@ -1,15 +1,13 @@
 # StudioNet evidence access probe
 
-## Status: not deployed, not verified
+The probe contract fetched these sources from validator execution before the final BondBoard and PromiseJudge deployment.
 
-The required probe contract has not been submitted. A read-only StudioNet chain ID request exhausted the RPC retry loop because the environment could not resolve `studio.genlayer.com` (`socket.gaierror: [Errno 11001] getaddrinfo failed`). No write was submitted and no transaction hash exists; `deploy/proof.json` contains no probe transaction. No source is reported as reachable from GenLayer validators.
+| Source | HTTP | Bytes | SHA-256 | Result |
+|---|---:|---:|---|---|
+| wayback_cdx | 200 | 36 | `84154bc9acd6c73a79f95abfc8916e70a684db5c25145cd704a46c16332a47d1` | reachable |
+| wayback_id_snapshot (20210105202614) | 200 | 19861 | `7bd80bd12e967a148e1e58e4f56be996ae4600dd07cc23eaaba4bafe483416ec` | reachable |
+| github_raw | 200 | 213 | `d2aef47172ca1b9cf98e00258d716de82683649d42510d88fd27ed8ffff44f78` | reachable |
+| npm_exact_version | 200 | 4826 | `d02f87f5891f65152f4c4a7314ab03459de08009702edf96ed51a280ea64a8dc` | reachable |
+| wikipedia_oldid | 200 | 385888 | `dad26fe1321735204f90bbd07939d46644ceef04dca8d7db9a2a29a7df8c35f5` | reachable |
 
-| Required source | Validator result | Allowlist decision |
-|---|---|---|
-| Wayback `id_` snapshot | Not probed | Pending validator probe |
-| Wayback CDX JSON | Not probed | Pending validator probe |
-| SHA-pinned `raw.githubusercontent.com` file | Not probed | Pending validator probe |
-| Exact npm registry version | Not probed | Pending validator probe |
-| Wikipedia `oldid` page | Not probed | Pending validator probe |
-
-The local URL-shape checks are implementation behavior, not proof of network fetch access. Before any contract deployment, run `python scripts/probe.py`, record the finalized result in `deploy/proof.json`, remove failed source types from the final source's allowlist, and rerun contract tests and lint. The owner should be given only verified direct Explorer links after a probe or final contract transaction appears in the manifest.
+Only sources with HTTP 200 are included in the release allowlist. Evidence is still keyword-extracted and capped in contract code.

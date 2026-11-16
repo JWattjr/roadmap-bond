@@ -37,7 +37,7 @@ def _text(body):
         body = body.decode("utf-8", errors="replace")
     body = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", body)
     body = re.sub(r"(?is)<[^>]+>", " ", body)
-    for source, target in (("&nbsp;", " "), ("&#160;", " "), ("&amp;", "&"), ("&quot;", '"'), ("&#39;", "'"), ("&lt;", "<"), ("&gt;", ">")):
+    for source, target in (("&nbsp;", " "), ("&#160;", " "), ("&amp;", "&"), ("&quot;", '"'), ("&#39;", "'"), ("&rsquo;", "'"), ("&lsquo;", "'"), ("&#8217;", "'"), ("&#x27;", "'"), ("&lt;", "<"), ("&gt;", ">")):
         body = body.replace(source, target)
     return re.sub(r"\s+", " ", body).strip()
 
@@ -55,7 +55,7 @@ def verify_snapshot(snapshot_url, quote):
         return {"valid": False, "reason": "Snapshot target must use a public HTTPS domain.", "context": ""}
     cdx_url = (
         "https://web.archive.org/cdx/search/cdx?url=" + _encode_target(target)
-        + "&output=json&filter=timestamp:" + timestamp + "&filter=statuscode:200"
+        + "&output=json&fl=timestamp,original,statuscode&filter=timestamp:" + timestamp + "&filter=statuscode:200"
     )
     try:
         cdx = gl.nondet.web.get(cdx_url, headers={"User-Agent": USER_AGENT})

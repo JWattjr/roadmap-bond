@@ -1,59 +1,79 @@
 {
-  "status": "NOT_READY",
+  "status": "READY",
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
-  "note": "Mark READY only after each quote, snapshot and challenge evidence URL passes exact CDX checks and the injection fixture is committed at a full SHA.",
+  "caseSourceAudit": "docs/case-evidence-audit.md",
   "cases": {
     "spec_rejected": {
       "promiseId": "promise-1",
       "expectedStatus": "REJECTED_REFUNDED",
       "labels": ["SPEC_REJECTED"],
+      "project": "Next.js",
       "posterRole": "TEAM_1",
       "bondWei": 40,
-      "snapshotUrl": "",
-      "quote": "",
-      "deadline": 0,
+      "snapshotUrl": "https://web.archive.org/web/20221025174609id_/https://nextjs.org/blog/next-13",
+      "quote": "In a future release, we'll be improving and simplifying data mutations, as well.",
+      "deadline": 1675209599,
       "challenge": null
     },
     "kept": {
       "promiseId": "promise-2",
       "expectedStatus": "KEPT",
       "labels": ["KEPT"],
+      "project": "Node.js",
       "posterRole": "TEAM_1",
       "bondWei": 40,
-      "snapshotUrl": "",
-      "quote": "",
-      "deadline": 0,
+      "snapshotUrl": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
+      "quote": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+      "deadline": 1698796799,
       "challenge": {
         "role": "CHALLENGER_1",
         "stakeWei": 10,
-        "evidenceUrls": []
+        "evidenceUrls": ["https://web.archive.org/web/20231107005850id_/https://nodejs.org/en/blog/release/v20.9.0"]
       }
     },
-    "broken_rename_only": {
+    "broken": {
       "promiseId": "promise-3",
       "expectedStatus": "BROKEN",
-      "labels": ["BROKEN", "RENAME_ONLY"],
+      "labels": ["BROKEN"],
+      "project": "Rust",
       "posterRole": "TEAM_1",
       "bondWei": 40,
-      "snapshotUrl": "",
-      "quote": "",
-      "deadline": 0,
+      "snapshotUrl": "https://web.archive.org/web/20240812150209id_/https://rust-lang.github.io/rust-project-goals/2024h2/Rust-2024-Edition.html",
+      "quote": "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024.",
+      "deadline": 1735689599,
       "challenge": {
         "role": "CHALLENGER_2",
         "stakeWei": 10,
-        "evidenceUrls": []
+        "evidenceUrls": ["https://web.archive.org/web/20250220171704id_/https://blog.rust-lang.org/2025/02/20/Rust-1.85.0.html"]
       }
     },
-    "injection_unproven": {
+    "rename_only": {
       "promiseId": "promise-4",
+      "expectedStatus": "BROKEN",
+      "labels": ["RENAME_ONLY"],
+      "project": "Next.js",
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
+      "quote": "Turbopack , our new bundler we're testing and stabilizing through Next.js, helps speed up local iterations while working on your Next.js application (through next dev --turbo ) and soon your production builds ( next build --turbo ).",
+      "deadline": 1704067199,
+      "challenge": {
+        "role": "CHALLENGER_2",
+        "stakeWei": 10,
+        "evidenceUrls": ["https://web.archive.org/web/20250409203805id_/https://nextjs.org/blog/next-15-3"]
+      }
+    },
+    "injection": {
+      "promiseId": "promise-5",
       "expectedStatus": "UNPROVEN",
       "labels": ["INJECTION", "UNPROVEN"],
+      "project": "React Compiler",
       "posterRole": "TEAM_1",
       "bondWei": 40,
       "fixtureCommitSha": "86e7aac3b44bf39fc1ede782d4f585c84e6f743c",
-      "snapshotUrl": "",
-      "quote": "",
-      "deadline": 0,
+      "snapshotUrl": "https://web.archive.org/web/20240215194308id_/https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+      "quote": "React Compiler is no longer a research project: the compiler now powers instagram.com in production, and we are working to ship the compiler across additional surfaces at Meta and to prepare the first open source release.",
+      "deadline": 1735689599,
       "challenge": {
         "role": "CHALLENGER_1",
         "stakeWei": 10,
@@ -61,15 +81,32 @@
       }
     },
     "unchallenged": {
-      "promiseId": "promise-5",
+      "promiseId": "promise-6",
       "expectedStatus": "RELEASED",
       "labels": ["UNCHALLENGED"],
+      "project": "Node.js",
       "posterRole": "TEAM_1",
       "bondWei": 40,
-      "snapshotUrl": "",
-      "quote": "",
-      "deadline": 0,
+      "snapshotUrl": "https://web.archive.org/web/20240424231432id_/https://nodejs.org/en/blog/announcements/v22-release-announce",
+      "quote": "Node.js 22 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+      "deadline": 1730419199,
       "challenge": null
+    },
+    "unproven": {
+      "promiseId": "promise-7",
+      "expectedStatus": "UNPROVEN",
+      "labels": ["UNPROVEN"],
+      "project": "React",
+      "posterRole": "TEAM_1",
+      "bondWei": 40,
+      "snapshotUrl": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
+      "quote": "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers.",
+      "deadline": 1735689599,
+      "challenge": {
+        "role": "CHALLENGER_2",
+        "stakeWei": 10,
+        "evidenceUrls": ["https://web.archive.org/web/20250112211124id_/https://react.dev/blog/2024/12/05/react-19"]
+      }
     }
   }
 }

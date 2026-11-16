@@ -18,6 +18,15 @@ HEADERS = {"User-Agent": "Mozilla/5.0 RoadmapBond/1.0", "Accept": "application/j
 MAX_ATTEMPTS = 8
 LAST_REQUEST = 0.0
 EXPECTED_CONTRACTS = {"BondBoard": "bond_board.py", "PromiseJudge": "promise_judge.py"}
+EXPECTED_CASES = {
+    "spec_rejected": "REJECTED_REFUNDED",
+    "kept": "KEPT",
+    "broken": "BROKEN",
+    "rename_only": "BROKEN",
+    "injection": "UNPROVEN",
+    "unchallenged": "RELEASED",
+    "unproven": "UNPROVEN",
+}
 
 
 def retry_delay(attempt):
@@ -76,8 +85,8 @@ def verify_manifest_shape():
     contracts = PROOF.get("contracts", {})
     if set(contracts) != set(EXPECTED_CONTRACTS):
         raise RuntimeError("Final proof must contain only BondBoard and PromiseJudge contract addresses")
-    if PROOF.get("releaseStatus") != "DEPLOYED":
-        raise RuntimeError("No completed final contract deployment is recorded")
+    if PROOF.get("releaseStatus") != "LIVE_CASES_COMPLETE":
+        raise RuntimeError("All seven live historical cases must finalize before proof verification")
     for name, expected_source in EXPECTED_CONTRACTS.items():
         item = contracts[name]
         if item.get("source") != expected_source:
@@ -125,16 +134,30 @@ def verify_transactions():
         print("TX", label, tx_hash, "finalized on StudioNet RPC; Explorer record readable", flush=True)
 
 
+def verify_cases():
+    cases = PROOF.get("cases", {})
+    if set(cases) != set(EXPECTED_CASES):
+        raise RuntimeError("Proof must contain exactly the seven required live cases")
+    for key, expected in EXPECTED_CASES.items():
+        item = cases[key]
+        promise = item.get("promise", {})
+        if item.get("finalStatus") != expected or promise.get("status") != expected or item.get("replay") is not True:
+            raise RuntimeError(key + " is not a finalized historical replay with status " + expected)
+        print("CASE", key, expected, "finalized", flush=True)
+
+
 def verify_source_commit():
     expected = PROOF.get("sourceCommit")
     if not expected:
         raise RuntimeError("Final source commit is not recorded")
+    if not re.fullmatch(r"[0-9a-f]{40}", str(expected)):
+        raise RuntimeError("Recorded source commit is not a full Git SHA")
     try:
-        actual = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL).strip()
-    except (OSError, subprocess.CalledProcessError):
+        result = subprocess.run(["git", "merge-base", "--is-ancestor", expected, "HEAD"], cwd=ROOT, check=False, capture_output=True)
+    except OSError:
         raise RuntimeError("Cannot read the repository commit needed to verify source identity")
-    if actual != expected:
-        raise RuntimeError("Checked-out source commit differs from the deployed proof")
+    if result.returncode != 0:
+        raise RuntimeError("Deployed source commit is not an ancestor of the checked-out proof revision")
 
 
 def main():
@@ -142,6 +165,7 @@ def main():
     verify_source_commit()
     verify_contracts()
     verify_transactions()
+    verify_cases()
     print("Read-only proof verification passed. The Portal form was not submitted.", flush=True)
 
 

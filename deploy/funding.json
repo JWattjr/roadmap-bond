@@ -9,8 +9,8 @@
   "transfers": {},
   "plannedWei": {
     "seedTransfers": 230,
-    "payablePostsAndChallenges": 230,
-    "expectedPayoutMovements": 230,
-    "totalGross": 690
+    "payablePostsAndChallenges": 330,
+    "expectedPayoutMovements": 330,
+    "totalGross": 890
   }
 }

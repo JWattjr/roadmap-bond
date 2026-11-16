@@ -146,7 +146,7 @@ QUOTE_DATA: """ + json.dumps(quote, ensure_ascii=False)
     require(isinstance(model["not_counted"], str) and 10 <= len(model["not_counted"]) <= 240, "not_counted sentence required")
     require(isinstance(model["reasons"], list) and 1 <= len(model["reasons"]) <= 3, "one to three reasons required")
     require(all(isinstance(item, str) and 1 <= len(item) <= 200 for item in model["reasons"]), "reasons must be short strings")
-    vague = re.search(r"(?i)\b(improve|better|modernize|make easier|work towards|work toward|enhance|streamline|across the board)\b", quote) is not None
+    vague = re.search(r"(?i)\b(improv(?:e|ing|ement)|better|modernize|make easier|work towards|work toward|enhance|streamline|across the board)\b", quote) is not None
     criteria = [item.strip() for item in model["criteria"]]
     status = "SPEC_REJECTED" if vague else model["status"]
     reasons = [str(item).strip()[:200] for item in model["reasons"]]
