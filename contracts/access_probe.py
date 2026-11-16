@@ -50,6 +50,7 @@ class AccessProbe(gl.Contract):
                 "https://web.archive.org/cdx/search/cdx?url="
                 + wayback_target
                 + "&output=json&filter=statuscode:200&collapse=timestamp:4&limit=1"
+                + "&fl=timestamp"
             )
             try:
                 cdx_status, cdx_body = _get(cdx_url)

@@ -13,8 +13,19 @@ def main():
     source = source_path.read_text(encoding="utf-8")
     digest = hashlib.sha256(source.encode("utf-8")).hexdigest()
     probes = proof.setdefault("probeContracts", {})
+    current = probes.get("AccessProbe")
+    if current and current["sha256"] != digest:
+        proof.setdefault("retiredProbeContracts", []).append({
+            **current,
+            "retiredReason": "The first CDX response included urlkey before timestamp; the probe parser now requests timestamp-only output.",
+        })
+        if proof.get("probeResults"):
+            proof.setdefault("probeResultsHistory", []).append(proof["probeResults"])
+        del probes["AccessProbe"]
+        save_proof(proof)
     if "AccessProbe" not in probes:
-        receipt = tx(proof, "probe-deploy", code=source)
+        deploy_label = "probe-deploy" if "probe-deploy" not in proof["transactions"] else "probe-deploy-v2"
+        receipt = tx(proof, deploy_label, code=source)
         address = receipt.get("recipient", receipt.get("to_address"))
         if not address:
             raise RuntimeError("Probe deploy finalized without an address")
@@ -27,7 +38,7 @@ def main():
     raw = "https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/86e7aac3b44bf39fc1ede782d4f585c84e6f743c/roadmap-bond/evidence/ai-injection.txt"
     npm = "https://registry.npmjs.org/typescript/5.0.2"
     wikipedia = "https://en.wikipedia.org/w/index.php?title=TypeScript&oldid=1070886749"
-    label = "probe-sources"
+    label = "probe-sources" if "probe-sources" not in proof["transactions"] else "probe-sources-v2"
     if label not in proof["transactions"]:
         tx(proof, label, address=probes["AccessProbe"]["address"], method="probe", args=[target, raw, npm, wikipedia])
     result = read(probes["AccessProbe"]["address"], "get_result")
