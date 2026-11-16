@@ -34,8 +34,8 @@ Seven finalized StudioNet historical replays: Next.js's vague improvement quote 
 
 | Evidence type | Label | URL |
 |---|---|---|
-| GenLayer Explorer Contract | BondBoard — StudioNet | Pending final contract address |
-| GenLayer Explorer Contract | PromiseJudge — StudioNet | Pending final contract address |
+| GenLayer Explorer Contract | BondBoard — StudioNet | https://explorer-studio.genlayer.com/address/0x4115a88A6B3350dD3AbF60b4893221Fd8514566a |
+| GenLayer Explorer Contract | PromiseJudge — StudioNet | https://explorer-studio.genlayer.com/address/0xeA868d6B06871e7953Bb7D37757Aa9D11cad8255 |
 | Website | Roadmap Bond production app | https://roadmap-bond.vercel.app |
 | GitHub repository | Roadmap Bond source | https://github.com/JWattjr/roadmap-bond |
 
