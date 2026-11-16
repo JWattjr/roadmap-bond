@@ -117,10 +117,17 @@ def verify_contracts():
 
 
 def verify_retired_contracts():
-    for item in PROOF.get("retiredContracts", []):
+    items = list(PROOF.get("retiredContracts", []))
+    items.extend(PROOF.get("retiredProbeContracts", []))
+    items.extend(PROOF.get("probeContracts", {}).values())
+    seen = set()
+    for item in items:
         address = item.get("address", "")
         if not re.fullmatch(r"0x[0-9a-fA-F]{40}", str(address)):
             raise RuntimeError("A retired contract address is malformed")
+        if address.lower() in seen:
+            continue
+        seen.add(address.lower())
         balance = int(rpc("eth_getBalance", [address, "latest"]), 16)
         if balance != 0:
             raise RuntimeError("Retired contract still holds " + str(balance) + " wei: " + address)

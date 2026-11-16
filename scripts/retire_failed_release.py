@@ -56,12 +56,18 @@ def main():
         raise RuntimeError("The failed v1 bond did not finalize its invalid-promise refund")
 
     retired = proof.setdefault("retiredContracts", [])
-    for name, item in contracts.items():
+    retired_items = [(name, item) for name, item in contracts.items()]
+    retired_items.extend(("AccessProbe-v1", item) for item in proof.get("retiredProbeContracts", []))
+    retired_items.extend(("AccessProbe-v2", item) for item in proof.get("probeContracts", {}).values())
+    for name, item in retired_items:
         balance = eth_balance(item["address"])
         if balance != 0:
             raise RuntimeError(name + " still holds " + str(balance) + " wei after retirement")
         entry = dict(item)
-        entry["retiredReason"] = "v1 compile callback canceled with NO_MAJORITY; v2 replaces this pair after deterministic validation."
+        entry["retiredReason"] = (
+            "v1 compile callback canceled with NO_MAJORITY; v2 replaces this pair after deterministic validation."
+            if name in contracts else "Pre-release validator access probe; not part of the final product pair."
+        )
         entry["balanceWei"] = "0"
         entry["retiredStatus"] = "REFUNDED_AND_DRAINED" if name == "BondBoard" else "DRAINED"
         if not any(old.get("address", "").lower() == item["address"].lower() for old in retired):

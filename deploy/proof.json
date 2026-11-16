@@ -3,7 +3,7 @@
   "chainId": 61999,
   "explorer": "https://explorer-studio.genlayer.com",
   "rpc": "https://studio.genlayer.com/api",
-  "releaseStatus": "NOT_DEPLOYED",
+  "releaseStatus": "RETRY_REQUIRED",
   "approvedTotalWei": 2000,
   "plannedGrossWei": 890,
   "probeContracts": {
@@ -21,9 +21,25 @@
     "probe-sources-v2": "0x25121a8b6448c01d3c4d3445f8df31957180636b4ca41b9c174a8bc982882021",
     "funding-team_1_demo_escrow": "0xe32c24fc499147a7dfdc788126dedd33064d5f6b8c5d4d6683024fb474c78741",
     "funding-challenger_1": "0x8f9569a2d5b1219bcf071742e87450e08e1b84634f6e136dce3775bf65f8c18c",
-    "funding-challenger_2": "0xdf3a1f9b287f327639e86f6eae0c9f6bb332511f102d8c17732a98f301407c45"
+    "funding-challenger_2": "0xdf3a1f9b287f327639e86f6eae0c9f6bb332511f102d8c17732a98f301407c45",
+    "deploy-BondBoard": "0xb857d2a3d16d04c553a722873099562d5174ec94bc3da6cb29b716340e84fd16",
+    "deploy-PromiseJudge": "0xd276dff5ffbb0cbd11ce321930f5b68158b044ad763661a0b1597ac9055be3e9",
+    "configure-promise-judge": "0x094f00e650572816c1e5beedfae0c29f2203b72d4ec252e4ecbecc2611c8e197",
+    "post-spec_rejected": "0xdb3786bb3f798b1060fa6caf665eb52e56399c10b4c1dbc247b08d9c028f3c51",
+    "post-spec_rejected-child-0": "0x8640808f116879699b85cc69e1846dc9f35532ce0f51ffbdc57317cd8d7b9567",
+    "record-spec_rejected-cdd440a7d2": "0x06de0609ec14ecb8fa336ac003e013ffa72797b79a799f5c6e9ef2712603c6c5",
+    "v1-refund_compile_expired-promise-1": "0xd7777a33021b1f28b51f847578098de6a5a850c2cddf67956f020758b9019349",
+    "v1-refund_compile_expired-promise-1-child-0": "0xcac97e74283ebb1fd0edeec7863d26d5d4ff05a7656e82718cfcb8c2081e4f84",
+    "v1-refund_compile_expired-promise-1-child-0-child-0": "0x601f118ab020048d47b78f001f08606592c00da19e530506c203c8a4737977e8"
   },
-  "nonSuccessfulTransactions": {},
+  "nonSuccessfulTransactions": {
+    "post-spec_rejected-child-0": {
+      "status": "CANCELED",
+      "result": "NO_MAJORITY",
+      "reason": "max_recovery_cycles_exceeded",
+      "disposition": "Retired v1 compile callback; its promise escrow was refunded and both v1 contracts were drained."
+    }
+  },
   "cases": {},
   "probeResults": {
     "results": [
@@ -66,7 +82,7 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": null,
+  "sourceCommit": "f79001511908d1f85ad7abf94f4d1dbab19cc574",
   "appUrl": null,
   "repoUrl": null,
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
@@ -119,5 +135,45 @@
         }
       ]
     }
-  ]
+  ],
+  "deposits": {
+    "post-spec_rejected": 40
+  },
+  "retiredContracts": [
+    {
+      "address": "0xF35a25a0B0DD3946331d18251D184c26777ADDdE",
+      "source": "bond_board.py",
+      "sha256": "d73a73bec6562f7c1be29564e100ba5df783ea37a78565684c4171461544bd4b",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0xF35a25a0B0DD3946331d18251D184c26777ADDdE",
+      "retiredReason": "v1 compile callback canceled with NO_MAJORITY; v2 replaces this pair after deterministic validation.",
+      "balanceWei": "0",
+      "retiredStatus": "REFUNDED_AND_DRAINED"
+    },
+    {
+      "address": "0xFFf71769AEfCE77E15ff82ac8b796EcC7780f1f1",
+      "source": "promise_judge.py",
+      "sha256": "97c76c0a5c017660b83c43f7f6dbd4bea434c32889859cdbc0cb47a2211d27cc",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0xFFf71769AEfCE77E15ff82ac8b796EcC7780f1f1",
+      "retiredReason": "v1 compile callback canceled with NO_MAJORITY; v2 replaces this pair after deterministic validation.",
+      "balanceWei": "0",
+      "retiredStatus": "DRAINED"
+    },
+    {
+      "address": "0x05D0e33CCA945Bce2e05448C7A25FD3fFf3640c2",
+      "source": "access_probe.py",
+      "sha256": "460628a99125aa82fa19ed03136757053b3d2ac2a2c289cb407162295a7c3147",
+      "retiredReason": "Pre-release validator access probe; not part of the final product pair.",
+      "balanceWei": "0",
+      "retiredStatus": "DRAINED"
+    },
+    {
+      "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
+      "source": "access_probe.py",
+      "sha256": "a6cf7b5db51d95e31faacbcaa7eacf0bd8b998ceaeb90ecb42e9db78b25daff0",
+      "retiredReason": "Pre-release validator access probe; not part of the final product pair.",
+      "balanceWei": "0",
+      "retiredStatus": "DRAINED"
+    }
+  ],
+  "retiredReleaseSourceCommit": "f79001511908d1f85ad7abf94f4d1dbab19cc574"
 }

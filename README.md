@@ -95,9 +95,9 @@ The required validator access probe runs before the two final contracts. Verify 
 ## Release history
 
 - **Local implementation:** `BondBoard` and `PromiseJudge` are the only final contract sources. `AccessProbe` is a pre-release probe source, not a final contract and not Portal evidence.
-- **Validator probe:** the active AccessProbe v2 finalized five validator-source checks. The first diagnostic probe is retired and held no funds.
-- **Failed release attempt:** the first BondBoard and PromiseJudge pair (`0xF35a25a0B0DD3946331d18251D184c26777ADDdE` and `0xFFf71769AEfCE77E15ff82ac8b796EcC7780f1f1`) is being retired after its compile callback canceled with `NO_MAJORITY`. The v1 `promise-1` bond is waiting for the built-in 30-minute compile-refund grace; neither address belongs in Portal evidence.
-- **Final StudioNet release:** a deterministic compiler-validation fix is prepared for the replacement pair. The v1 bond must refund and both old contract balances must be zero before the replacement contracts deploy. All seven historical cases must finalize on that replacement pair before the read-only proof audit can pass.
+- **Validator probes:** AccessProbe v1 (`0x05D0e33CCA945Bce2e05448C7A25FD3fFf3640c2`) was retired after a CDX response-column parsing error. AccessProbe v2 (`0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6`) finalized all five validator-source checks. Both probe addresses were verified at zero wei and neither is Portal evidence.
+- **Retired release attempt:** the first BondBoard and PromiseJudge pair (`0xF35a25a0B0DD3946331d18251D184c26777ADDdE` and `0xFFf71769AEfCE77E15ff82ac8b796EcC7780f1f1`) had a compile callback cancel with `NO_MAJORITY`. After its 30-minute grace, the 40-wei bond refund finalized in `0xd7777a33021b1f28b51f847578098de6a5a850c2cddf67956f020758b9019349`; both product contract balances are verified at zero. Neither address belongs in Portal evidence.
+- **Final StudioNet release:** the deterministic compiler-validation fix is prepared for the replacement pair. All seven historical cases must finalize on that pair before the read-only proof audit can pass.
 - **Publication:** the public GitHub repository and production Vercel project are active; the remote production build and required route checks will be repeated after the finalized proof manifest is complete.
 
 ## Documentation
