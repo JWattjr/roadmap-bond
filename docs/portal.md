@@ -34,8 +34,8 @@ Seven finalized StudioNet historical replays on the corrected final pair: Next.j
 
 | Evidence type | Label | URL |
 |---|---|---|
-| GenLayer Explorer Contract | BondBoard — StudioNet | https://explorer-studio.genlayer.com/address/0xBf3C8BA4e2f21ac9a8cF2D91F527299AE40Fd068 |
-| GenLayer Explorer Contract | PromiseJudge — StudioNet | https://explorer-studio.genlayer.com/address/0x6b2703a021D92fce49D6F63387b795eA881346A2 |
+| GenLayer Explorer Contract | BondBoard — StudioNet | https://explorer-studio.genlayer.com/address/0x6104c81a4199E3c3a594eBbAB46C226D96Db1aEA |
+| GenLayer Explorer Contract | PromiseJudge — StudioNet | https://explorer-studio.genlayer.com/address/0x6f159E7151255Bc8683775702DfaDfc8F1fD22FA |
 | Website | Roadmap Bond production app | https://roadmap-bond.vercel.app |
 | GitHub repository | Roadmap Bond source | https://github.com/JWattjr/roadmap-bond |
 
