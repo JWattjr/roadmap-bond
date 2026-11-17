@@ -17,18 +17,18 @@ Roadmap Bond turns a team's archived roadmap sentence into an escrowed commitmen
 ## Reviewer steps
 
 1. Open the production site and confirm the StudioNet chain label and whether the page is showing live reads or recorded proof.
-2. Open `promise-1` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
-3. Open `promise-2` to inspect the refunded `LLM_ERROR` attempt. Open `promise-11` for the corrected exact quote fragment; compare its snapshot and Node v20.9.0 LTS evidence, then inspect the `MET` verdict and poster payout.
-4. Open `promise-3`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
-5. Open `promise-5`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
-6. Open `promise-8`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
-7. Open `promise-9` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-10` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
+2. Open `promise-12` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
+3. Open `promise-13`; compare its exact Node.js 20 quote fragment with the archive and Node v20.9.0 LTS evidence, then inspect the `MET` verdict and poster payout.
+4. Open `promise-14`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
+5. Open `promise-15`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
+6. Open `promise-16`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
+7. Open `promise-17` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-18` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
 8. Open the two separate direct StudioNet Explorer contract-address links below. Confirm each opens the matching contract record. Compare their source hashes and all transaction records with `deploy/proof.json`.
 9. Run `npm run verify:proof` and confirm all contract, case, source, and transaction checks pass.
 
 ## Expected outcome
 
-Seven intended finalized StudioNet historical replays: Next.js's vague improvement quote is rejected and refunded; the corrected Node.js 20 retry is expected to be kept and return bond plus stake to the poster (the first `promise-2` judgment returned both sides' funds after an `LLM_ERROR`); the Rust 2024 edition misses its 2024 H2 stabilization deadline; Next.js Turbopack's alpha production build does not satisfy the earlier production-support promise; the instruction-bearing fixture does not force a `MET` verdict; Node.js 22 is released after an unchallenged full window; and the React Context codemod remains unproven by the chosen evidence. Mocked direct tests are not live proof.
+Seven finalized StudioNet historical replays on the corrected final pair: Next.js's vague improvement quote is rejected and refunded; Node.js 20 is kept and returns bond plus stake to the poster; the Rust 2024 edition misses its 2024 H2 stabilization deadline; Next.js Turbopack's alpha production build does not satisfy the earlier production-support promise; the instruction-bearing fixture does not force a `MET` verdict; Node.js 22 is released after an unchallenged full window; and the React Context codemod remains unproven by the chosen evidence. The two refunded v2 Node.js attempts are documented as retired attempts, not final cases. Mocked direct tests are not live proof.
 
 ## Evidence entries
 

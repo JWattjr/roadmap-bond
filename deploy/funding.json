@@ -32,9 +32,9 @@
   },
   "plannedWei": {
     "seedTransfers": 230,
-    "payablePostsAndChallenges": 380,
-    "expectedPayoutMovements": 380,
+    "payablePostsAndChallenges": 710,
+    "expectedPayoutMovements": 710,
     "extraRefundedAttemptMovements": 320,
-    "totalGross": 1310
+    "totalGross": 1970
   }
 }
