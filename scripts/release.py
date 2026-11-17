@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import re
 import subprocess
 import time
@@ -15,7 +16,7 @@ WINDOW_SECONDS = 1800
 BOND_WEI = 40
 EXPLORER = "https://explorer-studio.genlayer.com"
 RELEASE_TAG = "v2"
-CASE_TAG = "v2d"
+CASE_TAG = os.environ.get("CASE_TAG", "v2d")
 REQUIRED_CASES = {
     "spec_rejected": "REJECTED_REFUNDED",
     "kept": "KEPT",

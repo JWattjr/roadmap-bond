@@ -182,12 +182,32 @@ def verify_cases():
     transaction_hashes = set(PROOF.get("transactions", {}).values())
     for attempt in PROOF.get("caseAttempts", []):
         promise = attempt.get("promise", {})
-        refund_hash = attempt.get("refundTransaction", "")
-        if promise.get("status") not in ("REJECTED_REFUNDED", "REFUNDED_INVALID") or promise.get("bond_wei") != "0":
-            raise RuntimeError("A preliminary case attempt is not recorded as refunded")
-        if refund_hash not in transaction_hashes:
+        status = promise.get("status")
+        refund_hashes = attempt.get("refundTransactions", [])
+        if not refund_hashes and attempt.get("refundTransaction"):
+            refund_hashes = [attempt["refundTransaction"]]
+        if status == "UNPROVEN":
+            payouts = {item.get("purpose"): item for item in promise.get("payouts", [])}
+            if promise.get("bond_wei") != "0" or promise.get("challenge_stake_wei") != "0":
+                raise RuntimeError("An unproven preliminary attempt still holds funds")
+            for purpose in ("unproven_bond_refund", "unproven_stake_refund"):
+                if payouts.get(purpose, {}).get("state") != "FINALIZED":
+                    raise RuntimeError("An unproven preliminary attempt's refund is not finalized: " + purpose)
+            if not any(item.get("evidence_class") == "LLM_ERROR" for item in promise.get("verdicts", [])):
+                raise RuntimeError("An unproven preliminary attempt has no recorded LLM_ERROR verdict")
+            if len(refund_hashes) < 2:
+                raise RuntimeError("An unproven preliminary attempt must record both payout callbacks")
+            label = "LLM_ERROR refunded"
+        else:
+            if status not in ("REJECTED_REFUNDED", "REFUNDED_INVALID") or promise.get("bond_wei") != "0":
+                raise RuntimeError("A preliminary case attempt is not recorded as refunded")
+            label = "rejected and refunded"
+        if any(refund_hash not in transaction_hashes for refund_hash in refund_hashes):
             raise RuntimeError("A preliminary case attempt's refund transaction is missing")
-        print("ATTEMPT", attempt.get("caseKey"), attempt.get("promiseId"), "rejected and refunded", flush=True)
+        case_transaction_hashes = {item.get("hash") for item in promise.get("transactions", [])}
+        if not set(refund_hashes).issubset(case_transaction_hashes):
+            raise RuntimeError("A preliminary case attempt refund callback is not in the on-chain case history")
+        print("ATTEMPT", attempt.get("caseKey"), attempt.get("promiseId"), label, flush=True)
 
 
 def verify_source_commit():

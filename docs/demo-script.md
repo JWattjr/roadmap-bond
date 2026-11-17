@@ -6,7 +6,7 @@ This demo uses seven historical replays. Each page labels the replay and shows i
 
 **0:12–0:27 — Rejected specification.** Open `promise-1`. Read the broad Next.js improvement sentence, show the deterministic vague-spec rejection, and follow the finalized bond refund.
 
-**0:27–0:43 — Kept promise.** Open `promise-2`. Compare Node.js 20's LTS-by-October promise with the archived Node v20.9.0 LTS transition, dated October 24 and captured after the deadline. Show `MET`, `KEPT`, and the bond plus stake returned to the poster.
+**0:27–0:43 — Kept promise.** Open `promise-11`. Compare the exact Node.js 20 LTS-by-October quote fragment with the archived Node v20.9.0 LTS transition, dated October 24 and captured after the deadline. Show `MET`, `KEPT`, and the bond plus stake returned to the poster. `promise-2` is the refunded first attempt after an `LLM_ERROR` result.
 
 **0:43–0:58 — Missed deadline.** Open `promise-3`. The Rust goal says the 2024 edition should be stabilized by the end of 2024; the evidence records the 2024 edition with Rust 1.85.0 in February 2025. Show `NOT_MET`, `BROKEN`, and the challenger payout.
 

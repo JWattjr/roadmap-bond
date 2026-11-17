@@ -17,7 +17,7 @@ PLAN = [("team_1_demo_escrow", "TEAM_1", 200),
 ]
 HASH_PATTERN = re.compile(r"0x[0-9a-fA-F]{64}")
 APPROVED_TOTAL = 2000
-PLANNED_GROSS = 890
+PLANNED_GROSS = 1310
 
 
 def cli_command(*args):

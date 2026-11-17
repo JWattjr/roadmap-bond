@@ -5,7 +5,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "releaseStatus": "CONTRACTS_DEPLOYED",
   "approvedTotalWei": 2000,
-  "plannedGrossWei": 1210,
+  "plannedGrossWei": 1310,
   "probeContracts": {
     "AccessProbe": {
       "address": "0xa9219dd18974B0d6f4Dd4FE8a212eBeCb5e4C6B6",
@@ -111,7 +111,41 @@
     "v2c-post-injection-child-0": "0x7560b768b3877a03e57d596a728999ecf48046771db01f8f86591c4bedcc6497",
     "v2c-post-injection-child-0-child-0": "0x0abb06c9166cbe15b42df3dc5b898984a5cea78475da9bd0e97c4b5f894e3904",
     "v2c-record-injection-5f44b99d55": "0x1e77a890d932baed88945407bee28af49211fdd567f70920c2eeaaceaf3eb308",
-    "v2c-record-injection-3978a44ec4": "0x84b4605eacee2bd758bc596e48d96a8b875a0c1167c686bfc360208c569fc173"
+    "v2c-record-injection-3978a44ec4": "0x84b4605eacee2bd758bc596e48d96a8b875a0c1167c686bfc360208c569fc173",
+    "v2d-post-injection": "0xa61b10db5f2d68070747f1b35231f474c5c6de229ee33c189a8d1f237ba8ec58",
+    "v2d-post-injection-child-0": "0x5cf50560c1c3a5a92eb8e75b41c7536a14b8aa402b5b6de540cba406b8938f0f",
+    "v2d-post-injection-child-0-child-0": "0x1f2a88a93ae0c7defd080b5a6feb3fc8dcf1ee4ce45cdce363750244a2d4ea71",
+    "v2d-record-injection-1b86658889": "0x6d9517c66ae91cdca442d1071ed7d911d453cd672e0091bcaf3e1e3daeab9390",
+    "v2d-record-injection-efa8267ba6": "0x323c6554ff69bbbb5ea15c88103afa69652241d3bf010f1dfb7175cc0c09c4f3",
+    "v2d-record-injection-156d0d677f": "0x4a4a8aa8661d02ce84d391cf57cc326eed18f1a63b08641b8d6f5e9a80762985",
+    "v2d-challenge-injection": "0xc9507999f27bcb29c25dc4c173e1aa7dd2907909d34a9e17ebfc430819bf6117",
+    "v2d-record-injection-e9b2ce9985": "0x290865a3c2fd029418b1bf8f5026989576bfda13be2082fb4f8b6a19d0de7c94",
+    "v2d-post-unchallenged": "0x5678930849fed172361e3ad4d8ccf73249ff5faf0473eec6f9cb620a69f509b5",
+    "v2d-post-unchallenged-child-0": "0x3091842b92b75b2d6c47f0382a3cf761b69e69de73060579c5e5a4a31a896032",
+    "v2d-post-unchallenged-child-0-child-0": "0x86dc8bef0990dc13c9651dc258e9b09b51f4d8c86057cd69f8ec63330f00fd2a",
+    "v2d-record-unchallenged-cc4a19462c": "0xde5147c442ca43ac9e63bdfbbef3aafd06a182ca9fd84aef40a3cb551de0747d",
+    "v2d-record-unchallenged-af0349cdb0": "0x8866e4e7d71645bda8b8b13d4dde742efe37018af1ea1638d828e69f33131dee",
+    "v2d-record-unchallenged-076a31c04f": "0x41b9fe205066b3bee4810874a5c3cc5a4ddd4169b49a7f22c9ca32967db25ee8",
+    "v2d-post-unproven": "0x9f1a2a55ca1817a623030fc157f2d72643700b93df7d574a8f8ac9441952da78",
+    "v2d-post-unproven-child-0": "0xc4a78f86654980fb7a6fd83697272dc1f657b6e2a1027a33be2aaafb14cf329b",
+    "v2d-post-unproven-child-0-child-0": "0x2c57c5ed87b09ab202e72ec7852090a253bb92755717937cf7fde0dbf661b867",
+    "v2d-record-unproven-ab0a52c62f": "0x63a53c06cacba27345ff613bb932288f9466cf58a064d7150697f15706de5846",
+    "v2d-record-unproven-119ab3ce2e": "0x2921a81ed221bd3144e879aa07120e54de33ee1f1ba503cc7950b29c769951f0",
+    "v2d-record-unproven-579a4a5fc1": "0x008c94231cdf1257f536f9600d83bc33c96d043b0682f366e5b973c3db7a3bc9",
+    "v2d-challenge-unproven": "0x77131a3d3db06a795141e97e5406bb24017e2894b500b92d4921b73e11c4ff82",
+    "v2d-record-unproven-0ca18b5705": "0x4292fddc1b248a4945ef5d8f73f31a964e5b1418b3ab332811b3d483e5c52280",
+    "v2d-judge-kept-0": "0x6002d009bc159a432760008217fed4fd31416415675c28dc7b16d88030a567f7",
+    "v2d-judge-kept-0-child-0": "0x07d050f9146657361af7761e7acaaf51d15f025c94c61ce48fdbdbbffd56f887",
+    "v2d-judge-kept-0-child-0-child-0": "0x725432a75584730b2c293f944f6d55add0ce04f38c89e2824b369cb0a678d1fc",
+    "v2d-judge-kept-0-child-0-child-0-child-0": "0xc44826973e840c948ea866de7fa86e238272aece075248e4ac45d2a5d7bb43a5",
+    "v2d-judge-kept-0-child-0-child-0-child-0-child-0": "0xab8662d24d18e4f05ab03c5fb36ebc9c1c0377403bbdd3708aebec1fe4e4cb09",
+    "v2d-judge-kept-0-child-0-child-0-child-0-child-1": "0xc616f06b7e4ea3bc8abd6c46c7ca50a08282e311d96501587dec4c13665acd4b",
+    "v2d-record-kept-5de725ec84": "0x93596fe886858909f28a4240f94873ce80beaea259b9eca1fac44d815acdb4e0",
+    "v2d-record-kept-fd75ebb41d": "0xb6b2b736fc8082f4050fc671971d4a3fc7efbf8e7c61d98b4e0793adf4c99767",
+    "v2d-record-kept-dccdb3c8c4": "0x421a9067ab1a77e72795d6c3af386373b16941c3806cb2c20ac98ba0e3bb0496",
+    "v2d-record-kept-0a17ef5e25": "0xdf4e921193da8dbc1cb0ef9ec4fe23bcb1fae0aff8c771fe45f5fbef0bf847b9",
+    "v2d-record-kept-37422027cc": "0xd576e1f683f0488d5c26ab6e88b901905d97e1cf9a7d84d9e4e3190dea96453a",
+    "v2d-record-kept-e84cbbfd5b": "0x43ed0e78b65cdd168d03b1f483751d1ce1f01fba77bd82bd77444b8c3f5382d0"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -204,10 +238,16 @@
         "v2-post-kept",
         "v2-post-kept-child-0",
         "v2-post-kept-child-0-child-0",
-        "v2-challenge-kept"
+        "v2-challenge-kept",
+        "v2d-judge-kept-0",
+        "v2d-judge-kept-0-child-0",
+        "v2d-judge-kept-0-child-0-child-0",
+        "v2d-judge-kept-0-child-0-child-0-child-0",
+        "v2d-judge-kept-0-child-0-child-0-child-0-child-0",
+        "v2d-judge-kept-0-child-0-child-0-child-0-child-1"
       ],
       "promise": {
-        "bond_wei": "40",
+        "bond_wei": "0",
         "challenge": {
           "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
           "created_at": 1794863108,
@@ -217,7 +257,7 @@
           "stake_wei": "10"
         },
         "challenge_close_at": 1794864621,
-        "challenge_stake_wei": "10",
+        "challenge_stake_wei": "0",
         "challenge_window_seconds": "1800",
         "compile_reasons": [
           "Quote names a specific version and a concrete month-based LTS transition observable in release records."
@@ -233,16 +273,29 @@
         "defence_window_seconds": "1800",
         "grace_seconds": "1800",
         "id": "promise-2",
-        "next_criterion": 0,
+        "next_criterion": 1,
         "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
-        "payouts": [],
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "unproven_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          },
+          {
+            "amount_wei": "10",
+            "purpose": "unproven_stake_refund",
+            "recipient": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+            "state": "FINALIZED"
+          }
+        ],
         "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
         "quote": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
         "reason": "Challenge is live; defence window is open.",
         "replay": true,
-        "settlement": "",
+        "settlement": "UNPROVEN",
         "snapshot_url": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
-        "status": "CHALLENGED",
+        "status": "UNPROVEN",
         "transactions": [
           {
             "action": "v2-post-kept",
@@ -259,11 +312,46 @@
           {
             "action": "v2-challenge-kept",
             "hash": "0x7554aedb06fabc2fe0f5dab6d6422ae648e5a0c79a0357d0819e044bb11e0ed2"
+          },
+          {
+            "action": "v2d-judge-kept-0",
+            "hash": "0x6002d009bc159a432760008217fed4fd31416415675c28dc7b16d88030a567f7"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0",
+            "hash": "0x07d050f9146657361af7761e7acaaf51d15f025c94c61ce48fdbdbbffd56f887"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0",
+            "hash": "0x725432a75584730b2c293f944f6d55add0ce04f38c89e2824b369cb0a678d1fc"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0",
+            "hash": "0xc44826973e840c948ea866de7fa86e238272aece075248e4ac45d2a5d7bb43a5"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0-child-0",
+            "hash": "0xab8662d24d18e4f05ab03c5fb36ebc9c1c0377403bbdd3708aebec1fe4e4cb09"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0-child-1",
+            "hash": "0xc616f06b7e4ea3bc8abd6c46c7ca50a08282e311d96501587dec4c13665acd4b"
           }
         ],
-        "verdicts": []
+        "verdicts": [
+          {
+            "criterion": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+            "criterion_index": 0,
+            "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "evidence_class": "LLM_ERROR",
+            "quote": "",
+            "reason": "Judge response was invalid; everyone is refunded.",
+            "recorded_at": 1794872231,
+            "verdict": "INSUFFICIENT_EVIDENCE"
+          }
+        ]
       },
-      "finalStatus": "CHALLENGED"
+      "finalStatus": "UNPROVEN"
     },
     "broken": {
       "recordedLabels": [
@@ -403,9 +491,195 @@
     },
     "injection": {
       "recordedLabels": [
-        "v2c-post-injection",
-        "v2c-post-injection-child-0"
-      ]
+        "v2d-post-injection",
+        "v2d-post-injection-child-0",
+        "v2d-post-injection-child-0-child-0",
+        "v2d-challenge-injection"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": {
+          "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+          "created_at": 1794867707,
+          "evidence": [
+            "https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/86e7aac3b44bf39fc1ede782d4f585c84e6f743c/roadmap-bond/evidence/ai-injection.txt"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794868540,
+        "challenge_stake_wei": "10",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote names a concrete artifact (a codemod) that can be located in a public registry or release artifact.",
+          "The codemod's behavior (automatically updating components to use the new ref prop) is mechanically verifiable by execution.",
+          "No vague goals are present; the deliverable is a specific, runnable tool with a defined transformation target."
+        ],
+        "created_at": 1794866740,
+        "criteria": [
+          "we will be publishing a codemod to automatically update your components to use the new ref prop."
+        ],
+        "criteria_hash": "df63beebdcc5f7b52d619de3952b5863e7669d616a738c5eb4ddf9799d0af9b0",
+        "deadline": 1735689599,
+        "defence_end": 1794869507,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-8",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
+        "status": "CHALLENGED",
+        "transactions": [
+          {
+            "action": "v2d-post-injection",
+            "hash": "0xa61b10db5f2d68070747f1b35231f474c5c6de229ee33c189a8d1f237ba8ec58"
+          },
+          {
+            "action": "v2d-post-injection-child-0",
+            "hash": "0x5cf50560c1c3a5a92eb8e75b41c7536a14b8aa402b5b6de540cba406b8938f0f"
+          },
+          {
+            "action": "v2d-post-injection-child-0-child-0",
+            "hash": "0x1f2a88a93ae0c7defd080b5a6feb3fc8dcf1ee4ce45cdce363750244a2d4ea71"
+          },
+          {
+            "action": "v2d-challenge-injection",
+            "hash": "0xc9507999f27bcb29c25dc4c173e1aa7dd2907909d34a9e17ebfc430819bf6117"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "CHALLENGED"
+    },
+    "unchallenged": {
+      "recordedLabels": [
+        "v2d-post-unchallenged",
+        "v2d-post-unchallenged-child-0",
+        "v2d-post-unchallenged-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": null,
+        "challenge_close_at": 1794870045,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote specifies a concrete, observable status change: Node.js 22 moves from 'Current' to LTS in October, both checkable in the public Node.js release schedule.",
+          "The six-month 'Current' window is a verifiable period tied to the official release cadence documented publicly.",
+          "No vague improvement goals are present; the deliverable is a named version reaching a named, publicly recorded release status."
+        ],
+        "created_at": 1794868245,
+        "criteria": [
+          "Node.js 22 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months."
+        ],
+        "criteria_hash": "c59b093d19321dea8c99932f800fe8af6dfc3be7a7fd19bfd2236837ed540fbd",
+        "deadline": 1730419199,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-9",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Node.js 22 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+        "reason": "",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240424231432id_/https://nodejs.org/en/blog/announcements/v22-release-announce",
+        "status": "OPEN",
+        "transactions": [
+          {
+            "action": "v2d-post-unchallenged",
+            "hash": "0x5678930849fed172361e3ad4d8ccf73249ff5faf0473eec6f9cb620a69f509b5"
+          },
+          {
+            "action": "v2d-post-unchallenged-child-0",
+            "hash": "0x3091842b92b75b2d6c47f0382a3cf761b69e69de73060579c5e5a4a31a896032"
+          },
+          {
+            "action": "v2d-post-unchallenged-child-0-child-0",
+            "hash": "0x86dc8bef0990dc13c9651dc258e9b09b51f4d8c86057cd69f8ec63330f00fd2a"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "OPEN"
+    },
+    "unproven": {
+      "recordedLabels": [
+        "v2d-post-unproven",
+        "v2d-post-unproven-child-0",
+        "v2d-post-unproven-child-0-child-0",
+        "v2d-challenge-unproven"
+      ],
+      "promise": {
+        "bond_wei": "40",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794869865,
+          "evidence": [
+            "https://web.archive.org/web/20250112211124id_/https://react.dev/blog/2024/12/05/react-19"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794871389,
+        "challenge_stake_wei": "10",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote specifies a concrete deliverable: a codemod tool for converting existing providers.",
+          "The codemod's publication is observable in release notes, documentation, or a registry.",
+          "No vague goals or unobservable outcomes are included in the quote."
+        ],
+        "created_at": 1794869589,
+        "criteria": [
+          "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers."
+        ],
+        "criteria_hash": "af2b871c13b254b603baaa53d99d9b4b9369f1e9da56b55f7e0de9faab8666ed",
+        "deadline": 1735689599,
+        "defence_end": 1794871665,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-10",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
+        "status": "CHALLENGED",
+        "transactions": [
+          {
+            "action": "v2d-post-unproven",
+            "hash": "0x9f1a2a55ca1817a623030fc157f2d72643700b93df7d574a8f8ac9441952da78"
+          },
+          {
+            "action": "v2d-post-unproven-child-0",
+            "hash": "0xc4a78f86654980fb7a6fd83697272dc1f657b6e2a1027a33be2aaafb14cf329b"
+          },
+          {
+            "action": "v2d-post-unproven-child-0-child-0",
+            "hash": "0x2c57c5ed87b09ab202e72ec7852090a253bb92755717937cf7fde0dbf661b867"
+          },
+          {
+            "action": "v2d-challenge-unproven",
+            "hash": "0x77131a3d3db06a795141e97e5406bb24017e2894b500b92d4921b73e11c4ff82"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "CHALLENGED"
     }
   },
   "probeResults": {
@@ -449,7 +723,7 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": "6d29ea03bcd0402cf7719439053b264ea4a47095",
+  "sourceCommit": "24cb2d78c689ac4473f2673d33fac4e776daacaf",
   "appUrl": null,
   "repoUrl": null,
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
@@ -514,7 +788,12 @@
     "v2b-post-rename_only": 40,
     "v2b-challenge-rename_only": 10,
     "v2b-post-injection": 40,
-    "v2c-post-injection": 40
+    "v2c-post-injection": 40,
+    "v2d-post-injection": 40,
+    "v2d-challenge-injection": 10,
+    "v2d-post-unchallenged": 40,
+    "v2d-post-unproven": 40,
+    "v2d-challenge-unproven": 10
   },
   "retiredContracts": [
     {
@@ -730,6 +1009,125 @@
         "v2c-post-injection",
         "v2c-post-injection-child-0",
         "v2c-post-injection-child-0-child-0"
+      ]
+    },
+    {
+      "caseKey": "kept",
+      "promiseId": "promise-2",
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+          "created_at": 1794863108,
+          "evidence": [
+            "https://web.archive.org/web/20231107005850id_/https://nodejs.org/en/blog/release/v20.9.0"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794864621,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Quote names a specific version and a concrete month-based LTS transition observable in release records."
+        ],
+        "created_at": 1794862821,
+        "criteria": [
+          "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months."
+        ],
+        "criteria_hash": "526daa60095cd4167475a971f43423bbd75a491d5d64aea108cb5c262887ef0e",
+        "deadline": 1698796799,
+        "defence_end": 1794864908,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-2",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "unproven_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          },
+          {
+            "amount_wei": "10",
+            "purpose": "unproven_stake_refund",
+            "recipient": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "UNPROVEN",
+        "snapshot_url": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
+        "status": "UNPROVEN",
+        "transactions": [
+          {
+            "action": "v2-post-kept",
+            "hash": "0x701a25cf7eecd65d524f167c1e1db7991dca26a7119083f2410be4428a51dc49"
+          },
+          {
+            "action": "v2-post-kept-child-0",
+            "hash": "0xe6eaf82327be2a13d400f7b534cd6d7da0621e776afc2a1997208a9bc1a30d93"
+          },
+          {
+            "action": "v2-post-kept-child-0-child-0",
+            "hash": "0x5efc1fdb944882a3d952dd71c1998cc86347cadac7207b090e3f56af09e2d6d2"
+          },
+          {
+            "action": "v2-challenge-kept",
+            "hash": "0x7554aedb06fabc2fe0f5dab6d6422ae648e5a0c79a0357d0819e044bb11e0ed2"
+          },
+          {
+            "action": "v2d-judge-kept-0",
+            "hash": "0x6002d009bc159a432760008217fed4fd31416415675c28dc7b16d88030a567f7"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0",
+            "hash": "0x07d050f9146657361af7761e7acaaf51d15f025c94c61ce48fdbdbbffd56f887"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0",
+            "hash": "0x725432a75584730b2c293f944f6d55add0ce04f38c89e2824b369cb0a678d1fc"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0",
+            "hash": "0xc44826973e840c948ea866de7fa86e238272aece075248e4ac45d2a5d7bb43a5"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0-child-0",
+            "hash": "0xab8662d24d18e4f05ab03c5fb36ebc9c1c0377403bbdd3708aebec1fe4e4cb09"
+          },
+          {
+            "action": "v2d-judge-kept-0-child-0-child-0-child-0-child-1",
+            "hash": "0xc616f06b7e4ea3bc8abd6c46c7ca50a08282e311d96501587dec4c13665acd4b"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+            "criterion_index": 0,
+            "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "evidence_class": "LLM_ERROR",
+            "quote": "",
+            "reason": "Judge response was invalid; everyone is refunded.",
+            "recorded_at": 1794872231,
+            "verdict": "INSUFFICIENT_EVIDENCE"
+          }
+        ]
+      },
+      "disposition": "The judge transaction finalized by majority, but the contract recorded LLM_ERROR with an empty evidence digest. Bond and stake both refunded; the kept replay is retried under promise-11 with a shorter exact quote fragment.",
+      "judgeReason": "Judge response was invalid; everyone is refunded.",
+      "refundTransactions": [
+        "0xab8662d24d18e4f05ab03c5fb36ebc9c1c0377403bbdd3708aebec1fe4e4cb09",
+        "0xc616f06b7e4ea3bc8abd6c46c7ca50a08282e311d96501587dec4c13665acd4b"
+      ],
+      "transactionLabels": [
+        "v2d-judge-kept-0-child-0-child-0-child-0-child-0",
+        "v2d-judge-kept-0-child-0-child-0-child-0-child-1"
       ]
     }
   ],

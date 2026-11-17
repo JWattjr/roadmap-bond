@@ -16,14 +16,14 @@
       "challenge": null
     },
     "kept": {
-      "promiseId": "promise-2",
+      "promiseId": "promise-11",
       "expectedStatus": "KEPT",
       "labels": ["KEPT"],
       "project": "Node.js",
       "posterRole": "TEAM_1",
       "bondWei": 40,
       "snapshotUrl": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
-      "quote": "Node.js 20 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+      "quote": "Node.js 20 will enter long-term support (LTS) in October",
       "deadline": 1698796799,
       "challenge": {
         "role": "CHALLENGER_1",

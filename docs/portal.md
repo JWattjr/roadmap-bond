@@ -18,7 +18,7 @@ Roadmap Bond turns a team's archived roadmap sentence into an escrowed commitmen
 
 1. Open the production site and confirm the StudioNet chain label and whether the page is showing live reads or recorded proof.
 2. Open `promise-1` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
-3. Open `promise-2`; compare its quote with the exact Node.js 20 archive capture, then inspect the frozen criterion, Node v20.9.0 evidence, `MET` verdict, and poster payout.
+3. Open `promise-2` to inspect the refunded `LLM_ERROR` attempt. Open `promise-11` for the corrected exact quote fragment; compare its snapshot and Node v20.9.0 LTS evidence, then inspect the `MET` verdict and poster payout.
 4. Open `promise-3`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
 5. Open `promise-5`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
 6. Open `promise-8`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
@@ -28,7 +28,7 @@ Roadmap Bond turns a team's archived roadmap sentence into an escrowed commitmen
 
 ## Expected outcome
 
-Seven finalized StudioNet historical replays: Next.js's vague improvement quote is rejected and refunded; Node.js 20 is kept and returns bond plus stake to the poster; the Rust 2024 edition misses its 2024 H2 stabilization deadline; Next.js Turbopack's alpha production build does not satisfy the earlier production-support promise; the instruction-bearing fixture does not force a `MET` verdict; Node.js 22 is released after an unchallenged full window; and the React Context codemod remains unproven by the chosen evidence. Mocked direct tests are not live proof.
+Seven intended finalized StudioNet historical replays: Next.js's vague improvement quote is rejected and refunded; the corrected Node.js 20 retry is expected to be kept and return bond plus stake to the poster (the first `promise-2` judgment returned both sides' funds after an `LLM_ERROR`); the Rust 2024 edition misses its 2024 H2 stabilization deadline; Next.js Turbopack's alpha production build does not satisfy the earlier production-support promise; the instruction-bearing fixture does not force a `MET` verdict; Node.js 22 is released after an unchallenged full window; and the React Context codemod remains unproven by the chosen evidence. Mocked direct tests are not live proof.
 
 ## Evidence entries
 
