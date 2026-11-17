@@ -13,8 +13,13 @@ import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 PROOF_PATH = ROOT / "deploy/proof.json"
-DOCS = [ROOT / "README.md", ROOT / "docs/tutorial.md", ROOT / "docs/demo-script.md", ROOT / "docs/portal.md"]
+DOCS = sorted(
+    path
+    for path in [ROOT / "AGENTS.md", ROOT / "PRODUCT.md", ROOT / "README.md", *(ROOT / "docs").rglob("*.md")]
+    if path.is_file()
+)
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+EXPLORER_URL = re.compile(r"https?://explorer-studio\.genlayer\.com[^\s\])}>\"']*")
 ADDRESS = re.compile(r"0x[0-9a-fA-F]{40}")
 TX_HASH = re.compile(r"0x[0-9a-fA-F]{64}")
 UA = {"User-Agent": "Mozilla/5.0 RoadmapBond-LinkAudit/1.0"}
@@ -142,6 +147,72 @@ def audit_contract_urls(proof):
     return True
 
 
+def audit_document_explorer_urls(proof):
+    explorer = proof.get("explorer", "").rstrip("/")
+    known_addresses = {
+        item.get("address", "").lower()
+        for item in list(proof.get("contracts", {}).values()) + proof.get("retiredContracts", [])
+        if item.get("address")
+    }
+    known_hashes = {str(value).lower() for value in proof.get("transactions", {}).values()}
+    links = set()
+    errors = []
+    for document in DOCS:
+        body = document.read_text(encoding="utf-8")
+        links.update(match.group(0).rstrip(".,;:") for match in EXPLORER_URL.finditer(body))
+
+    address_links = set()
+    transaction_links = set()
+    for link in links:
+        parsed = urlparse(link)
+        if parsed.scheme != "https" or parsed.netloc.lower() != "explorer-studio.genlayer.com":
+            errors.append("non-canonical StudioNet Explorer URL " + link)
+            continue
+        address_match = re.fullmatch(r"/address/(0x[0-9a-fA-F]{40})", parsed.path)
+        tx_match = re.fullmatch(r"/tx/(0x[0-9a-fA-F]{64})", parsed.path)
+        if parsed.query or parsed.fragment or not (address_match or tx_match):
+            errors.append("non-canonical StudioNet Explorer URL " + link)
+        elif address_match:
+            address = address_match.group(1).lower()
+            if address not in known_addresses or link != explorer + "/address/" + address_match.group(1):
+                errors.append("address URL is not a recorded contract page " + link)
+            address_links.add(address)
+        else:
+            tx_hash = tx_match.group(1).lower()
+            if tx_hash not in known_hashes or link != explorer + "/tx/" + tx_match.group(1):
+                errors.append("transaction URL is not a recorded StudioNet receipt " + link)
+            transaction_links.add(tx_hash)
+
+    portal = (ROOT / "docs/portal.md").read_text(encoding="utf-8")
+    portal_entries = set(
+        match.group(1)
+        for match in re.finditer(
+            r"^\|\s*GenLayer Explorer Contract\s*\|[^|]*\|\s*(https://[^|\s]+)\s*\|$",
+            portal,
+            re.MULTILINE,
+        )
+    )
+    expected_entries = {
+        item.get("explorerUrl", "") for item in proof.get("contracts", {}).values()
+    }
+    if portal_entries != expected_entries:
+        errors.append("Portal must contain one separate GenLayer Explorer Contract entry per final contract")
+
+    if errors:
+        print("Document Explorer URLs: FAIL")
+        for error in errors:
+            print("- " + error)
+        return False
+    print(
+        "Document Explorer URLs: PASS ("
+        + str(len(address_links))
+        + " address links, "
+        + str(len(transaction_links))
+        + " transaction links; Portal entries match the final pair)"
+    )
+    return True
+
+
 def audit_transaction_urls(proof):
     hashes = sorted(set(proof.get("transactions", {}).values()))
     if not hashes:
@@ -186,13 +257,14 @@ def main():
     proof = json.loads(PROOF_PATH.read_text(encoding="utf-8"))
     ok = audit_local_links()
     explorer_ok = audit_contract_urls(proof)
+    document_explorer_ok = audit_document_explorer_urls(proof)
     transaction_links_ok = audit_transaction_urls(proof)
     if proof.get("chainId") != 61999:
         print("Explorer network: FAIL (expected StudioNet chain 61999)")
         ok = False
     elif explorer_ok:
         print("Explorer network: PASS (StudioNet chain 61999)")
-    if not ok or not explorer_ok or not transaction_links_ok or proof.get("releaseStatus") != "LIVE_CASES_COMPLETE":
+    if not ok or not explorer_ok or not document_explorer_ok or not transaction_links_ok or proof.get("releaseStatus") != "LIVE_CASES_COMPLETE":
         print("Link audit: NOT COMPLETE; do not hand the Portal packet to a reviewer.")
         return 2
     print("Link audit: PASS")

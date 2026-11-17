@@ -1,6 +1,6 @@
 # GenLayer Portal submission packet
 
-**Status:** prepared draft; no form has been submitted. The owner submits the Portal entry. Before handoff, all seven live cases, `npm run verify:proof`, the complete link audit, and both direct StudioNet Explorer contract links must pass.
+**Status:** verified, unsubmitted packet; no form has been submitted. All seven v4 cases finalized live, `npm run verify:proof` passed, the complete Explorer link audit passed, and each final contract has its own verified StudioNet Explorer address entry. The owner submits the Portal entry.
 
 ## Contribution type
 
