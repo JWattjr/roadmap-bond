@@ -43,6 +43,13 @@ def main():
         if label not in proof["transactions"]:
             tx(proof, label, board, "record_transaction", [promise_id, action[:80], tx_hash])
 
+    # record_transaction mutates the separate on-chain history map. Refresh the
+    # promise after those writes so the archived snapshot includes every refund.
+    record = read(board, "get_promise", [promise_id])
+    recorded_hashes = {item.get("hash") for item in record.get("transactions", [])}
+    if any(tx_hash not in recorded_hashes for _, tx_hash in refund_hashes):
+        raise RuntimeError("A rejected-attempt refund was not added to its on-chain history")
+
     attempts = proof.setdefault("caseAttempts", [])
     if not any(item.get("promiseId") == promise_id for item in attempts):
         attempts.append({

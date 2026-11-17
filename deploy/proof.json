@@ -423,7 +423,8 @@
     "v4-release-unchallenged-child-0-child-0": "0x135a0b497866d937346180760eaaa34f1a06d8b6145798f1a4412b9a37b77dab",
     "v4-record-unchallenged-0d74f919a7": "0xee045c5674d8b8415394dd242912fa93058cec8887af636f2a93b30b5e8f84b5",
     "v4-record-unchallenged-37dbea9a41": "0xc0b30658f1a3b8e288862351ba2d9dc1bfe241d6f75ea5e31572719c50b21989",
-    "v4-record-unchallenged-d10c631cbc": "0xbc98926eae10a8e2dfbcd32ae95fc37fa1597d92ba9633cd09e67fcb102fc805"
+    "v4-record-unchallenged-d10c631cbc": "0xbc98926eae10a8e2dfbcd32ae95fc37fa1597d92ba9633cd09e67fcb102fc805",
+    "v2-record-retired-attempt-promise-7-0abb06c916": "0xa6242ce26a0edd1dcece1624c5be96d9c132b2b4a1aa08c702654c9767757796"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -1441,6 +1442,18 @@
           {
             "action": "v2-post-rename_only-child-0-child-0",
             "hash": "0xdf4f8ced56ef997bc32007c5d6276a803e07bfc66791ad07816838bdb0d7f720"
+          },
+          {
+            "action": "v2-refund-rejected-rename-only-promise-4",
+            "hash": "0x88306ca8a9e44a53a956addf9367d7d7ac842537de705b050fbdf34a8e807d17"
+          },
+          {
+            "action": "v2-refund-rejected-rename-only-promise-4-child-0",
+            "hash": "0xa2c4a77524fcf71ad929bd3cde2fd8d4c260920ae8032ff034aba05562302efa"
+          },
+          {
+            "action": "v2-refund-rejected-rename-only-promise-4-child-0-child-0",
+            "hash": "0x0dce2dca6fa26cb2be55cbe77c036d07c1740e9bd1e0759327eb263f0cc91938"
           }
         ],
         "verdicts": []
@@ -1502,6 +1515,18 @@
           {
             "action": "v2b-post-injection-child-0-child-0",
             "hash": "0xe9898412a9fa825b2cf67069abb2ce72ad728165872596b274c657b19e184773"
+          },
+          {
+            "action": "v2-refund-rejected-injection-promise-6",
+            "hash": "0x1e854f919a584b7cc60c6c604b8cc8813302aad06c0bab9386be7fa7364ac763"
+          },
+          {
+            "action": "v2-refund-rejected-injection-promise-6-child-0",
+            "hash": "0x80f8b6835e950c4100b6093b20d50af30c5f8f342f63540839bdef5e63a72b44"
+          },
+          {
+            "action": "v2-refund-rejected-injection-promise-6-child-0-child-0",
+            "hash": "0xc89ed44c32dd794276a43275f927a416db22f9867ed264ad66e95976266326a6"
           }
         ],
         "verdicts": []
@@ -1554,6 +1579,10 @@
           {
             "action": "v2c-post-injection-child-0",
             "hash": "0x7560b768b3877a03e57d596a728999ecf48046771db01f8f86591c4bedcc6497"
+          },
+          {
+            "action": "preliminary-refund-0abb06c9166cbe15",
+            "hash": "0x0abb06c9166cbe15b42df3dc5b898984a5cea78475da9bd0e97c4b5f894e3904"
           }
         ],
         "verdicts": []
@@ -2958,7 +2987,7 @@
         "challenge_window_seconds": "1800",
         "compile_reasons": [
           "Specifies a concrete future LTS transition.",
-          "Defines a measurable six\u2011month period as Current release.",
+          "Defines a measurable six‑month period as Current release.",
           "Observable in official Node.js release schedule."
         ],
         "created_at": 1794880828,
