@@ -4,7 +4,7 @@
   "caseSourceAudit": "docs/case-evidence-audit.md",
   "cases": {
     "spec_rejected": {
-      "promiseId": "promise-12",
+      "promiseId": "promise-1",
       "expectedStatus": "REJECTED_REFUNDED",
       "labels": ["SPEC_REJECTED"],
       "project": "Next.js",
@@ -16,7 +16,7 @@
       "challenge": null
     },
     "kept": {
-      "promiseId": "promise-13",
+      "promiseId": "promise-2",
       "expectedStatus": "KEPT",
       "labels": ["KEPT"],
       "project": "Node.js",
@@ -32,7 +32,7 @@
       }
     },
     "broken": {
-      "promiseId": "promise-14",
+      "promiseId": "promise-3",
       "expectedStatus": "BROKEN",
       "labels": ["BROKEN"],
       "project": "Rust",
@@ -48,7 +48,7 @@
       }
     },
     "rename_only": {
-      "promiseId": "promise-15",
+      "promiseId": "promise-4",
       "expectedStatus": "BROKEN",
       "labels": ["RENAME_ONLY"],
       "project": "Next.js",
@@ -64,7 +64,7 @@
       }
     },
     "injection": {
-      "promiseId": "promise-16",
+      "promiseId": "promise-5",
       "expectedStatus": "UNPROVEN",
       "labels": ["INJECTION", "UNPROVEN"],
       "project": "React Compiler",
@@ -81,7 +81,7 @@
       }
     },
     "unchallenged": {
-      "promiseId": "promise-17",
+      "promiseId": "promise-6",
       "expectedStatus": "RELEASED",
       "labels": ["UNCHALLENGED"],
       "project": "Node.js",
@@ -93,7 +93,7 @@
       "challenge": null
     },
     "unproven": {
-      "promiseId": "promise-18",
+      "promiseId": "promise-7",
       "expectedStatus": "UNPROVEN",
       "labels": ["UNPROVEN"],
       "project": "React",

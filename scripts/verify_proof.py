@@ -155,6 +155,14 @@ def verify_transactions():
         status = tx.get("status_name", tx.get("status")) if tx else None
         if label in known_failures:
             failure = known_failures[label]
+            if failure.get("status") == "FINALIZED_ERROR":
+                leaders = ((tx.get("consensus_data") or {}).get("leader_receipt") or []) if tx else []
+                execution_error = any(item.get("execution_result") == "ERROR" for item in leaders)
+                if status not in ("FINALIZED", 7, "7") or tx.get("result_name") != failure.get("result") or not execution_error:
+                    raise RuntimeError(label + " is not the explicitly recorded finalized execution error")
+                request("GET", EXPLORER + "/api/transactions/" + tx_hash)
+                print("TX", label, tx_hash, "finalized execution error and documented; Explorer record readable", flush=True)
+                continue
             actual_error = (tx.get("consensus_data") or {}).get("error") if tx else None
             if status not in ("CANCELED", 8, "8") or failure.get("status") != "CANCELED":
                 raise RuntimeError(label + " is not the explicitly recorded canceled transaction")

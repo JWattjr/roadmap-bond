@@ -197,7 +197,8 @@ def _record_hashes(proof, case_key, promise_id, before):
     prefixes = tuple(CASE_TAG + "-" + action + case_key for action in ("post-", "challenge-", "judge-", "refund-", "release-", "defend-"))
     candidates = [name for name in current if name not in recorded and name.startswith(prefixes)]
     for tx_label in candidates:
-        record_label = CASE_TAG + "-record-" + case_key + "-" + hashlib.sha256(tx_label.encode("utf-8")).hexdigest()[:10]
+        record_key = tx_label + "|" + promise_id
+        record_label = CASE_TAG + "-record-" + case_key + "-" + hashlib.sha256(record_key.encode("utf-8")).hexdigest()[:10]
         if record_label not in proof["transactions"]:
             tx(proof, record_label, board, "record_transaction", [promise_id, tx_label[:80], current[tx_label]])
         recorded.append(tx_label)

@@ -17,12 +17,12 @@ Roadmap Bond turns a team's archived roadmap sentence into an escrowed commitmen
 ## Reviewer steps
 
 1. Open the production site and confirm the StudioNet chain label and whether the page is showing live reads or recorded proof.
-2. Open `promise-12` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
-3. Open `promise-13`; compare its exact Node.js 20 quote fragment with the archive and Node v20.9.0 LTS evidence, then inspect the `MET` verdict and poster payout.
-4. Open `promise-14`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
-5. Open `promise-15`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
-6. Open `promise-16`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
-7. Open `promise-17` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-18` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
+2. Open `promise-1` and inspect the Next.js quote, `SPEC_REJECTED` reason, and finalized refund.
+3. Open `promise-2`; compare its exact Node.js 20 quote fragment with the archive and Node v20.9.0 LTS evidence, then inspect the `MET` verdict and poster payout.
+4. Open `promise-3`; compare the Rust 2024 H2 deadline with the Rust 1.85.0 release evidence, `NOT_MET` verdict, and challenger payout.
+5. Open `promise-4`; inspect the Next.js 13.4 `next build --turbo` promise, the Next.js 15.3 alpha label, the frozen `not_counted` rule, and the `BROKEN` settlement.
+6. Open `promise-5`; inspect the SHA-pinned injection fixture and verify it did not force `MET`; the correct result is `INSUFFICIENT_EVIDENCE` and both parties are refunded.
+7. Open `promise-6` and confirm the unchallenged Node.js 22 bond released only after the full window. Open `promise-7` and confirm the React 19 evidence cannot establish the promised Context-provider codemod, so both parties are refunded.
 8. Open the two separate direct StudioNet Explorer contract-address links below. Confirm each opens the matching contract record. Compare their source hashes and all transaction records with `deploy/proof.json`.
 9. Run `npm run verify:proof` and confirm all contract, case, source, and transaction checks pass.
 
@@ -34,8 +34,8 @@ Seven finalized StudioNet historical replays on the corrected final pair: Next.j
 
 | Evidence type | Label | URL |
 |---|---|---|
-| GenLayer Explorer Contract | BondBoard — StudioNet | https://explorer-studio.genlayer.com/address/0x4115a88A6B3350dD3AbF60b4893221Fd8514566a |
-| GenLayer Explorer Contract | PromiseJudge — StudioNet | https://explorer-studio.genlayer.com/address/0xeA868d6B06871e7953Bb7D37757Aa9D11cad8255 |
+| GenLayer Explorer Contract | BondBoard — StudioNet | https://explorer-studio.genlayer.com/address/0xBf3C8BA4e2f21ac9a8cF2D91F527299AE40Fd068 |
+| GenLayer Explorer Contract | PromiseJudge — StudioNet | https://explorer-studio.genlayer.com/address/0x6b2703a021D92fce49D6F63387b795eA881346A2 |
 | Website | Roadmap Bond production app | https://roadmap-bond.vercel.app |
 | GitHub repository | Roadmap Bond source | https://github.com/JWattjr/roadmap-bond |
 
