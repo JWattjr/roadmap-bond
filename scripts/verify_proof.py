@@ -15,7 +15,6 @@ PROOF = json.loads((ROOT / "deploy/proof.json").read_text(encoding="utf-8"))
 RPC = "https://studio.genlayer.com/api"
 EXPLORER = "https://explorer-studio.genlayer.com"
 HEADERS = {"User-Agent": "Mozilla/5.0 RoadmapBond/1.0", "Accept": "application/json"}
-MAX_ATTEMPTS = 8
 LAST_REQUEST = 0.0
 EXPECTED_CONTRACTS = {"BondBoard": "bond_board.py", "PromiseJudge": "promise_judge.py"}
 EXPECTED_CASES = {
@@ -37,7 +36,8 @@ def request(method, url, **kwargs):
     global LAST_REQUEST
     kwargs.setdefault("headers", HEADERS)
     kwargs.setdefault("timeout", 45)
-    for attempt in range(MAX_ATTEMPTS):
+    attempt = 0
+    while True:
         wait = 2.1 - (time.monotonic() - LAST_REQUEST)
         if wait > 0:
             time.sleep(wait)
@@ -45,19 +45,18 @@ def request(method, url, **kwargs):
             response = requests.request(method, url, **kwargs)
         except requests.exceptions.RequestException:
             LAST_REQUEST = time.monotonic()
-            if attempt == MAX_ATTEMPTS - 1:
-                raise
             print("Transient read timeout; retrying", flush=True)
-            time.sleep(retry_delay(attempt))
+            time.sleep(retry_delay(min(attempt, 5)))
+            attempt += 1
             continue
         LAST_REQUEST = time.monotonic()
-        if response.status_code in (429, 500, 502, 503, 504) and attempt < MAX_ATTEMPTS - 1:
+        if response.status_code in (429, 500, 502, 503, 504):
             print("Transient HTTP " + str(response.status_code) + "; retrying", flush=True)
-            time.sleep(retry_delay(attempt))
+            time.sleep(retry_delay(min(attempt, 5)))
+            attempt += 1
             continue
         response.raise_for_status()
         return response
-    raise RuntimeError("HTTP read retries exhausted for " + url)
 
 
 def rpc(method, params):

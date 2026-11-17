@@ -113,6 +113,32 @@ def audit_contract_urls(proof):
             print("Direct StudioNet Explorer links: FAIL (" + name + " did not resolve to its address page)")
             return False
         print(name + ": PASS " + direct)
+    for item in proof.get("retiredContracts", []):
+        direct = item.get("explorerUrl")
+        if not direct:
+            continue
+        address = item.get("address", "")
+        expected = proof.get("explorer", "").rstrip("/") + "/address/" + address
+        if not ADDRESS.fullmatch(address) or direct != expected:
+            print("Retired contract Explorer links: FAIL (invalid address link for " + address + ")")
+            return False
+        try:
+            api = http_get(proof.get("explorer", "").rstrip("/") + "/api/address/" + address)
+            records = [obj for obj in nested_address_objects(api.json()) if str(obj.get("address", "")).lower() == address.lower()]
+            if not any(obj.get("type") == "CONTRACT" for obj in records):
+                print("Retired contract Explorer links: FAIL (" + address + " is not a contract record)")
+                return False
+            response = http_get(direct, timeout=20)
+        except requests.RequestException as error:
+            print("Retired contract Explorer links: FAIL (" + address + ": " + str(error)[:180] + ")")
+            return False
+        except (ValueError, RuntimeError) as error:
+            print("Retired contract Explorer links: FAIL (" + address + ": " + str(error)[:180] + ")")
+            return False
+        if response.status_code != 200 or address.lower() not in response.url.lower():
+            print("Retired contract Explorer links: FAIL (" + address + " did not resolve to its address page)")
+            return False
+        print("Retired contract address: PASS " + direct)
     return True
 
 
