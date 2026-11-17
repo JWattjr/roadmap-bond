@@ -8,7 +8,9 @@
   "wallets": {
     "team_1_demo_escrow": "0x401E24f490Ec70a464829801B9df2C6f6e0Deed7",
     "challenger_1": "0xbBbaa1e53Fd7A64524688A5d81D7D3c0b615a655",
-    "challenger_2": "0xA083c99aCBb14136397CD1b0554d7A10C26472DF"
+    "challenger_2": "0xA083c99aCBb14136397CD1b0554d7A10C26472DF",
+    "v4_team_1_topup": "0x401E24f490Ec70a464829801B9df2C6f6e0Deed7",
+    "v4_challenger_1_topup": "0xbBbaa1e53Fd7A64524688A5d81D7D3c0b615a655"
   },
   "transfers": {
     "team_1_demo_escrow": {
@@ -28,13 +30,25 @@
       "wei": 10,
       "transactionHash": "0xdf3a1f9b287f327639e86f6eae0c9f6bb332511f102d8c17732a98f301407c45",
       "status": "FINALIZED_SUCCESS"
+    },
+    "v4_team_1_topup": {
+      "to": "0x401E24f490Ec70a464829801B9df2C6f6e0Deed7",
+      "wei": 10,
+      "transactionHash": "0x78b6070efa02d7596d3273720fd779ef4492e7466e33df96e8cc9e3289afd2ce",
+      "status": "FINALIZED_SUCCESS"
+    },
+    "v4_challenger_1_topup": {
+      "to": "0xbBbaa1e53Fd7A64524688A5d81D7D3c0b615a655",
+      "wei": 10,
+      "transactionHash": "0xdf80252fe0a445322b2af459887d864970de37ae0f9a482ae51d90ecb0d5c2ba",
+      "status": "FINALIZED_SUCCESS"
     }
   },
   "plannedWei": {
-    "seedTransfers": 230,
-    "payablePostsAndChallenges": 710,
-    "expectedPayoutMovements": 710,
+    "seedTransfers": 250,
+    "payablePostsAndChallenges": 1040,
+    "expectedPayoutMovements": 1040,
     "extraRefundedAttemptMovements": 320,
-    "totalGross": 1970
+    "totalGross": 2650
   }
 }

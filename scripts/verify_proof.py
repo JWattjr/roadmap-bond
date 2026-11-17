@@ -218,8 +218,8 @@ def verify_cases():
 
     for retired_case in PROOF.get("retiredCaseResults", []):
         promise = retired_case.get("promise", {})
-        if retired_case.get("release") != "v2" or promise.get("id") != retired_case.get("promiseId"):
-            raise RuntimeError("A retired v2 case result is malformed")
+        if retired_case.get("release") not in ("v2", "v3") or promise.get("id") != retired_case.get("promiseId"):
+            raise RuntimeError("A retired case result is malformed")
         if promise.get("status") not in ("REJECTED_REFUNDED", "KEPT", "BROKEN", "UNPROVEN", "RELEASED"):
             raise RuntimeError("A retired v2 case result is not terminal")
         if promise.get("bond_wei") != "0" or promise.get("challenge_stake_wei") != "0":
@@ -231,7 +231,7 @@ def verify_cases():
             raise RuntimeError("A retired v2 case transaction is missing from the proof manifest")
         if any(label not in PROOF.get("transactions", {}) for label in retired_case.get("retirementLabels", [])):
             raise RuntimeError("A v2 retirement transaction is missing from the proof manifest")
-        print("RETIRED_CASE", retired_case.get("caseKey"), promise.get("id"), promise.get("status"), "escrow closed", flush=True)
+        print("RETIRED_CASE", retired_case.get("release"), retired_case.get("caseKey"), promise.get("id"), promise.get("status"), "escrow closed", flush=True)
 
 
 def verify_source_commit():

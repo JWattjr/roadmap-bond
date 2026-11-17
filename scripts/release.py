@@ -15,8 +15,8 @@ CASE_FILE = ROOT / "deploy/cases.json"
 WINDOW_SECONDS = 1800
 BOND_WEI = 40
 EXPLORER = "https://explorer-studio.genlayer.com"
-RELEASE_TAG = "v3"
-CASE_TAG = os.environ.get("CASE_TAG", "v3")
+RELEASE_TAG = "v4"
+CASE_TAG = os.environ.get("CASE_TAG", "v4")
 REQUIRED_CASES = {
     "spec_rejected": "REJECTED_REFUNDED",
     "kept": "KEPT",

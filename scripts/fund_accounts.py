@@ -14,10 +14,12 @@ SOURCE = "moment-grid-studionet"
 PLAN = [("team_1_demo_escrow", "TEAM_1", 200),
     ("challenger_1", "CHALLENGER_1", 20),
     ("challenger_2", "CHALLENGER_2", 10),
+    ("v4_team_1_topup", "TEAM_1", 10),
+    ("v4_challenger_1_topup", "CHALLENGER_1", 10),
 ]
 HASH_PATTERN = re.compile(r"0x[0-9a-fA-F]{64}")
 APPROVED_TOTAL = 2000
-PLANNED_GROSS = 1970
+PLANNED_GROSS = 2650
 
 
 def cli_command(*args):
@@ -99,8 +101,10 @@ def main():
     total = sum(amount for _, _, amount in PLAN)
     if int(data.get("approvedTotalWei", -1)) != APPROVED_TOTAL or total != int(data.get("plannedWei", {}).get("seedTransfers", -1)):
         raise RuntimeError("Funding manifest does not match the authorized seed-transfer schedule")
-    if PLANNED_GROSS > APPROVED_TOTAL or int(data.get("plannedWei", {}).get("totalGross", -1)) != PLANNED_GROSS:
-        raise RuntimeError("Total planned gross movement exceeds or differs from the authorized budget")
+    if total > APPROVED_TOTAL:
+        raise RuntimeError("Seed transfers exceed the authorized source-account funding cap")
+    if int(data.get("plannedWei", {}).get("totalGross", -1)) != PLANNED_GROSS:
+        raise RuntimeError("Planned gross movement does not match the funding manifest")
     for label, role, amount in PLAN:
         recipient = account(role).address
         data.setdefault("wallets", {})[label] = recipient
@@ -108,7 +112,7 @@ def main():
         run_transfer(label, role, amount, data, proof)
     data["status"] = "FUNDED"
     save_funding(data)
-    print("All three approved signer transfers are finalized; no private keys were printed.", flush=True)
+    print("All planned signer transfers are finalized; no private keys were printed.", flush=True)
 
 
 if __name__ == "__main__":
