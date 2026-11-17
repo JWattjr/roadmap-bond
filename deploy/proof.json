@@ -3,7 +3,7 @@
   "chainId": 61999,
   "explorer": "https://explorer-studio.genlayer.com",
   "rpc": "https://studio.genlayer.com/api",
-  "releaseStatus": "V3_RETIRED",
+  "releaseStatus": "LIVE_CASES_COMPLETE",
   "approvedTotalWei": 2000,
   "plannedGrossWei": 2650,
   "probeContracts": {
@@ -13,7 +13,20 @@
       "sha256": "a6cf7b5db51d95e31faacbcaa7eacf0bd8b998ceaeb90ecb42e9db78b25daff0"
     }
   },
-  "contracts": {},
+  "contracts": {
+    "BondBoard": {
+      "address": "0x6104c81a4199E3c3a594eBbAB46C226D96Db1aEA",
+      "source": "bond_board.py",
+      "sha256": "d73a73bec6562f7c1be29564e100ba5df783ea37a78565684c4171461544bd4b",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0x6104c81a4199E3c3a594eBbAB46C226D96Db1aEA"
+    },
+    "PromiseJudge": {
+      "address": "0x6f159E7151255Bc8683775702DfaDfc8F1fD22FA",
+      "source": "promise_judge.py",
+      "sha256": "f496223da38f3a73f0699d3950b70b9ff7b79e07b4152eacdb9d0a82be721a7f",
+      "explorerUrl": "https://explorer-studio.genlayer.com/address/0x6f159E7151255Bc8683775702DfaDfc8F1fD22FA"
+    }
+  },
   "transactions": {
     "probe-deploy": "0x07ee88edf067ce2b8efcc6843af2cdd775d0ba4259485e0e032ead96378170ab",
     "probe-sources": "0x40487842b1843f20a6bb357c0c473bc94ef0f28c805201bebf46f4501e8d063c",
@@ -289,7 +302,128 @@
     "v3retire-record-unchallenged-7a01a707c8": "0x5b418ecd92e668854271e4f52ef07bb58f719b0f1b56a23fc5f6a3d90012beae",
     "v3retire-record-unchallenged-b79b8dc93c": "0x3f24ebbc7d69fb91dede65aa3404db3958c0301bbd2370960e184e293f83a6f4",
     "funding-v4_team_1_topup": "0x78b6070efa02d7596d3273720fd779ef4492e7466e33df96e8cc9e3289afd2ce",
-    "funding-v4_challenger_1_topup": "0xdf80252fe0a445322b2af459887d864970de37ae0f9a482ae51d90ecb0d5c2ba"
+    "funding-v4_challenger_1_topup": "0xdf80252fe0a445322b2af459887d864970de37ae0f9a482ae51d90ecb0d5c2ba",
+    "v4-deploy-BondBoard": "0xe42c450bbc9197035c26393316db8a0cb000290b233e11887e002ab5db0eef32",
+    "v4-deploy-PromiseJudge": "0x57eff0138326f9d900c0a9e0fdd8d1bb3e2fc3ec4b54dd581d964d1bdd29c114",
+    "v4-configure-promise-judge": "0xe5e22fd93f86e01a0cb3f0dafb3c10d8b83a35b63e94aad1b854facd584dea34",
+    "v4-post-spec_rejected": "0xbde02304617967fcaf7c9668f8f529796d0e850f9adb8bc806dc4ba17ac8ddeb",
+    "v4-post-spec_rejected-child-0": "0x7ff065536bc3a7e3fcd488202c2eca4abc4732fecbd401d8d7286212ee694af8",
+    "v4-post-spec_rejected-child-0-child-0": "0x8ede4392541eb734e7ea320bf676dd61d92904f232ed3459c0c2c76be79727b8",
+    "v4-record-spec_rejected-16c4589f6c": "0xeebc92a9913b8810b3156708f53cb2c71f7971bb8be2cf1b91ff5b360526add3",
+    "v4-record-spec_rejected-dc239edef9": "0x97af1708f80d3389e921fc917aa88974aa89b1cd776ef7a5cde77bb6a8e4b3f6",
+    "v4-record-spec_rejected-6dbdbb071d": "0xcfc5d64dc6aaf4730a2fe768202f3a5906d855f69decf049f6849489eea74067",
+    "v4-refund-spec_rejected": "0xeb9c5a3b9ac24a6e679792772920d14c05e84c244e5e225c543ce43a06532e5a",
+    "v4-refund-spec_rejected-child-0": "0x2186b7976b2a421eb1b3fdaf1d39d1385a4df17946225a7fbbaf2b2682eed9f6",
+    "v4-refund-spec_rejected-child-0-child-0": "0xc95fa125faa7188f1de42bad5a6148a8ff07e7a1af9fbf60918a98008c215620",
+    "v4-record-spec_rejected-174de83594": "0xc2d84d0f83c318c0538fee8b8bfebbc928867899effcfe1577025779b25b87e5",
+    "v4-record-spec_rejected-79e1a55cc9": "0x94f5f5c7111d6ab55ac1ee4096cde12aee574a9ea95a85f3a95b4e657e1a7773",
+    "v4-record-spec_rejected-9e0a67f914": "0x31b337741bacd8098aa7c74821ab2ebcfde96261b281bbe22ca152ea719b936b",
+    "v4-post-kept": "0x388e59847950bcc5945527a2f6cbd0a6ef0e993727758c9a048a8ac736c9bf04",
+    "v4-post-kept-child-0": "0xe9dfc1933c8dd88f94df7bde0993cb3f4fa5bbb8ae2fcaebc0aa640a5bc3c377",
+    "v4-post-kept-child-0-child-0": "0x3614106775cdc3efbd32c36ff370a67ea65b85912e05bb7b55b3ce1779329cd5",
+    "v4-record-kept-75fe14db58": "0xda077149fd3335fcdb9096daf40bf335ea0c4253ce590cbb57cdac9383eede1c",
+    "v4-record-kept-7046f615d9": "0x668ea253d295784b3323914e294904188a1b1b7b575c6c87e9d5c2cdfe310d8e",
+    "v4-record-kept-bee7d183b1": "0x7017ce2cae1a080f396f1ac7dce2e210914daef1031369781153643658707c27",
+    "v4-challenge-kept": "0x951dd1aaf3f7922c51600381d38cdb110c1e57b25d61ab45567ba019c800d9ed",
+    "v4-record-kept-a2268fc457": "0x07c682453b229c3560971bbd2346aed4ec677d662b9f1d06ab3698ad76141fba",
+    "v4-post-broken": "0xdccfcd602fc84561795a9587fbb4c163ce7ae31a06146ead84558815d4232611",
+    "v4-post-broken-child-0": "0xec269e83a24f2eb17d87ec25a159ac6166b5a73d9f2aeb83939d2be2e9acf9d4",
+    "v4-post-broken-child-0-child-0": "0x83db6a198f80f05c9b0149a5cc3ec700c2114b53a3a2ced9d0a5a10f2567fced",
+    "v4-record-broken-b48522e7bc": "0x162df7c5f366442c5e72c1240615f7326c569231ef259fa0184e06ad8ccd4f20",
+    "v4-record-broken-80cb86cdde": "0x22006ba1f77103d2c80ccc108e9c5fd95a6b446d9393016ebba4e16fa25b0b31",
+    "v4-record-broken-cf4aea432d": "0xc500ac0c43d30245845a5b007110a0bfc8233c194869c1a6c7bb628c426a40eb",
+    "v4-challenge-broken": "0x1c261270ddd6868cdfbab4fe16265d9b7b49100f093bf7ff96219d063f81d520",
+    "v4-record-broken-7f5c343f5f": "0xcf857a8cacd8153f14664b395fdd578aa74dba428eb625193b71d96c56a45640",
+    "v4-post-rename_only": "0x0ce782c2cfb2f6634f25d4e650075dfe3643a7a006acc2b93d286b7f3f4ba288",
+    "v4-post-rename_only-child-0": "0xf8ba38e89df3d87a222f36adee9a78afd23a68bf097f0fa5233dbbf4fb7f1c41",
+    "v4-post-rename_only-child-0-child-0": "0x941bd66076c75d668b8dd7a22574f0c4684b22cd10be8146faec4a15b9f125d0",
+    "v4-record-rename_only-b7f53e8ca2": "0x391943ccb3d5486af655b7c9681e64572e1e51a23f82f824625bead26eacb3d9",
+    "v4-record-rename_only-85fac1ccd2": "0xc2d7af3022e77c0733b99fc6947123fd055d59b472649d60ab6a5bb110342f5e",
+    "v4-record-rename_only-faa292a70e": "0xdd93483b18f195917e4e22f6628a76038f5ba5cbf3cd11d7fff35e730c431a58",
+    "v4-challenge-rename_only": "0x2e06a5700bad89fa7b75e8eced076692fe135ae417b12737b85c7678b648c149",
+    "v4-record-rename_only-43bafe11bc": "0x9ec6e3c66bfd0f450c0fc44896e00ffb33f1ae22ee8adf66d12545e8182c77ff",
+    "v4-post-injection": "0xefd7522e362fd224321845f0c2359232872aee29204ed67f6234d898e420a4e7",
+    "v4-post-injection-child-0": "0xe834f1f858fdeada5dcef7e36acd5b6fd3cdd72d27d34da9ee171c8cda001dd1",
+    "v4-post-injection-child-0-child-0": "0x5b2502b2528e8804d1d207169b1450eafa535ed8bbca1ceb416a61928b7013d7",
+    "v4-record-injection-a1f7922a10": "0x0c37a96040524936e989837ea5097bff7043cd3efacea36f4a93c4dbc82622c4",
+    "v4-record-injection-f3ba75ba0c": "0xcfa1a3a2b1568bdd8fc2b223c55b878f17cc98a4de4444fb405c96d0af36665d",
+    "v4-record-injection-5cb1c0fdf5": "0xa4f193c4678e608c3ac74acfc35166f2aa661d1e2d0c5200112ab9fe9425a7f9",
+    "v4-challenge-injection": "0x06a5ecc10b3979f8d7a2a9c96f05f99eb111a6871f2cac4ed4277211b96249a7",
+    "v4-record-injection-3abc24d026": "0x650f85387d9873b1b08f323a3acd3a73a4e1d127816f4e14092a3496d558804f",
+    "v4-post-unchallenged": "0x1dcb811551bc77905792034391888de72c3bbc0b2f3f06c22adfea038f222389",
+    "v4-post-unchallenged-child-0": "0xedc2fec01a0b87d18be8c7b57d952853a8f0bd78042bd43cec80d79e91b9c09c",
+    "v4-post-unchallenged-child-0-child-0": "0xfe4e7534cf09748d206aad3c0ff53a386c29a1bc66683659960d1ac1518196a5",
+    "v4-record-unchallenged-62d5b35592": "0x697d7cd7aeb30867c47bdc54f25b84d306a02833814dea650e09076e191d10fa",
+    "v4-record-unchallenged-3caf1fdb91": "0x4dc518133e57415b06e1b509a1bf80da00e134f5a6adacbd99cf6a1b4cbe3202",
+    "v4-record-unchallenged-df51c7267a": "0x3569b0543107242e07373b755ab2207128930b2986151c74fe2b9287f2e3a5ee",
+    "v4-post-unproven": "0xa055c67e4c904f1edc5839f37b9aae3105f7e81fef6d7fb8839b9c3b6cfa8c98",
+    "v4-post-unproven-child-0": "0xa7dd8b9ce730c700f6bf00d0558ee417a505dd77b8b55699d70aa617319f54fa",
+    "v4-post-unproven-child-0-child-0": "0x5d9351af3bf61eb0d2e4fff335e104f3310cd197b05fa5d550b3ef329a861c83",
+    "v4-record-unproven-f23567c286": "0x27c90b1eeb3dd7b441bc3767ef3505022e5f54a1559f8d96b7ac560e87ba5405",
+    "v4-record-unproven-1118123200": "0x9ef8f8de7250adb862b1fae518468b386fd251acb45cf1013ae648d055fead25",
+    "v4-record-unproven-368731a769": "0xce3587c701e23863560f7f1f127fb56ae5704874cf208c84780077b8ce131557",
+    "v4-challenge-unproven": "0xda5e6379ad597d00f6dd2a5c487fe2bb72a4ce9c10001b9a35794e2b84a40108",
+    "v4-record-unproven-96d096acc1": "0x581b1b2dc896f488f51bd2b6d936776b6b4ee03eda0c1a82fdc6190b4cd22081",
+    "v4-judge-kept-0": "0x1480b79185e2ed8462edd788217a99135a3db54d0f5f0ac5fde9def4a8eb0e89",
+    "v4-judge-kept-0-child-0": "0x8ca7b0716210a2fa77a80d512f8668c1de51d31b8303d56de968c261d8c55291",
+    "v4-judge-kept-0-child-0-child-0": "0x1be273b9968e02b9819ed1d73c6b2896ed21ae165907feffc289adf3b56c631d",
+    "v4-judge-kept-0-child-0-child-0-child-0": "0xa7382e4e53e88c72f775a64f56406ae123586acbd973e462e251317c27c6b9ac",
+    "v4-judge-kept-0-child-0-child-0-child-0-child-0": "0xd3edde0ca552959c6945f316e92cc4e8a9e9b531a71a00ec45e9758c46bca726",
+    "v4-record-kept-9753edba1f": "0x33a23d8c2e70e4c0c8a1d59bba739664049f1d866c342439eb5da50fc48b7098",
+    "v4-record-kept-3c3215c4dc": "0x83c7b78060904ae113ee642721beb657251d8ff36062490807351c8ea807e183",
+    "v4-record-kept-42deeaf0b4": "0xe8aeb53e2da3d91e0edbb83763d580d1145b803eb9a0d513510f7b4f8f6e949c",
+    "v4-record-kept-05d1368013": "0xe611c645647dacc7664dfcb693fb85eb3efecc63ab9a46ee29cf9d6091a21b8b",
+    "v4-record-kept-343875057d": "0xc6618e43bec1341b58b3b7dea833c841212fe86c4da42178a82387e6d6253489",
+    "v4-judge-injection-0": "0x5b60b28c693aec9f99539558b67f580fd654f433a73b568314ae067d85f4187c",
+    "v4-judge-injection-0-child-0": "0xe890a05b7b38fad40cf72e94fc5de3dc2d4d182dc63ded27aa135f8118b53247",
+    "v4-judge-injection-0-child-0-child-0": "0x3ae42aa411f212abdd96ddbcb53cf0b6da0fb7dc140e82656f18af85060f2ff2",
+    "v4-judge-injection-0-child-0-child-0-child-0": "0x11a8eac919f9166e8c8cfbae9025030954c0998b39b85cc742a43e4ddc23d43f",
+    "v4-judge-injection-0-child-0-child-0-child-0-child-0": "0x6607903f21ed560c94bc84785e1ee61b45676d6213fee277840f9281db206a38",
+    "v4-judge-injection-0-child-0-child-0-child-0-child-1": "0x653566fb2ba4ee1000e3746eab98073fe1cfd912b1791963686db7f14a87fb8d",
+    "v4-record-injection-b3ea98a201": "0x1145e7e53f6f087ad10d3752d36d597d5a715ddc36e45bb08d52680d2cd09227",
+    "v4-record-injection-abe3cdf2bb": "0x184678b533258258094925063befecf40ced1a298813f7aa80817b976f811d1b",
+    "v4-record-injection-94f3037946": "0xbe47f01ea88506f33c09f3aa68d83c01ebc946f976a616bce823421d3410b0a8",
+    "v4-record-injection-67362e7bb6": "0xe373122845fdd6d9ffe4f5d58f001ae0bbf483ad46d5683e182ac02e4ddc4638",
+    "v4-record-injection-ce50e2011f": "0x000588fc0c904be5b65cf1639d87c3bffd351420f91da2cd1e13b85b400a791e",
+    "v4-record-injection-9a5649e0ea": "0x516210b1a11ac60c403d68c1dc0d775afd7fa59c74f441d7d1cb5bd4e209a222",
+    "v4-judge-unproven-0": "0xde46be2693917511c43dcbc9887275ba768e2ec68679084344d5c72ce5c20d0e",
+    "v4-judge-unproven-0-child-0": "0x219bbbb305af09c056fca6e58e946d4901a1adc0d5ee18f200a3fcb591bd6ad5",
+    "v4-judge-unproven-0-child-0-child-0": "0x889d697f56445efb9d4d6a5f1e9af53f0c31e556edfbba94d34d2bf6a369ab94",
+    "v4-judge-unproven-0-child-0-child-0-child-0": "0xffdddda349ea12c974fdc450e61f7b4b50b41be1b475fbdbb9b5acc2df5354f3",
+    "v4-judge-unproven-0-child-0-child-0-child-0-child-0": "0x5dd45bff2b51d81b55f49d7b854f290c9a4a8226a796896d4ea02c054d06a196",
+    "v4-judge-unproven-0-child-0-child-0-child-0-child-1": "0xa00e99187f3ae18189a425ceac71814d5e36df8304b2db5127c271edebb4f3bc",
+    "v4-record-unproven-d45e2569d3": "0x404faa27fe0e4a35b6203b14afdd01624a3c6c426a98df90301141a8ebc583a5",
+    "v4-record-unproven-10223313b7": "0xd88311daa44903b82b666fae8d9e1e9656baf5fd74264defcab736fb7be453d6",
+    "v4-record-unproven-d3daeab873": "0xbc559e717804fd33c3ad6ade8806eb34d4d6560213492889da910ca38d469611",
+    "v4-record-unproven-0ab09465f4": "0x1e9a5bde6be3f209809d7b1f428defdebf66cb2fb1da9e78d0fa09fcaf23a2da",
+    "v4-record-unproven-cd80cbf7ee": "0x52b7a85230e19a14cc5b93c263bf84aad49d955c627333fe6aa6da40c6ecb101",
+    "v4-record-unproven-983aa0a41c": "0x3088be4976eb58ce82e36a64ac24af1bfb6986ba19b30801f9f86e163bc24f6f",
+    "v4-judge-broken-0": "0xb5f8212c0e3643895679ebb9bc5d5f07aee36ad43d3fb7eb35e73f1d7fb312bd",
+    "v4-judge-broken-0-child-0": "0x0b769ef3403da104167bfa0ec50872c70094a5d5df0e71d6843e356c1457d475",
+    "v4-judge-broken-0-child-0-child-0": "0x9aad8d60a58409f28965c69bafae387cd0fb7a3af83a7da63080ed100750d778",
+    "v4-judge-broken-0-child-0-child-0-child-0": "0xf897a38707ef1bee2392f73fc3b16528a8130c8e9d16a955ebb1559752f6aacb",
+    "v4-judge-broken-0-child-0-child-0-child-0-child-0": "0x78f653bd43e57b9587520ff79b9a7c09a99d0c12cbf5d285d54ea74145c2f724",
+    "v4-record-broken-8b3e59ca79": "0x7a0eec78433946128a358008832f7c6f6ec72c12073852003a9ed4692efd485a",
+    "v4-record-broken-e122728e1f": "0xff5f5b39d8c1a6b3ebe2c63edf52c019e10adfba175bf1a89c01916ed091b677",
+    "v4-record-broken-13ad8737c3": "0x6485a5e2b8be976944a395bdddabfb3d9c9578543cb3bed4d32fe1a01c96482f",
+    "v4-record-broken-d321db8a03": "0x0b68615e3b18953c21f1a80b29db7b2b0556a87b27e745a9bff7e88c8a783993",
+    "v4-record-broken-fa8ec6fa7b": "0xb07178bf922822f04b4422d9d3da2f1e750686cc48a8327754fa2b3ec70c135c",
+    "v4-judge-rename_only-0": "0x71dfca3e3647a977c4579e24f1b108536b719c4aeb0c004903d638cacb4e4da5",
+    "v4-judge-rename_only-0-child-0": "0x4dfd177f6f4ccba78e07f80ace4c8e2b69d2fed706205259c1fe7680782eb67f",
+    "v4-judge-rename_only-0-child-0-child-0": "0xc927b1d169c3c2104e4cf553a76ff27bffc80805bfd31cbdf40370d77ba07b8f",
+    "v4-judge-rename_only-0-child-0-child-0-child-0": "0x7f804aeb70c85a8d6154935752780414d4466053132882a9388ac23bf32c4fbb",
+    "v4-judge-rename_only-0-child-0-child-0-child-0-child-0": "0x19b07f2f5d3828e2867257c17a7c8e7d0809e9eddbacd27eb0221aab5c3740f3",
+    "v4-record-rename_only-005572ee64": "0xdd903ca02d1abdc6c18e6db61d20e2f28dab32dacdac48bb27361929c94019fc",
+    "v4-record-rename_only-37ae6ebedd": "0x301e5a60f0788971114e1af4e63ddbdefeeb8e3b30a40871f89a945bf389b431",
+    "v4-record-rename_only-e2a14b28e8": "0x453fb8eeb9e065eb7ed8dea3665d797e186b632662f7420af8d3df93aa201784",
+    "v4-record-rename_only-21b788f22d": "0xd7d67fc96d679ffafa5b7ad3061751239c8bfadd2f6e2d06040f58a11818fbbd",
+    "v4-record-rename_only-ffcf0510b9": "0x56c94884552e93a8e888e178fcc2b20a5b995dc5f7025b0a507927987d452476",
+    "v4-release-unchallenged": "0x45cd55911829e1e8b14089a10e1955fb7438831905e520a4d7205b8e22300c42",
+    "v4-release-unchallenged-child-0": "0xd34b191c0e780053fc3ffbb8a6cffa635e599d4125c1c5e899b81f7629a40f15",
+    "v4-release-unchallenged-child-0-child-0": "0x135a0b497866d937346180760eaaa34f1a06d8b6145798f1a4412b9a37b77dab",
+    "v4-record-unchallenged-0d74f919a7": "0xee045c5674d8b8415394dd242912fa93058cec8887af636f2a93b30b5e8f84b5",
+    "v4-record-unchallenged-37dbea9a41": "0xc0b30658f1a3b8e288862351ba2d9dc1bfe241d6f75ea5e31572719c50b21989",
+    "v4-record-unchallenged-d10c631cbc": "0xbc98926eae10a8e2dfbcd32ae95fc37fa1597d92ba9633cd09e67fcb102fc805"
   },
   "nonSuccessfulTransactions": {
     "post-spec_rejected-child-0": {
@@ -304,7 +438,740 @@
       "reason": "Auxiliary record_transaction used stale promise-12; v3 contract-local id is promise-1. The post itself finalized and the case was resumed on the correct id."
     }
   },
-  "cases": {},
+  "cases": {
+    "spec_rejected": {
+      "recordedLabels": [
+        "v4-post-spec_rejected",
+        "v4-post-spec_rejected-child-0",
+        "v4-post-spec_rejected-child-0-child-0",
+        "v4-refund-spec_rejected",
+        "v4-refund-spec_rejected-child-0",
+        "v4-refund-spec_rejected-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794888408,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote describes a broad improvement goal without an observable deliverable."
+        ],
+        "created_at": 1794886608,
+        "criteria": [
+          "In a future release, we'll be improving and simplifying data mutations, as well."
+        ],
+        "criteria_hash": "9429b4a5ed439c7d93326c1289d3b2a5533db9b3f1596e95a1e312d355aa797d",
+        "deadline": 1675209599,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-1",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "rejected_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "In a future release, we'll be improving and simplifying data mutations, as well.",
+        "reason": "The quote describes a broad improvement goal without an observable deliverable.",
+        "replay": true,
+        "settlement": "",
+        "snapshot_url": "https://web.archive.org/web/20221025174609id_/https://nextjs.org/blog/next-13",
+        "status": "REJECTED_REFUNDED",
+        "transactions": [
+          {
+            "action": "v4-post-spec_rejected",
+            "hash": "0xbde02304617967fcaf7c9668f8f529796d0e850f9adb8bc806dc4ba17ac8ddeb"
+          },
+          {
+            "action": "v4-post-spec_rejected-child-0",
+            "hash": "0x7ff065536bc3a7e3fcd488202c2eca4abc4732fecbd401d8d7286212ee694af8"
+          },
+          {
+            "action": "v4-post-spec_rejected-child-0-child-0",
+            "hash": "0x8ede4392541eb734e7ea320bf676dd61d92904f232ed3459c0c2c76be79727b8"
+          },
+          {
+            "action": "v4-refund-spec_rejected",
+            "hash": "0xeb9c5a3b9ac24a6e679792772920d14c05e84c244e5e225c543ce43a06532e5a"
+          },
+          {
+            "action": "v4-refund-spec_rejected-child-0",
+            "hash": "0x2186b7976b2a421eb1b3fdaf1d39d1385a4df17946225a7fbbaf2b2682eed9f6"
+          },
+          {
+            "action": "v4-refund-spec_rejected-child-0-child-0",
+            "hash": "0xc95fa125faa7188f1de42bad5a6148a8ff07e7a1af9fbf60918a98008c215620"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "REJECTED_REFUNDED",
+      "replay": true
+    },
+    "kept": {
+      "recordedLabels": [
+        "v4-post-kept",
+        "v4-post-kept-child-0",
+        "v4-post-kept-child-0-child-0",
+        "v4-challenge-kept",
+        "v4-judge-kept-0",
+        "v4-judge-kept-0-child-0",
+        "v4-judge-kept-0-child-0-child-0",
+        "v4-judge-kept-0-child-0-child-0-child-0",
+        "v4-judge-kept-0-child-0-child-0-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+          "created_at": 1794887369,
+          "evidence": [
+            "https://web.archive.org/web/20231107005850id_/https://nodejs.org/en/blog/release/v20.9.0"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794888903,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "The quote names a specific version (Node.js 20) with a concrete status change (entering LTS)",
+          "The transition to LTS is verifiable in the public Node.js release schedule registry or release notes",
+          "A named month (October) is included in the quote and may be used as a time-bound criterion"
+        ],
+        "created_at": 1794887103,
+        "criteria": [
+          "Node.js 20 will enter long-term support (LTS) in October"
+        ],
+        "criteria_hash": "f8fd7dd78bcf64948c2baac79958fca6098ca6025694129a012230a330b21ff6",
+        "deadline": 1698796799,
+        "defence_end": 1794889169,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-2",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "50",
+            "purpose": "kept_bond_and_stake",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Node.js 20 will enter long-term support (LTS) in October",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "KEPT",
+        "snapshot_url": "https://web.archive.org/web/20230418171221id_/https://nodejs.org/en/blog/announcements/v20-release-announce",
+        "status": "KEPT",
+        "transactions": [
+          {
+            "action": "v4-post-kept",
+            "hash": "0x388e59847950bcc5945527a2f6cbd0a6ef0e993727758c9a048a8ac736c9bf04"
+          },
+          {
+            "action": "v4-post-kept-child-0",
+            "hash": "0xe9dfc1933c8dd88f94df7bde0993cb3f4fa5bbb8ae2fcaebc0aa640a5bc3c377"
+          },
+          {
+            "action": "v4-post-kept-child-0-child-0",
+            "hash": "0x3614106775cdc3efbd32c36ff370a67ea65b85912e05bb7b55b3ce1779329cd5"
+          },
+          {
+            "action": "v4-challenge-kept",
+            "hash": "0x951dd1aaf3f7922c51600381d38cdb110c1e57b25d61ab45567ba019c800d9ed"
+          },
+          {
+            "action": "v4-judge-kept-0",
+            "hash": "0x1480b79185e2ed8462edd788217a99135a3db54d0f5f0ac5fde9def4a8eb0e89"
+          },
+          {
+            "action": "v4-judge-kept-0-child-0",
+            "hash": "0x8ca7b0716210a2fa77a80d512f8668c1de51d31b8303d56de968c261d8c55291"
+          },
+          {
+            "action": "v4-judge-kept-0-child-0-child-0",
+            "hash": "0x1be273b9968e02b9819ed1d73c6b2896ed21ae165907feffc289adf3b56c631d"
+          },
+          {
+            "action": "v4-judge-kept-0-child-0-child-0-child-0",
+            "hash": "0xa7382e4e53e88c72f775a64f56406ae123586acbd973e462e251317c27c6b9ac"
+          },
+          {
+            "action": "v4-judge-kept-0-child-0-child-0-child-0-child-0",
+            "hash": "0xd3edde0ca552959c6945f316e92cc4e8a9e9b531a71a00ec45e9758c46bca726"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "Node.js 20 will enter long-term support (LTS) in October",
+            "criterion_index": 0,
+            "digest": "c28ad6e9b8219194b79ffe03fe19a18a976ba836077405e8948e772a0c77eb8e",
+            "evidence_class": "OK",
+            "quote": "This release marks the transition of Node.js 20.x into Long Term Support (LTS)",
+            "reason": "Extract shows v20.9.0 entered Active LTS in Oct 2023",
+            "recorded_at": 1794891355,
+            "verdict": "MET"
+          }
+        ]
+      },
+      "finalStatus": "KEPT",
+      "replay": true
+    },
+    "broken": {
+      "recordedLabels": [
+        "v4-post-broken",
+        "v4-post-broken-child-0",
+        "v4-post-broken-child-0-child-0",
+        "v4-challenge-broken",
+        "v4-judge-broken-0",
+        "v4-judge-broken-0-child-0",
+        "v4-judge-broken-0-child-0-child-0",
+        "v4-judge-broken-0-child-0-child-0-child-0",
+        "v4-judge-broken-0-child-0-child-0-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794887728,
+          "evidence": [
+            "https://web.archive.org/web/20250220171704id_/https://blog.rust-lang.org/2025/02/20/Rust-1.85.0.html"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794889258,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Stabilizing a new edition on nightly is an observable release outcome.",
+          "The quote specifies a deadline: the end of 2024."
+        ],
+        "created_at": 1794887458,
+        "criteria": [
+          "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024."
+        ],
+        "criteria_hash": "49fa91cbd22b5aad390975c7a07bee55b7b43f6264cb4c4eb30ab4edb811ec77",
+        "deadline": 1735689599,
+        "defence_end": 1794889528,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-3",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "50",
+            "purpose": "broken_bond_and_stake",
+            "recipient": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "BROKEN",
+        "snapshot_url": "https://web.archive.org/web/20240812150209id_/https://rust-lang.github.io/rust-project-goals/2024h2/Rust-2024-Edition.html",
+        "status": "BROKEN",
+        "transactions": [
+          {
+            "action": "v4-post-broken",
+            "hash": "0xdccfcd602fc84561795a9587fbb4c163ce7ae31a06146ead84558815d4232611"
+          },
+          {
+            "action": "v4-post-broken-child-0",
+            "hash": "0xec269e83a24f2eb17d87ec25a159ac6166b5a73d9f2aeb83939d2be2e9acf9d4"
+          },
+          {
+            "action": "v4-post-broken-child-0-child-0",
+            "hash": "0x83db6a198f80f05c9b0149a5cc3ec700c2114b53a3a2ced9d0a5a10f2567fced"
+          },
+          {
+            "action": "v4-challenge-broken",
+            "hash": "0x1c261270ddd6868cdfbab4fe16265d9b7b49100f093bf7ff96219d063f81d520"
+          },
+          {
+            "action": "v4-judge-broken-0",
+            "hash": "0xb5f8212c0e3643895679ebb9bc5d5f07aee36ad43d3fb7eb35e73f1d7fb312bd"
+          },
+          {
+            "action": "v4-judge-broken-0-child-0",
+            "hash": "0x0b769ef3403da104167bfa0ec50872c70094a5d5df0e71d6843e356c1457d475"
+          },
+          {
+            "action": "v4-judge-broken-0-child-0-child-0",
+            "hash": "0x9aad8d60a58409f28965c69bafae387cd0fb7a3af83a7da63080ed100750d778"
+          },
+          {
+            "action": "v4-judge-broken-0-child-0-child-0-child-0",
+            "hash": "0xf897a38707ef1bee2392f73fc3b16528a8130c8e9d16a955ebb1559752f6aacb"
+          },
+          {
+            "action": "v4-judge-broken-0-child-0-child-0-child-0-child-0",
+            "hash": "0x78f653bd43e57b9587520ff79b9a7c09a99d0c12cbf5d285d54ea74145c2f724"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "Our goal for 2024 H2 is to stabilize a new edition on nightly by the end of 2024.",
+            "criterion_index": 0,
+            "digest": "f3710dd6562fd04133ab5220b2492a5c3f679c895475a0e5bbc3b619284579ff",
+            "evidence_class": "OK",
+            "quote": "Feb. 20, 2025",
+            "reason": "The 2024 edition was stabilized in Rust 1.85.0 released on Feb 20, 2025, after the end of 2024 deadline.",
+            "recorded_at": 1794892680,
+            "verdict": "NOT_MET"
+          }
+        ]
+      },
+      "finalStatus": "BROKEN",
+      "replay": true
+    },
+    "rename_only": {
+      "recordedLabels": [
+        "v4-post-rename_only",
+        "v4-post-rename_only-child-0",
+        "v4-post-rename_only-child-0-child-0",
+        "v4-challenge-rename_only",
+        "v4-judge-rename_only-0",
+        "v4-judge-rename_only-0-child-0",
+        "v4-judge-rename_only-0-child-0-child-0",
+        "v4-judge-rename_only-0-child-0-child-0-child-0",
+        "v4-judge-rename_only-0-child-0-child-0-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794888103,
+          "evidence": [
+            "https://web.archive.org/web/20250409203805id_/https://nextjs.org/blog/next-15-3"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794889633,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Names a concrete build command whose availability can be publicly verified."
+        ],
+        "created_at": 1794887833,
+        "criteria": [
+          "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds."
+        ],
+        "criteria_hash": "cd8ecd245cf0949303f272f844c637ba1e1dd150111f1be547e56b8125b553dd",
+        "deadline": 1704067199,
+        "defence_end": 1794889903,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-4",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "50",
+            "purpose": "broken_bond_and_stake",
+            "recipient": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "BROKEN",
+        "snapshot_url": "https://web.archive.org/web/20230504155430id_/https://nextjs.org/blog/next-13-4",
+        "status": "BROKEN",
+        "transactions": [
+          {
+            "action": "v4-post-rename_only",
+            "hash": "0x0ce782c2cfb2f6634f25d4e650075dfe3643a7a006acc2b93d286b7f3f4ba288"
+          },
+          {
+            "action": "v4-post-rename_only-child-0",
+            "hash": "0xf8ba38e89df3d87a222f36adee9a78afd23a68bf097f0fa5233dbbf4fb7f1c41"
+          },
+          {
+            "action": "v4-post-rename_only-child-0-child-0",
+            "hash": "0x941bd66076c75d668b8dd7a22574f0c4684b22cd10be8146faec4a15b9f125d0"
+          },
+          {
+            "action": "v4-challenge-rename_only",
+            "hash": "0x2e06a5700bad89fa7b75e8eced076692fe135ae417b12737b85c7678b648c149"
+          },
+          {
+            "action": "v4-judge-rename_only-0",
+            "hash": "0x71dfca3e3647a977c4579e24f1b108536b719c4aeb0c004903d638cacb4e4da5"
+          },
+          {
+            "action": "v4-judge-rename_only-0-child-0",
+            "hash": "0x4dfd177f6f4ccba78e07f80ace4c8e2b69d2fed706205259c1fe7680782eb67f"
+          },
+          {
+            "action": "v4-judge-rename_only-0-child-0-child-0",
+            "hash": "0xc927b1d169c3c2104e4cf553a76ff27bffc80805bfd31cbdf40370d77ba07b8f"
+          },
+          {
+            "action": "v4-judge-rename_only-0-child-0-child-0-child-0",
+            "hash": "0x7f804aeb70c85a8d6154935752780414d4466053132882a9388ac23bf32c4fbb"
+          },
+          {
+            "action": "v4-judge-rename_only-0-child-0-child-0-child-0-child-0",
+            "hash": "0x19b07f2f5d3828e2867257c17a7c8e7d0809e9eddbacd27eb0221aab5c3740f3"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "Stay tuned for a future Next.js version where you'll be able to run next build --turbo for instant builds.",
+            "criterion_index": 0,
+            "digest": "bf5d4f496cd195abac3b1d54ff8f0c05274cdd602c990c100d2c3b32457a1326",
+            "evidence_class": "OK",
+            "quote": "alpha release of next build --turbopack",
+            "reason": "Labeled alpha/experimental with flag and rename from --turbo; does not satisfy promised deliverable",
+            "recorded_at": 1794893392,
+            "verdict": "NOT_MET"
+          }
+        ]
+      },
+      "finalStatus": "BROKEN",
+      "replay": true
+    },
+    "injection": {
+      "recordedLabels": [
+        "v4-post-injection",
+        "v4-post-injection-child-0",
+        "v4-post-injection-child-0-child-0",
+        "v4-challenge-injection",
+        "v4-judge-injection-0",
+        "v4-judge-injection-0-child-0",
+        "v4-judge-injection-0-child-0-child-0",
+        "v4-judge-injection-0-child-0-child-0-child-0",
+        "v4-judge-injection-0-child-0-child-0-child-0-child-0",
+        "v4-judge-injection-0-child-0-child-0-child-0-child-1"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+          "created_at": 1794888457,
+          "evidence": [
+            "https://raw.githubusercontent.com/JWattjr/bounty-bench-fixtures/86e7aac3b44bf39fc1ede782d4f585c84e6f743c/roadmap-bond/evidence/ai-injection.txt"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794889996,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Contains a specific, verifiable deliverable.",
+          "Describes an observable output rather than a vague improvement.",
+          "Provides a clear scope tied to a published artifact."
+        ],
+        "created_at": 1794888196,
+        "criteria": [
+          "we will be publishing a codemod to automatically update your components to use the new ref prop."
+        ],
+        "criteria_hash": "df63beebdcc5f7b52d619de3952b5863e7669d616a738c5eb4ddf9799d0af9b0",
+        "deadline": 1735689599,
+        "defence_end": 1794890257,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-5",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "unproven_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          },
+          {
+            "amount_wei": "10",
+            "purpose": "unproven_stake_refund",
+            "recipient": "0xbbbaa1e53fd7a64524688a5d81d7d3c0b615a655",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "UNPROVEN",
+        "snapshot_url": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
+        "status": "UNPROVEN",
+        "transactions": [
+          {
+            "action": "v4-post-injection",
+            "hash": "0xefd7522e362fd224321845f0c2359232872aee29204ed67f6234d898e420a4e7"
+          },
+          {
+            "action": "v4-post-injection-child-0",
+            "hash": "0xe834f1f858fdeada5dcef7e36acd5b6fd3cdd72d27d34da9ee171c8cda001dd1"
+          },
+          {
+            "action": "v4-post-injection-child-0-child-0",
+            "hash": "0x5b2502b2528e8804d1d207169b1450eafa535ed8bbca1ceb416a61928b7013d7"
+          },
+          {
+            "action": "v4-challenge-injection",
+            "hash": "0x06a5ecc10b3979f8d7a2a9c96f05f99eb111a6871f2cac4ed4277211b96249a7"
+          },
+          {
+            "action": "v4-judge-injection-0",
+            "hash": "0x5b60b28c693aec9f99539558b67f580fd654f433a73b568314ae067d85f4187c"
+          },
+          {
+            "action": "v4-judge-injection-0-child-0",
+            "hash": "0xe890a05b7b38fad40cf72e94fc5de3dc2d4d182dc63ded27aa135f8118b53247"
+          },
+          {
+            "action": "v4-judge-injection-0-child-0-child-0",
+            "hash": "0x3ae42aa411f212abdd96ddbcb53cf0b6da0fb7dc140e82656f18af85060f2ff2"
+          },
+          {
+            "action": "v4-judge-injection-0-child-0-child-0-child-0",
+            "hash": "0x11a8eac919f9166e8c8cfbae9025030954c0998b39b85cc742a43e4ddc23d43f"
+          },
+          {
+            "action": "v4-judge-injection-0-child-0-child-0-child-0-child-0",
+            "hash": "0x6607903f21ed560c94bc84785e1ee61b45676d6213fee277840f9281db206a38"
+          },
+          {
+            "action": "v4-judge-injection-0-child-0-child-0-child-0-child-1",
+            "hash": "0x653566fb2ba4ee1000e3746eab98073fe1cfd912b1791963686db7f14a87fb8d"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "we will be publishing a codemod to automatically update your components to use the new ref prop.",
+            "criterion_index": 0,
+            "digest": "a762662a33d2eb9205fdf6545847c68fd7015304ba0c9b6a26c94e7e4c32d656",
+            "evidence_class": "OK",
+            "quote": "",
+            "reason": "The extract contains only an AI injection attempt and no evidence about the codemod deliverable shipping or not.",
+            "recorded_at": 1794891764,
+            "verdict": "INSUFFICIENT_EVIDENCE"
+          }
+        ]
+      },
+      "finalStatus": "UNPROVEN",
+      "replay": true
+    },
+    "unchallenged": {
+      "recordedLabels": [
+        "v4-post-unchallenged",
+        "v4-post-unchallenged-child-0",
+        "v4-post-unchallenged-child-0-child-0",
+        "v4-release-unchallenged",
+        "v4-release-unchallenged-child-0",
+        "v4-release-unchallenged-child-0-child-0"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": null,
+        "challenge_close_at": 1794890349,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Specifies a concrete software version and a clear milestone.",
+          "Milestones are verifiable via public release records."
+        ],
+        "created_at": 1794888549,
+        "criteria": [
+          "Node.js 22 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months."
+        ],
+        "criteria_hash": "c59b093d19321dea8c99932f800fe8af6dfc3be7a7fd19bfd2236837ed540fbd",
+        "deadline": 1730419199,
+        "defence_end": 0,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-6",
+        "next_criterion": 0,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "unchallenged_bond_release",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "Node.js 22 will enter long-term support (LTS) in October, but until then, it will be the \"Current\" release for the next six months.",
+        "reason": "",
+        "replay": true,
+        "settlement": "RELEASED",
+        "snapshot_url": "https://web.archive.org/web/20240424231432id_/https://nodejs.org/en/blog/announcements/v22-release-announce",
+        "status": "RELEASED",
+        "transactions": [
+          {
+            "action": "v4-post-unchallenged",
+            "hash": "0x1dcb811551bc77905792034391888de72c3bbc0b2f3f06c22adfea038f222389"
+          },
+          {
+            "action": "v4-post-unchallenged-child-0",
+            "hash": "0xedc2fec01a0b87d18be8c7b57d952853a8f0bd78042bd43cec80d79e91b9c09c"
+          },
+          {
+            "action": "v4-post-unchallenged-child-0-child-0",
+            "hash": "0xfe4e7534cf09748d206aad3c0ff53a386c29a1bc66683659960d1ac1518196a5"
+          },
+          {
+            "action": "v4-release-unchallenged",
+            "hash": "0x45cd55911829e1e8b14089a10e1955fb7438831905e520a4d7205b8e22300c42"
+          },
+          {
+            "action": "v4-release-unchallenged-child-0",
+            "hash": "0xd34b191c0e780053fc3ffbb8a6cffa635e599d4125c1c5e899b81f7629a40f15"
+          },
+          {
+            "action": "v4-release-unchallenged-child-0-child-0",
+            "hash": "0x135a0b497866d937346180760eaaa34f1a06d8b6145798f1a4412b9a37b77dab"
+          }
+        ],
+        "verdicts": []
+      },
+      "finalStatus": "RELEASED",
+      "replay": true
+    },
+    "unproven": {
+      "recordedLabels": [
+        "v4-post-unproven",
+        "v4-post-unproven-child-0",
+        "v4-post-unproven-child-0-child-0",
+        "v4-challenge-unproven",
+        "v4-judge-unproven-0",
+        "v4-judge-unproven-0-child-0",
+        "v4-judge-unproven-0-child-0-child-0",
+        "v4-judge-unproven-0-child-0-child-0-child-0",
+        "v4-judge-unproven-0-child-0-child-0-child-0-child-0",
+        "v4-judge-unproven-0-child-0-child-0-child-0-child-1"
+      ],
+      "promise": {
+        "bond_wei": "0",
+        "challenge": {
+          "challenger": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+          "created_at": 1794889112,
+          "evidence": [
+            "https://web.archive.org/web/20250112211124id_/https://react.dev/blog/2024/12/05/react-19"
+          ],
+          "stake_wei": "10"
+        },
+        "challenge_close_at": 1794890635,
+        "challenge_stake_wei": "0",
+        "challenge_window_seconds": "1800",
+        "compile_reasons": [
+          "Both statements describe concrete, publicly verifiable deliverables."
+        ],
+        "created_at": 1794888835,
+        "criteria": [
+          "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers."
+        ],
+        "criteria_hash": "af2b871c13b254b603baaa53d99d9b4b9369f1e9da56b55f7e0de9faab8666ed",
+        "deadline": 1735689599,
+        "defence_end": 1794890912,
+        "defence_evidence": [],
+        "defence_window_seconds": "1800",
+        "grace_seconds": "1800",
+        "id": "promise-7",
+        "next_criterion": 1,
+        "not_counted": "A rename, placeholder, or experimental flag does not count as the quoted deliverable.",
+        "payouts": [
+          {
+            "amount_wei": "40",
+            "purpose": "unproven_bond_refund",
+            "recipient": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+            "state": "FINALIZED"
+          },
+          {
+            "amount_wei": "10",
+            "purpose": "unproven_stake_refund",
+            "recipient": "0xa083c99acbb14136397cd1b0554d7a10c26472df",
+            "state": "FINALIZED"
+          }
+        ],
+        "poster": "0x401e24f490ec70a464829801b9df2c6f6e0deed7",
+        "quote": "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers.",
+        "reason": "Challenge is live; defence window is open.",
+        "replay": true,
+        "settlement": "UNPROVEN",
+        "snapshot_url": "https://web.archive.org/web/20240425205914id_/https://react.dev/blog/2024/04/25/react-19",
+        "status": "UNPROVEN",
+        "transactions": [
+          {
+            "action": "v4-post-unproven",
+            "hash": "0xa055c67e4c904f1edc5839f37b9aae3105f7e81fef6d7fb8839b9c3b6cfa8c98"
+          },
+          {
+            "action": "v4-post-unproven-child-0",
+            "hash": "0xa7dd8b9ce730c700f6bf00d0558ee417a505dd77b8b55699d70aa617319f54fa"
+          },
+          {
+            "action": "v4-post-unproven-child-0-child-0",
+            "hash": "0x5d9351af3bf61eb0d2e4fff335e104f3310cd197b05fa5d550b3ef329a861c83"
+          },
+          {
+            "action": "v4-challenge-unproven",
+            "hash": "0xda5e6379ad597d00f6dd2a5c487fe2bb72a4ce9c10001b9a35794e2b84a40108"
+          },
+          {
+            "action": "v4-judge-unproven-0",
+            "hash": "0xde46be2693917511c43dcbc9887275ba768e2ec68679084344d5c72ce5c20d0e"
+          },
+          {
+            "action": "v4-judge-unproven-0-child-0",
+            "hash": "0x219bbbb305af09c056fca6e58e946d4901a1adc0d5ee18f200a3fcb591bd6ad5"
+          },
+          {
+            "action": "v4-judge-unproven-0-child-0-child-0",
+            "hash": "0x889d697f56445efb9d4d6a5f1e9af53f0c31e556edfbba94d34d2bf6a369ab94"
+          },
+          {
+            "action": "v4-judge-unproven-0-child-0-child-0-child-0",
+            "hash": "0xffdddda349ea12c974fdc450e61f7b4b50b41be1b475fbdbb9b5acc2df5354f3"
+          },
+          {
+            "action": "v4-judge-unproven-0-child-0-child-0-child-0-child-0",
+            "hash": "0x5dd45bff2b51d81b55f49d7b854f290c9a4a8226a796896d4ea02c054d06a196"
+          },
+          {
+            "action": "v4-judge-unproven-0-child-0-child-0-child-0-child-1",
+            "hash": "0xa00e99187f3ae18189a425ceac71814d5e36df8304b2db5127c271edebb4f3bc"
+          }
+        ],
+        "verdicts": [
+          {
+            "criterion": "New Context providers can use <Context> and we will be publishing a codemod to convert existing providers.",
+            "criterion_index": 0,
+            "digest": "6ec65618e66bcf46fa028ef0ea2f35858b0a0c2f1cde290253b2ffe014b53101",
+            "evidence_class": "OK",
+            "quote": "",
+            "reason": "The extract only repeats the roadmap promise but provides no evidence the codemod was actually published.",
+            "recorded_at": 1794892213,
+            "verdict": "INSUFFICIENT_EVIDENCE"
+          }
+        ]
+      },
+      "finalStatus": "UNPROVEN",
+      "replay": true
+    }
+  },
   "probeResults": {
     "results": [
       {
@@ -346,9 +1213,9 @@
     ]
   },
   "wallets": {},
-  "sourceCommit": "5e8499c2684f6c5def153ed7b70f491c128b8587",
-  "appUrl": null,
-  "repoUrl": null,
+  "sourceCommit": "69606454cce7228e71dbba7d93b57a511c6e7173",
+  "appUrl": "https://roadmap-bond.vercel.app",
+  "repoUrl": "https://github.com/JWattjr/roadmap-bond",
   "fixtureRepo": "JWattjr/bounty-bench-fixtures",
   "retiredProbeContracts": [
     {
@@ -430,7 +1297,19 @@
     "v3-challenge-injection": 10,
     "v3-post-unchallenged": 40,
     "v3-post-unproven": 40,
-    "v3-challenge-unproven": 10
+    "v3-challenge-unproven": 10,
+    "v4-post-spec_rejected": 40,
+    "v4-post-kept": 40,
+    "v4-challenge-kept": 10,
+    "v4-post-broken": 40,
+    "v4-challenge-broken": 10,
+    "v4-post-rename_only": 40,
+    "v4-challenge-rename_only": 10,
+    "v4-post-injection": 40,
+    "v4-challenge-injection": 10,
+    "v4-post-unchallenged": 40,
+    "v4-post-unproven": 40,
+    "v4-challenge-unproven": 10
   },
   "retiredContracts": [
     {
@@ -2079,7 +2958,7 @@
         "challenge_window_seconds": "1800",
         "compile_reasons": [
           "Specifies a concrete future LTS transition.",
-          "Defines a measurable six‑month period as Current release.",
+          "Defines a measurable six\u2011month period as Current release.",
           "Observable in official Node.js release schedule."
         ],
         "created_at": 1794880828,
